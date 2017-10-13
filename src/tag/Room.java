@@ -73,6 +73,10 @@ public class Room {
     }
     Scanner sc = new Scanner(System.in);
 
+    void toString(String string) {
+        description = string;
+    }
+
     enum action_type {
         No_operation, Win, Loose, Draw, item
     };
