@@ -37,10 +37,17 @@ public class Game {
             replay = sc.next();
 
             if ("y".equals(replay)) {
+                clearGame();
                 play();
             } else if ("n".equals(replay)) {
+                System.out.println("Game Over!");
                 System.exit(0);
             }
         }
+    }
+
+    private void clearGame() {
+       player.setCurrentRoom(rooms.get(0));
+       player.playerHistory.visitedRooms.clear();
     }
 }
