@@ -15,7 +15,7 @@ public class Player {
     private String name;
     private int playerHP;
     private int maxPlayerHP = 100;
-    private PlayerHistory playerHistory;
+    PlayerHistory playerHistory;
     private Chestlist chestlist = new Chestlist();
 
     public Player(String name, Room currentRoom, int playerHP, int maxPlayerHP, PlayerHistory playerHistory) {
