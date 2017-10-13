@@ -6,7 +6,7 @@
 package tag;
 
 public class Chestlist {
-    Room currentRoom;
+    room currentRoom;
         public void chest() {
 
         switch (currentRoom.Chestchoice()) {

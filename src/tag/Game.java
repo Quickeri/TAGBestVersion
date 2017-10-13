@@ -10,8 +10,8 @@ public class Game {
     private Scanner sc = new Scanner(System.in);
     private TextIO io = new TextIO(new SysTextIO());
     private Player player;
-    private ArrayList<Room> rooms;
-    private ArrayList<Room> visitedRooms;
+    private ArrayList<room> rooms;
+    private ArrayList<room> visitedRooms;
     private boolean gameRunning = true;
     private Enemy monster = new Enemy("name", 100, 100);
     private PlayerHistory ph;

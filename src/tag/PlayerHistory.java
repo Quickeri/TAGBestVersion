@@ -3,15 +3,14 @@ package tag;
 import java.util.ArrayList;
 
 public class PlayerHistory {
-    ArrayList<Room> visitedRooms = new ArrayList<>();
+    ArrayList<room> visitedRooms = new ArrayList<>();
     Player player;
     
     public PlayerHistory(Player player){
         this.player = player;
-    
     }
     
-    public void addToVisitedRooms(Room currentRoom){
+    public void addToVisitedRooms(room currentRoom){
         visitedRooms.add(currentRoom);
     }
 

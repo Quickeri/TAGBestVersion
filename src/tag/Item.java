@@ -3,7 +3,7 @@ package tag;
 public class Item {
 
     private String name;
-//private int points;
+//private int points; //every item gives a point at the end of the game
 
     public Item(String name) {
         this.name = name;

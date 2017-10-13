@@ -1,9 +1,7 @@
 package tag;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 import textio.SysTextIO;
 import textio.TextIO;
 
@@ -11,14 +9,14 @@ public class Player {
 
     private List l = Arrays.asList(new String[]{"Help", "North", "South", "East", "West", "Route", "Quit"});
     private TextIO io = new TextIO(new SysTextIO());
-    private Room currentRoom;
+    private room currentRoom;
     private String name;
     private int playerHP;
     private int maxPlayerHP = 100;
     PlayerHistory playerHistory;
     private Chestlist chestlist = new Chestlist();
 
-    public Player(String name, Room currentRoom, int playerHP, int maxPlayerHP, PlayerHistory playerHistory) {
+    public Player(String name, room currentRoom, int playerHP, int maxPlayerHP, PlayerHistory playerHistory) {
         this.playerHistory = playerHistory;
         this.name = name;
         this.currentRoom = currentRoom;
@@ -29,35 +27,28 @@ public class Player {
     public int getPlayerHP() {
         return playerHP;
     }
-
     public void setPlayerHP(int playerHP) {
         this.playerHP = playerHP;
     }
-
     public int getMaxPlayerHP() {
         return maxPlayerHP;
     }
-
     public void setMaxPlayerHP(int maxPlayerHP) {
         this.maxPlayerHP = maxPlayerHP;
     }
-
-    public void setCurrentRoom(Room currentRoom) {
+    public void setCurrentRoom(room currentRoom) {
         this.currentRoom = currentRoom;
     }
-
     public void setName(String name) {
         this.name = name;
     }
-
-    public Room getCurrentRoom() {
+    public room getCurrentRoom() {
         return currentRoom;
     }
-
     public String getName() {
         return name;
     }
-
+    
     public void chest() {
 
         switch (currentRoom.Chestchoice()) {
@@ -73,15 +64,11 @@ public class Player {
                 souts.winnerMSG();
                 break;
         }
-
     }
-
+    //Move method for the player
     public void move() {
-
 //        chest();
         int select = io.select("which way do you wanna go?", l, "");
-//        System.out.println(select + 1);
-//        System.out.println(l.get(select));
 
         if (playerHistory.visitedRooms.isEmpty()) {
             playerHistory.addToVisitedRooms(currentRoom);
@@ -133,7 +120,6 @@ public class Player {
                 break;
             case 6:
                 System.exit(0);
-
                 break;
             default:
 
@@ -143,7 +129,5 @@ public class Player {
                         + "6 = Route 7 = quit");
                 break;
         }
-
     }
-
 }
