@@ -1,8 +1,8 @@
 package tag;
 
-class souts {
+class Souts {
 
-    public souts() {
+    public Souts() {
 
     }
 

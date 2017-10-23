@@ -6,7 +6,7 @@
 package tag;
 
 public class Chestlist {
-    room currentRoom;
+    Room currentRoom;
         public void chest() {
 
         switch (currentRoom.Chestchoice()) {
@@ -20,7 +20,7 @@ public class Chestlist {
 
                 break;
             case Win:
-                souts.winnerMSG();
+                Souts.winnerMSG();
                 break;
         }
 

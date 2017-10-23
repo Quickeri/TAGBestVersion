@@ -10,8 +10,8 @@ public class Game {
     private Scanner sc = new Scanner(System.in);
     private TextIO io = new TextIO(new SysTextIO());
     private Player player;
-    private ArrayList<room> rooms;
-    private ArrayList<room> visitedRooms;
+    private ArrayList<Room> rooms;
+    private ArrayList<Room> visitedRooms;
     private boolean gameRunning = true;
     private Enemy monster = new Enemy("name", 100, 100);
     private PlayerHistory ph;
@@ -32,7 +32,7 @@ public class Game {
             player.move();
         }
         if (player.getCurrentRoom() == rooms.get(21)) {
-            souts.winnerMSG();
+            Souts.winnerMSG();
             System.out.println("do you want to play again? y/n");
             replay = sc.next();
 

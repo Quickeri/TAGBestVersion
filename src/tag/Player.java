@@ -9,14 +9,14 @@ public class Player {
 
     private List l = Arrays.asList(new String[]{"Help", "North", "South", "East", "West", "Route", "Quit"});
     private TextIO io = new TextIO(new SysTextIO());
-    private room currentRoom;
+    private Room currentRoom;
     private String name;
     private int playerHP;
     private int maxPlayerHP = 100;
     PlayerHistory playerHistory;
     private Chestlist chestlist = new Chestlist();
 
-    public Player(String name, room currentRoom, int playerHP, int maxPlayerHP, PlayerHistory playerHistory) {
+    public Player(String name, Room currentRoom, int playerHP, int maxPlayerHP, PlayerHistory playerHistory) {
         this.playerHistory = playerHistory;
         this.name = name;
         this.currentRoom = currentRoom;
@@ -36,13 +36,13 @@ public class Player {
     public void setMaxPlayerHP(int maxPlayerHP) {
         this.maxPlayerHP = maxPlayerHP;
     }
-    public void setCurrentRoom(room currentRoom) {
+    public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
     }
     public void setName(String name) {
         this.name = name;
     }
-    public room getCurrentRoom() {
+    public Room getCurrentRoom() {
         return currentRoom;
     }
     public String getName() {
@@ -61,7 +61,7 @@ public class Player {
                 System.out.println("you get poison, \"you dead\"");
                 break;
             case Win:
-                souts.winnerMSG();
+                Souts.winnerMSG();
                 break;
         }
     }

@@ -4,32 +4,32 @@ import java.util.ArrayList;
 
 public class RoomList {
 
-    public ArrayList<room> createRooms() {
+    public ArrayList<Room> createRooms() {
 
-        ArrayList<room> rooms = new ArrayList<>();
+        ArrayList<Room> rooms = new ArrayList<>();
 
-        rooms.add(new room("Prison Cell"));         //Room number 0 - starting room
-        rooms.add(new room("Prison Hallway"));      //Room number 1
-        rooms.add(new room("Servants Quaters"));    //Room number 2
-        rooms.add(new room("Guards Room"));         //Room number 3
-        rooms.add(new room("Hallway"));             //Room number 4
-        rooms.add(new room("Gaurd mess hall"));     //Room number 5
-        rooms.add(new room("Tunnel"));              //Room number 6
-        rooms.add(new room("Guards kitchen"));      //Room number 7
-        rooms.add(new room("Foodstorage"));         //Room number 8
-        rooms.add(new room("Weapon storage"));      //Room number 9
-        rooms.add(new room("Blacksmith workshop")); //Room number 10
-        rooms.add(new room("Main hall"));           //Room number 11
-        rooms.add(new room("Dining room"));         //Room number 12
-        rooms.add(new room("Art Gallery"));         //Room number 13
-        rooms.add(new room("Masters quaters "));    //Room number 14
-        rooms.add(new room("Balcony"));             //Room number 15
-        rooms.add(new room("Walkway"));             //Room number 16
-        rooms.add(new room("Arcvies"));             //Room number 17
-        rooms.add(new room("Harbor"));              //Room number 18
-        rooms.add(new room("Bridge"));              //Room number 19
-        rooms.add(new room("Stairs"));              //Room number 20
-        rooms.add(new room("Masters workshop"));    //Room number 21 - Last room - winnerchest       
+        rooms.add(new Room("Prison Cell"));         //Room number 0 - starting Room
+        rooms.add(new Room("Prison Hallway"));      //Room number 1
+        rooms.add(new Room("Servants Quaters"));    //Room number 2
+        rooms.add(new Room("Guards Room"));         //Room number 3
+        rooms.add(new Room("Hallway"));             //Room number 4
+        rooms.add(new Room("Gaurd mess hall"));     //Room number 5
+        rooms.add(new Room("Tunnel"));              //Room number 6
+        rooms.add(new Room("Guards kitchen"));      //Room number 7
+        rooms.add(new Room("Foodstorage"));         //Room number 8
+        rooms.add(new Room("Weapon storage"));      //Room number 9
+        rooms.add(new Room("Blacksmith workshop")); //Room number 10
+        rooms.add(new Room("Main hall"));           //Room number 11
+        rooms.add(new Room("Dining room"));         //Room number 12
+        rooms.add(new Room("Art Gallery"));         //Room number 13
+        rooms.add(new Room("Masters quaters "));    //Room number 14
+        rooms.add(new Room("Balcony"));             //Room number 15
+        rooms.add(new Room("Walkway"));             //Room number 16
+        rooms.add(new Room("Arcvies"));             //Room number 17
+        rooms.add(new Room("Harbor"));              //Room number 18
+        rooms.add(new Room("Bridge"));              //Room number 19
+        rooms.add(new Room("Stairs"));              //Room number 20
+        rooms.add(new Room("Masters workshop"));    //Room number 21 - Last Room - winnerchest       
 
         // Adds connections between the rooms
         rooms.get(0).setNorth(rooms.get(1));
