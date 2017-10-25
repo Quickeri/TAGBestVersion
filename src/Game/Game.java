@@ -1,5 +1,6 @@
-package tag;
+package Game;
 
+import tag.RoomAndChest.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 import textio.SysTextIO;

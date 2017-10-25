@@ -1,4 +1,4 @@
-package tag;
+package Game;
 
 public class TAG {
 

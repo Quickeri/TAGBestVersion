@@ -1,5 +1,6 @@
-package tag;
+package Game;
 
+import tag.RoomAndChest.Room;
 import java.util.ArrayList;
 
 public class PlayerHistory {

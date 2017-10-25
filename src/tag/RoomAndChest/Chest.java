@@ -1,4 +1,4 @@
-package tag;
+package tag.RoomAndChest;
 
 public class Chest {
 

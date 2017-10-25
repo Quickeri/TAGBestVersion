@@ -1,6 +1,6 @@
-package tag;
+package Game;
 
-class Souts {
+public class Souts {
 
     public Souts() {
 

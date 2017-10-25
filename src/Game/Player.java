@@ -1,5 +1,7 @@
-package tag;
+package Game;
 
+import tag.RoomAndChest.Chestlist;
+import tag.RoomAndChest.Room;
 import java.util.Arrays;
 import java.util.List;
 import textio.SysTextIO;
@@ -58,10 +60,10 @@ public class Player {
                 System.out.println("The game ends with a draw!");
                 break;
             case Loose:
-                System.out.println("you get poison, \"you dead\"");
+                System.out.println("you get poisoned, \"you died\"");
                 break;
             case Win:
-                Souts.winnerMSG();
+                System.out.println("you win");;
                 break;
         }
     }
@@ -112,7 +114,7 @@ public class Player {
                     System.out.println("You are in room " + getCurrentRoom());
                 } else {
                     currentRoom = currentRoom.getWest();
-                    System.out.println("You go west \n You are now in room " + getCurrentRoom());
+                    System.out.println("You go west \nYou are now in room " + getCurrentRoom());
                 }
                 break;
             case 5:

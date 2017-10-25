@@ -1,34 +1,20 @@
-package tag;
+package tag.RoomAndChest;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Room {
 
-    private String description;
+    private String description, roomName;
     private Room north, south, east, west;
-
+    Scanner sc = new Scanner(System.in);
     private ArrayList<Chest> Chestlist = new ArrayList<>();
+    
+   
 
-    public ArrayList<Chest> getChest() {
-
-        return Chestlist;
-    }
-
-    public void addChest(Chest chest) {
-        this.Chestlist.add(chest);
-    }
-
-    public ArrayList<Chest> getChestlist() {
-        return Chestlist;
-    }
-
-    public void setChestlist(ArrayList<Chest> Chestlist) {
-        this.Chestlist = Chestlist;
-    }
-
-    public Room(String description) {
+    public Room(String roomName, String description) {
         this.description = description;
+        this.roomName = roomName;
     }
     
     public void setNorth(Room north) {
@@ -43,8 +29,11 @@ public class Room {
     public void setEast(Room east) {
         this.east = east;
     }
-    public String getDescription() {
-        return description;
+    public void setRoomName(String roomName){
+        this.roomName = roomName;
+    }
+    public String getRoomName(){
+        return roomName;
     }
     public Room getNorth() {
         return north;
@@ -63,8 +52,6 @@ public class Room {
     public String toString() {
         return description;
     }
-    Scanner sc = new Scanner(System.in);
-
     void toString(String string) {
         description = string;
     }
@@ -72,6 +59,20 @@ public class Room {
     enum action_type {
         No_operation, Win, Loose, Draw, item
     };
+    
+    
+     public ArrayList<Chest> getChest() {
+        return Chestlist;
+    }
+    public void addChest(Chest chest) {
+        this.Chestlist.add(chest);
+    }
+    public ArrayList<Chest> getChestlist() {
+        return Chestlist;
+    }
+    public void setChestlist(ArrayList<Chest> Chestlist) {
+        this.Chestlist = Chestlist;
+    }
 
     public action_type Chestchoice() {
         if (Chestlist.size() > 0) {
