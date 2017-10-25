@@ -75,17 +75,17 @@ public class HumanPlayer extends Player{
 //        }
 //    }
     //Move method for the player
-    public void move() {
 //        chest();
+    public void move() {
         int select = io.select("which way do you wanna go?", l, "");
 
         if (playerHistory.visitedRooms.isEmpty()) {
             playerHistory.addToVisitedRooms(currentRoom);
         }
-        if (currentRoom
-                != (playerHistory.visitedRooms.get(playerHistory.visitedRooms.size() - 1))) {
-            playerHistory.addToVisitedRooms(currentRoom);
-        }
+//        if (currentRoom
+//                != (playerHistory.visitedRooms.get(playerHistory.visitedRooms.size() - 1))) {
+//            
+//        }
         switch (select) {
 
             case 1:
@@ -96,6 +96,7 @@ public class HumanPlayer extends Player{
 //                    currentRoom = currentRoom.getNorth();
                     super.move(select);
                     System.out.println("you go north \n You are now in room " + getCurrentRoom());
+                    playerHistory.addToVisitedRooms(currentRoom);
                 }
                 break;
             case 2:
