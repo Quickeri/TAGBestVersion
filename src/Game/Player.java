@@ -11,7 +11,7 @@ public class Player {
 
     private List l = Arrays.asList(new String[]{"Help", "North", "South", "East", "West", "Route", "Quit"});
     private TextIO io = new TextIO(new SysTextIO());
-    private Room currentRoom;
+    public Room currentRoom;
     private String name;
     private int playerHP;
     private int maxPlayerHP = 100;
@@ -51,34 +51,34 @@ public class Player {
         return name;
     }
     
-    public void chest() {
-
-        switch (currentRoom.Chestchoice()) {
-            case No_operation:
-                break;
-            case Draw:
-                System.out.println("The game ends with a draw!");
-                break;
-            case Loose:
-                System.out.println("you get poisoned, \"you died\"");
-                break;
-            case Win:
-                System.out.println("you win");;
-                break;
-        }
-    }
+//    public void chest() {
+//
+//        switch (currentRoom.Chestchoice()) {
+//            case No_operation:
+//                break;
+//            case Draw:
+//                System.out.println("The game ends with a draw!");
+//                break;
+//            case Loose:
+//                System.out.println("you get poisoned, \"you died\"");
+//                break;
+//            case Win:
+//                System.out.println("you win");;
+//                break;
+//        }
+//    }
     //Move method for the player
     public void move() {
 //        chest();
         int select = io.select("which way do you wanna go?", l, "");
-
+//
         if (playerHistory.visitedRooms.isEmpty()) {
             playerHistory.addToVisitedRooms(currentRoom);
         }
-        if (currentRoom
-                != (playerHistory.visitedRooms.get(playerHistory.visitedRooms.size() - 1))) {
-            playerHistory.addToVisitedRooms(currentRoom);
-        }
+//else{
+//        if (currentRoom.getRoomName() != (playerHistory.visitedRooms.get(playerHistory.visitedRooms.size() - 1))) {
+//            playerHistory.addToVisitedRooms(currentRoom);
+//        }
         switch (select) {
 
             case 1:
@@ -88,6 +88,7 @@ public class Player {
                 } else {
                     currentRoom = currentRoom.getNorth();
                     System.out.println("you go north \n You are now in room " + getCurrentRoom());
+                    playerHistory.addToVisitedRooms(currentRoom);
                 }
                 break;
             case 2:
@@ -97,6 +98,7 @@ public class Player {
                 } else {
                     currentRoom = currentRoom.getSouth();
                     System.out.println("You go south \n You are now in room " + getCurrentRoom());
+                    playerHistory.addToVisitedRooms(currentRoom);
                 }
                 break;
             case 3:
@@ -106,6 +108,7 @@ public class Player {
                 } else {
                     currentRoom = currentRoom.getEast();
                     System.out.println("You go east \n You are now in room " + getCurrentRoom());
+                    playerHistory.addToVisitedRooms(currentRoom);
                 }
                 break;
             case 4:
@@ -115,6 +118,7 @@ public class Player {
                 } else {
                     currentRoom = currentRoom.getWest();
                     System.out.println("You go west \nYou are now in room " + getCurrentRoom());
+                    playerHistory.addToVisitedRooms(currentRoom);
                 }
                 break;
             case 5:

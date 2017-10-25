@@ -9,41 +9,48 @@ public class Room {
     private Room north, south, east, west;
     Scanner sc = new Scanner(System.in);
     private ArrayList<Chest> Chestlist = new ArrayList<>();
-    
-   
 
     public Room(String roomName, String description) {
         this.description = description;
         this.roomName = roomName;
     }
-    
+
     public void setNorth(Room north) {
         this.north = north;
     }
+
     public void setSouth(Room south) {
         this.south = south;
     }
+
     public void setWest(Room west) {
         this.west = west;
     }
+
     public void setEast(Room east) {
         this.east = east;
     }
-    public void setRoomName(String roomName){
+
+    public void setRoomName(String roomName) {
         this.roomName = roomName;
     }
-    public String getRoomName(){
+
+    public String getRoomName() {
         return roomName;
     }
+
     public Room getNorth() {
         return north;
     }
+
     public Room getSouth() {
         return south;
     }
+
     public Room getWest() {
         return west;
     }
+
     public Room getEast() {
         return east;
     }
@@ -52,6 +59,7 @@ public class Room {
     public String toString() {
         return description;
     }
+
     void toString(String string) {
         description = string;
     }
@@ -59,17 +67,19 @@ public class Room {
     enum action_type {
         No_operation, Win, Loose, Draw, item
     };
-    
-    
-     public ArrayList<Chest> getChest() {
+
+    public ArrayList<Chest> getChest() {
         return Chestlist;
     }
+
     public void addChest(Chest chest) {
         this.Chestlist.add(chest);
     }
+
     public ArrayList<Chest> getChestlist() {
         return Chestlist;
     }
+
     public void setChestlist(ArrayList<Chest> Chestlist) {
         this.Chestlist = Chestlist;
     }
