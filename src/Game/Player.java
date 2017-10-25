@@ -1,7 +1,6 @@
 package Game;
 
-import tag.RoomAndChest.Chestlist;
-import tag.RoomAndChest.Room;
+import tag.RoomAndChest.*;
 import java.util.Arrays;
 import java.util.List;
 import textio.SysTextIO;
@@ -51,25 +50,25 @@ public class Player {
         return name;
     }
     
-    public void chest() {
-
-        switch (currentRoom.Chestchoice()) {
-            case No_operation:
-                break;
-            case Draw:
-                System.out.println("The game ends with a draw!");
-                break;
-            case Loose:
-                System.out.println("you get poisoned, \"you died\"");
-                break;
-            case Win:
-                System.out.println("you win");;
-                break;
-        }
-    }
+//    public void chest() {
+//
+//        switch (currentRoom.Chestchoice()) {
+//            case No_operation:
+//                break;
+//            case Draw:
+//                System.out.println("The game ends with a draw!");
+//                break;
+//            case Loose:
+//                System.out.println("you get poisoned, \"you died\"");
+//                break;
+//            case Win:
+//                System.out.println("you win");;
+//                break;
+//        }
+//    }
+    
     //Move method for the player
     public void move() {
-//        chest();
         int select = io.select("which way do you wanna go?", l, "");
 
         if (playerHistory.visitedRooms.isEmpty()) {

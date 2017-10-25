@@ -1,6 +1,5 @@
 package tag.RoomAndChest;
 
-import tag.RoomAndChest.Room;
 import java.util.ArrayList;
 
 public class RoomList {
