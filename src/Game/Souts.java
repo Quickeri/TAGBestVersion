@@ -5,7 +5,10 @@ public class Souts {
     public Souts() {
 
     }
-
+/**
+ * This method is for printing the winner message.
+ * Ssed to make the game smaller.
+ */
     public static void winnerMSG() {
 
         System.out.println(

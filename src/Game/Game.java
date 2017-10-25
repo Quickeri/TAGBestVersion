@@ -20,14 +20,21 @@ public class Game {
     private PlayerHistory ph;
     Random randomNumber = new Random();
 
+    
+    /**
+     * The game method constructs the dungoen, rooms, player, and the monster. 
+     */
     public Game() {
         RoomList rl = new RoomList();
         this.rooms = rl.createRooms();
         this.ph = new PlayerHistory(player);
         this.player = new HumanPlayer("Hansi", rooms.get(0), 100, 100, ph);
-        this.monster = new Monster("Boo", rooms.get(randomNumber.nextInt(19)+2));
+        this.monster = new Monster("Boo", rooms.get(randomNumber.nextInt(19) + 2));
     }
 
+    /**
+     * The play method plays the rounds and checks for win condition.
+     */
     public void play() {
         String replay;
         System.out.println("------------------------- \n Welcome to our TAG v1.0 \n-------------------------");
@@ -52,6 +59,10 @@ public class Game {
         }
     }
 
+    /**
+     * The claergame method clears the game data, so the game can start fresh
+     * when the player choose to play again.
+     */
     private void clearGame() {
         player.setCurrentRoom(rooms.get(0));
         player.playerHistory.visitedRooms.clear();

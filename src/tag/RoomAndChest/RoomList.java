@@ -3,7 +3,11 @@ package tag.RoomAndChest;
 import java.util.ArrayList;
 
 public class RoomList {
-
+/**
+ * createRooms method creates the rooms,
+ * and connects the rooms together as a dungeon.
+ * @return 
+ */
     public ArrayList<Room> createRooms() {
 
         ArrayList<Room> rooms = new ArrayList<>();
@@ -120,7 +124,7 @@ public class RoomList {
         
         rooms.add(new Room("Masters workshop","You have entered the Masters workshop!"));    //Room number 21 - Last Room - winnerchest
         
-        // Adds connections between the rooms
+        
         rooms.get(0).setNorth(rooms.get(1));
 
 
@@ -162,7 +166,7 @@ public class RoomList {
         rooms.get(11).setSouth(rooms.get(18));
         rooms.get(11).setEast(rooms.get(1));
         rooms.get(11).setWest(rooms.get(12));
-//
+        
         rooms.get(12).setEast(rooms.get(11));
         rooms.get(12).setWest(rooms.get(19));
         rooms.get(12).setNorth(rooms.get(13));
@@ -192,7 +196,6 @@ public class RoomList {
 
         rooms.get(21).setSouth(rooms.get(20));
 
-        //rooms.get(21).setChest(new Chest());
         return rooms;
     }
 

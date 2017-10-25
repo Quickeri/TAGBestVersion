@@ -10,46 +10,105 @@ public class Room {
     Scanner sc = new Scanner(System.in);
     private ArrayList<Chest> Chestlist = new ArrayList<>();
 
+    /**
+     * Constructs room with name and description.
+     *
+     * @param roomName
+     * @param description
+     */
     public Room(String roomName, String description) {
         this.description = description;
         this.roomName = roomName;
     }
 
+    /**
+     * this method is used to connect current room with the room north of it.
+     *
+     * @param north
+     */
     public void setNorth(Room north) {
         this.north = north;
     }
 
+    /**
+     * this method is used to connect current room with the room south of it.
+     *
+     * @param south
+     */
     public void setSouth(Room south) {
         this.south = south;
     }
 
+    /**
+     * this method is used to connect current room with the room west of it.
+     *
+     * @param west
+     */
     public void setWest(Room west) {
         this.west = west;
     }
 
+    /**
+     * this method is used to connect current room with the room east of it.
+     *
+     * @param east
+     */
     public void setEast(Room east) {
         this.east = east;
     }
 
+    /**
+     * this method is used to set room name.
+     *
+     * @param roomName
+     */
     public void setRoomName(String roomName) {
         this.roomName = roomName;
     }
 
+    /**
+     * This Method is used to get room name:
+     *
+     * @return
+     */
     public String getRoomName() {
         return roomName;
     }
 
+    /**
+     * This method is used to get the room north of current room.
+     *
+     * @return
+     */
     public Room getNorth() {
         return north;
     }
+
+    /**
+     * This method is used to get the room south of current room.
+     *
+     * @return
+     */
 
     public Room getSouth() {
         return south;
     }
 
+    /**
+     * This method is used to get the room west of current room.
+     *
+     * @return
+     */
+
     public Room getWest() {
         return west;
     }
+
+    /**
+     * This method is used to get the room east of current room.
+     *
+     * @return
+     */
 
     public Room getEast() {
         return east;
