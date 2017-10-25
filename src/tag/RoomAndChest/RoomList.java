@@ -1,6 +1,5 @@
 package tag.RoomAndChest;
 
-import tag.RoomAndChest.Room;
 import java.util.ArrayList;
 
 public class RoomList {
@@ -9,7 +8,10 @@ public class RoomList {
 
         ArrayList<Room> rooms = new ArrayList<>();
 
-        rooms.add(new Room("Prison Cell", ""));         //Room number 0 - starting Room
+        rooms.add(new Room("Prison Cell", "Cold and humid air makes you shiver. "
+                + "Rats running across the floor and spiders in the ceiling.\n"
+                + "You know this place and the things you remember about it are not good things. You wonder why you are here. \n"
+                + "To the north, you see the cell door."));         //Room number 0 - starting Room
         rooms.add(new Room("Prison Hallway",""));      //Room number 1
         rooms.add(new Room("Servants Quaters",""));    //Room number 2
         rooms.add(new Room("Guards Room",""));         //Room number 3
@@ -34,10 +36,10 @@ public class RoomList {
 
         // Adds connections between the rooms
         rooms.get(0).setNorth(rooms.get(1));
-        rooms.get(0).toString("Prison Cell\n" + "Cold and humid air makes you shiver. "
-                + "Rats running across the floor and spiders in the ceiling.\n"
-                + "You know this place and the things you remember about it are not good things. You wonder why you are here. \n"
-                + "To the north, you see the cell door.");
+//        rooms.get(0).toString("Prison Cell\n" + "Cold and humid air makes you shiver. "
+//                + "Rats running across the floor and spiders in the ceiling.\n"
+//                + "You know this place and the things you remember about it are not good things. You wonder why you are here. \n"
+//                + "To the north, you see the cell door.");
 
         rooms.get(1).setSouth(rooms.get(0));
         rooms.get(1).setEast(rooms.get(3));

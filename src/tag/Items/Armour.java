@@ -1,18 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tag.Items;
 
-/**
- *
- * @author Jesper Outzen
- */
-public class Armour extends Item{
-    
-    public Armour(String name) {
-        super(name);
-    }
+public class Armour extends EquipableItem{
+//    private String name;
+//    private boolean equipable;
+//    private int itemPoints, itemArmour;
+
+    public Armour(String name, String description, int itemPoints, int itemArmour, boolean equipable) {
+        super(name, description, itemPoints, equipable);
+    }      
     
 }

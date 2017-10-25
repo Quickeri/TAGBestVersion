@@ -104,7 +104,8 @@ public class HumanPlayer extends Player{
                     System.out.println("---------------------\n You cannot go there!\n-----------------------");
                     System.out.println("You are in room " + getCurrentRoom());
                 } else {
-                    currentRoom = currentRoom.getSouth();
+                    //currentRoom = currentRoom.getSouth();
+                    super.move(select);
                     System.out.println("You go south \n You are now in room " + getCurrentRoom());
                 }
                 break;
@@ -113,7 +114,8 @@ public class HumanPlayer extends Player{
                     System.out.println("---------------------\n You cannot go there!\n-----------------------");
                     System.out.println("You are in room " + getCurrentRoom());
                 } else {
-                    currentRoom = currentRoom.getEast();
+                    //currentRoom = currentRoom.getEast();
+                    super.move(select);
                     System.out.println("You go east \n You are now in room " + getCurrentRoom());
                 }
                 break;
@@ -122,7 +124,8 @@ public class HumanPlayer extends Player{
                     System.out.println("---------------------\n You cannot go there!\n-----------------------");
                     System.out.println("You are in room " + getCurrentRoom());
                 } else {
-                    currentRoom = currentRoom.getWest();
+                   // currentRoom = currentRoom.getWest();
+                   super.move(select);
                     System.out.println("You go west \nYou are now in room " + getCurrentRoom());
                 }
                 break;
