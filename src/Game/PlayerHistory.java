@@ -4,7 +4,7 @@ import tag.RoomAndChest.Room;
 import java.util.ArrayList;
 
 public class PlayerHistory {
-    ArrayList<Room> visitedRooms = new ArrayList<>();
+    ArrayList<String> visitedRooms = new ArrayList<>();
     Player player;
     
     public PlayerHistory(Player player){
@@ -12,12 +12,14 @@ public class PlayerHistory {
     }
     
     public void addToVisitedRooms(Room currentRoom){
-        visitedRooms.add(currentRoom);
+        visitedRooms.add(currentRoom.getRoomName());
     }
 
     @Override
     public String toString() {
         return "PlayerHistory{" + "visitedRooms=" + visitedRooms + '}';
     }
+
     
+
 }
