@@ -2,6 +2,7 @@ package Game;
 
 import tag.RoomAndChest.*;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 import textio.SysTextIO;
 import textio.TextIO;
@@ -10,18 +11,21 @@ public class Game {
 
     private Scanner sc = new Scanner(System.in);
     private TextIO io = new TextIO(new SysTextIO());
-    private Player player;
+    private HumanPlayer player;
+
     private ArrayList<Room> rooms;
     private ArrayList<Room> visitedRooms;
     private boolean gameRunning = true;
-    private Enemy monster = new Enemy("name", 100, 100);
+    private Monster monster;
     private PlayerHistory ph;
+    Random randomNumber = new Random();
 
     public Game() {
         RoomList rl = new RoomList();
         this.rooms = rl.createRooms();
         this.ph = new PlayerHistory(player);
-        this.player = new Player("Hansi", rooms.get(0), 100, 100, ph);
+        this.player = new HumanPlayer("Hansi", rooms.get(0), 100, 100, ph);
+        this.monster = new Monster("Boo", rooms.get(randomNumber.nextInt(19)+2));
     }
 
     public void play() {
@@ -31,6 +35,7 @@ public class Game {
         System.out.println("You are in room " + player.getCurrentRoom());
         while (gameRunning && player.getCurrentRoom() != rooms.get(21)) {
             player.move();
+            monster.move();
         }
         if (player.getCurrentRoom() == rooms.get(21)) {
             Souts.winnerMSG();
@@ -48,7 +53,7 @@ public class Game {
     }
 
     private void clearGame() {
-       player.setCurrentRoom(rooms.get(0));
-       player.playerHistory.visitedRooms.clear();
+        player.setCurrentRoom(rooms.get(0));
+        player.playerHistory.visitedRooms.clear();
     }
 }

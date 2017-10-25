@@ -15,7 +15,7 @@ public class RoomList {
         rooms.add(new Room("Guards Room",""));         //Room number 3
         rooms.add(new Room("Hallway",""));             //Room number 4
         rooms.add(new Room("Gaurd mess hall",""));     //Room number 5
-        rooms.add(new Room("Tunnel",""));              //Room number 6
+        rooms.add(new Room("Tunnel", ""));              //Room number 6
         rooms.add(new Room("Guards kitchen",""));      //Room number 7
         rooms.add(new Room("Foodstorage",""));         //Room number 8
         rooms.add(new Room("Weapon storage",""));      //Room number 9
