@@ -1,5 +1,6 @@
-package tag.RoomAndChest;
+package Game.RoomsAndChests;
 
+import Game.RoomsAndChests.Room;
 import java.util.ArrayList;
 
 public class RoomList {

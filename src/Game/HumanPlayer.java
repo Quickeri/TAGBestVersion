@@ -1,7 +1,7 @@
 package Game;
 
 //import tag.RoomAndChest.Chestlist;
-import tag.RoomAndChest.Room;
+import Game.RoomsAndChests.Room;
 import java.util.Arrays;
 import java.util.List;
 import textio.SysTextIO;
@@ -131,6 +131,7 @@ public class HumanPlayer extends Player {
             case 1:
                 if (currentRoom.getNorth() == null) {
                     System.out.println("---------------------\n You cannot go there!\n-----------------------");
+                    System.out.println("this is your motherfing room:" + currentRoom.getRoomName());
                     System.out.println("You are in room " + getCurrentRoom());
                 } else {
                     
@@ -146,6 +147,7 @@ public class HumanPlayer extends Player {
                     System.out.println("You are in room " + getCurrentRoom());
                 } else {
                     super.move(select);
+                    System.out.println("this is your motherfing room:" + currentRoom.getRoomName());
                     System.out.println("You go south \n You are now in room " + getCurrentRoom());
                 }
                 break;
@@ -155,6 +157,7 @@ public class HumanPlayer extends Player {
                     System.out.println("You are in room " + getCurrentRoom());
                 } else {
                    super.move(select);
+                   System.out.println("this is your motherfing room:" + currentRoom.getRoomName());
                     System.out.println("You go east \n You are now in room " + getCurrentRoom());
                 }
                 break;
@@ -164,6 +167,7 @@ public class HumanPlayer extends Player {
                     System.out.println("You are in room " + getCurrentRoom());
                 } else {
                     super.move(select);
+                    System.out.println("this is your motherfing room:" + currentRoom.getRoomName());
                     System.out.println("You go west \nYou are now in room " + getCurrentRoom());
                 }
                 break;

@@ -1,5 +1,7 @@
 
-package tag.RoomAndChest;
+package Game.RoomsAndChests;
+
+import Game.RoomsAndChests.Chest;
 
 
 public class WinnerChest extends Chest{ 

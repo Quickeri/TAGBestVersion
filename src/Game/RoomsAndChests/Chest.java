@@ -1,4 +1,4 @@
-package tag.RoomAndChest;
+package Game.RoomsAndChests;
 
 public class Chest {
 
@@ -6,7 +6,7 @@ public class Chest {
     public String item;
 
     
-    
+
     public Chest(String name, String item) {
         this.name = name;
         this.item = item;

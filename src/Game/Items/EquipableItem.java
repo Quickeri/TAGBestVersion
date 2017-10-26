@@ -1,5 +1,5 @@
 
-package tag.Items;
+package Game.Items;
 
 public class EquipableItem extends Item{
     

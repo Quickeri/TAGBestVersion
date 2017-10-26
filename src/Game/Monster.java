@@ -1,6 +1,6 @@
 package Game;
 
-import tag.RoomAndChest.Room;
+import Game.RoomsAndChests.Room;
 
 public class Monster extends Player {
 
@@ -17,12 +17,12 @@ public class Monster extends Player {
         this.currentRoom = currentRoom;
     }
 
-    /* Monsters move method.
+    /** Monsters move method.
     *
     *The monster moves 1 of 4 ways north south east and west.
     *If the monter selects a way were there isnt a door it stays in this current room.
     *
-     */
+    */
     public void move() {
         int select = (int) (Math.random() * 4) + 1;
         
@@ -49,9 +49,7 @@ public class Monster extends Player {
      */
     @Override
     public Room getCurrentRoom() {
-
         return currentRoom;
-
     }
 
     /**
@@ -63,5 +61,4 @@ public class Monster extends Player {
     public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
     }
-
 }

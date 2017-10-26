@@ -1,6 +1,4 @@
-package tag.RoomAndChest;
-
-import Game.Souts;
+package Game.RoomsAndChests;
 
 public class Chestlist {
     Room currentRoom;

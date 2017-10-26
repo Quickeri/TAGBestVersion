@@ -1,6 +1,8 @@
 package Game;
 
-import tag.RoomAndChest.*;
+import Game.RoomsAndChests.Souts;
+import Game.RoomsAndChests.RoomList;
+import Game.RoomsAndChests.Room;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -28,8 +30,8 @@ public class Game {
         this.rooms = rl.createRooms();
         this.ph = new PlayerHistory(player);
         this.player = new HumanPlayer("Hansi", rooms.get(0), 100, 100, ph);
-        this.monster = new Monster("Boo", rooms.get(2));
-        // this.monster = new Monster("Boo", rooms.get(randomNumber.nextInt(19) + 2));
+        
+        this.monster = new Monster("Boo", rooms.get(randomNumber.nextInt(19) + 2));
     }
 
     /**
@@ -38,9 +40,9 @@ public class Game {
     public void play() {
         String replay;
         System.out.println("------------------------- \n Welcome to our TAG v1.0 \n-------------------------");
-        System.out.println("If you need a \"hand \" while playing - just ask for help! ");
+        System.out.println("If you need a \"hand \" while playing - just ask for help!\n ");
         System.out.println("You are in room " + player.getCurrentRoom());
-        while (gameRunning && player.getCurrentRoom() != rooms.get(21) ||
+        while (gameRunning && player.getCurrentRoom() != rooms.get(21) &&
                  player.getCurrentRoom() != monster.getCurrentRoom()) {
             player.move();
             monster.move();

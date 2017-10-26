@@ -1,4 +1,4 @@
-package Game;
+package Game.RoomsAndChests;
 
 public class Souts {
 

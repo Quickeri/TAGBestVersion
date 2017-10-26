@@ -1,6 +1,6 @@
 package Game;
 
-import tag.RoomAndChest.Room;
+import Game.RoomsAndChests.Room;
 
 
 public abstract class Player {

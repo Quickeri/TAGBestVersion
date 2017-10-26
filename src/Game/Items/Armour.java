@@ -1,4 +1,4 @@
-package tag.Items;
+package Game.Items;
 
 public class Armour extends EquipableItem{
 //    private String name;

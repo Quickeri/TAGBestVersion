@@ -1,5 +1,6 @@
-package tag.RoomAndChest;
+package Game.RoomsAndChests;
 
+import Game.RoomsAndChests.Chest;
 import java.util.ArrayList;
 import java.util.Scanner;
 

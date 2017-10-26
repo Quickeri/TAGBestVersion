@@ -1,4 +1,4 @@
-package tag.Items;
+package Game.Items;
 
 public class GeneralItems extends Item{
     
