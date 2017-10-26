@@ -20,29 +20,44 @@ public class Game {
     private PlayerHistory ph;
     Random randomNumber = new Random();
 
-    
     /**
-     * The game method constructs the dungoen, rooms, player, and the monster. 
+     * The game method constructs the dungoen, rooms, player, and the monster.
      */
     public Game() {
         RoomList rl = new RoomList();
         this.rooms = rl.createRooms();
         this.ph = new PlayerHistory(player);
         this.player = new HumanPlayer("Hansi", rooms.get(0), 100, 100, ph);
-        this.monster = new Monster("Boo", rooms.get(randomNumber.nextInt(19) + 2));
+        this.monster = new Monster("Boo", rooms.get(2));
+        // this.monster = new Monster("Boo", rooms.get(randomNumber.nextInt(19) + 2));
     }
 
     /**
-     * The play method plays the rounds and checks for win condition.
+     * The play method plays the rounds and checks for win and lose condition.
      */
     public void play() {
         String replay;
         System.out.println("------------------------- \n Welcome to our TAG v1.0 \n-------------------------");
         System.out.println("If you need a \"hand \" while playing - just ask for help! ");
         System.out.println("You are in room " + player.getCurrentRoom());
-        while (gameRunning && player.getCurrentRoom() != rooms.get(21)) {
+        while (gameRunning && player.getCurrentRoom() != rooms.get(21) ||
+                 player.getCurrentRoom() != monster.getCurrentRoom()) {
             player.move();
             monster.move();
+        }
+        if (player.getCurrentRoom() == monster.getCurrentRoom()) {
+
+            Souts.youDiedMSG();
+            System.out.println("do you want to play again? y/n");
+            replay = sc.next();
+
+            if ("y".equals(replay)) {
+                clearGame();
+                play();
+            } else if ("n".equals(replay)) {
+                System.out.println("Game Over!");
+                System.exit(0);
+            }
         }
         if (player.getCurrentRoom() == rooms.get(21)) {
             Souts.winnerMSG();

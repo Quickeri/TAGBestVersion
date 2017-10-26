@@ -89,7 +89,6 @@ public class Room {
      *
      * @return
      */
-
     public Room getSouth() {
         return south;
     }
@@ -99,7 +98,6 @@ public class Room {
      *
      * @return
      */
-
     public Room getWest() {
         return west;
     }
@@ -109,7 +107,6 @@ public class Room {
      *
      * @return
      */
-
     public Room getEast() {
         return east;
     }

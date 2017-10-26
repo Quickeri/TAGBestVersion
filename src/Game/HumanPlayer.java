@@ -11,7 +11,7 @@ public class HumanPlayer extends Player {
 
     private List l = Arrays.asList(new String[]{"Help", "North", "South", "East", "West", "Route", "Quit"});
     private TextIO io = new TextIO(new SysTextIO());
-    private Room currentRoom;
+
     private String name;
     private int playerHP;
     private int maxPlayerHP = 100;
@@ -46,8 +46,8 @@ public class HumanPlayer extends Player {
 
     /**
      * Method for setting human players health points.
-     * 
-     * @param playerHP 
+     *
+     * @param playerHP
      */
     public void setPlayerHP(int playerHP) {
         this.playerHP = playerHP;
@@ -56,7 +56,7 @@ public class HumanPlayer extends Player {
     /**
      * Method for getting human players max health points.
      *
-     * @return 
+     * @return
      */
     public int getMaxPlayerHP() {
         return maxPlayerHP;
@@ -65,7 +65,7 @@ public class HumanPlayer extends Player {
     /**
      * Method for setting human players max health points.
      *
-     * @param maxPlayerHP 
+     * @param maxPlayerHP
      */
     public void setMaxPlayerHP(int maxPlayerHP) {
         this.maxPlayerHP = maxPlayerHP;
@@ -74,7 +74,7 @@ public class HumanPlayer extends Player {
     /**
      * Method for setting
      *
-     * @param currentRoom 
+     * @param currentRoom
      */
     @Override
     public void setCurrentRoom(Room currentRoom) {
@@ -84,7 +84,7 @@ public class HumanPlayer extends Player {
     /**
      * Method for setting human players name.
      *
-     * @param name 
+     * @param name
      */
     public void setName(String name) {
         this.name = name;
@@ -110,12 +110,11 @@ public class HumanPlayer extends Player {
         return name;
     }
 
-/**
- * Move method for human player.
- * Shows direction options and makes the plaer choose witch way to move.
- * adds visited room to playerHistory.
- * give help and route option.
- */
+    /**
+     * Move method for human player. Shows direction options and makes the plaer
+     * choose witch way to move. adds visited room to playerHistory. give help
+     * and route option.
+     */
     public void move() {
         int select = io.select("which way do you wanna go?", l, "");
 
@@ -126,6 +125,7 @@ public class HumanPlayer extends Player {
 //                != (playerHistory.visitedRooms.get(playerHistory.visitedRooms.size() - 1))) {
 //            
 //        }
+
         switch (select) {
 
             case 1:
@@ -133,8 +133,9 @@ public class HumanPlayer extends Player {
                     System.out.println("---------------------\n You cannot go there!\n-----------------------");
                     System.out.println("You are in room " + getCurrentRoom());
                 } else {
-//                    currentRoom = currentRoom.getNorth();
+                    
                     super.move(select);
+                    System.out.println("this is your motherfing room:" + currentRoom.getRoomName());
                     System.out.println("you go north \n You are now in room " + getCurrentRoom());
                     playerHistory.addToVisitedRooms(currentRoom);
                 }
@@ -144,7 +145,6 @@ public class HumanPlayer extends Player {
                     System.out.println("---------------------\n You cannot go there!\n-----------------------");
                     System.out.println("You are in room " + getCurrentRoom());
                 } else {
-                    //currentRoom = currentRoom.getSouth();
                     super.move(select);
                     System.out.println("You go south \n You are now in room " + getCurrentRoom());
                 }
@@ -154,8 +154,7 @@ public class HumanPlayer extends Player {
                     System.out.println("---------------------\n You cannot go there!\n-----------------------");
                     System.out.println("You are in room " + getCurrentRoom());
                 } else {
-                    //currentRoom = currentRoom.getEast();
-                    super.move(select);
+                   super.move(select);
                     System.out.println("You go east \n You are now in room " + getCurrentRoom());
                 }
                 break;
@@ -164,7 +163,6 @@ public class HumanPlayer extends Player {
                     System.out.println("---------------------\n You cannot go there!\n-----------------------");
                     System.out.println("You are in room " + getCurrentRoom());
                 } else {
-                    // currentRoom = currentRoom.getWest();
                     super.move(select);
                     System.out.println("You go west \nYou are now in room " + getCurrentRoom());
                 }
@@ -184,4 +182,7 @@ public class HumanPlayer extends Player {
                 break;
         }
     }
-}
+
+
+    }
+

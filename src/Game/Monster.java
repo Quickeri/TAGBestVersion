@@ -5,12 +5,12 @@ import tag.RoomAndChest.Room;
 public class Monster extends Player {
 
     private String name;
-    private Room currentRoom;
 
     /**
      * Constructs monster.
+     *
      * @param name
-     * @param currentRoom 
+     * @param currentRoom
      */
     public Monster(String name, Room currentRoom) {
         this.name = name;
@@ -25,31 +25,40 @@ public class Monster extends Player {
      */
     public void move() {
         int select = (int) (Math.random() * 4) + 1;
-
+        
         super.move(select);
+        System.out.println("-----------------------------");
+        System.out.println("Monster is in" + currentRoom.getRoomName());
+        System.out.println("-----------------------------");
     }
-/**
- * Method for getting the monsters name.
- * @return 
- */
+
+    /**
+     * Method for getting the monsters name.
+     *
+     * @return
+     */
     @Override
     public String getName() {
         return name;
     }
-/**
- * Method for getting the monsters current room. 
- * @return 
- */
+
+    /**
+     * Method for getting the monsters current room.
+     *
+     * @return
+     */
     @Override
     public Room getCurrentRoom() {
 
         return currentRoom;
 
     }
-/**
- * Method for setting the monsters current room
- * @param currentRoom 
- */
+
+    /**
+     * Method for setting the monsters current room
+     *
+     * @param currentRoom
+     */
     @Override
     public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;

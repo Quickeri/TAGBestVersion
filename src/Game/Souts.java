@@ -39,4 +39,8 @@ public class Souts {
                 + "|'================================================================'|\n");
 
     }
-}
+    
+    public static void youDiedMSG(){
+        System.out.println("you died mothertrucker !!!!!!!!!!!!!!!!!!!!!!");
+    }
+            }

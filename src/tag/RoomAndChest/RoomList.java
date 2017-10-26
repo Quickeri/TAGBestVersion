@@ -10,7 +10,7 @@ public class RoomList {
  */
     public ArrayList<Room> createRooms() {
 
-        ArrayList<Room> rooms = new ArrayList<>();
+            ArrayList<Room> rooms = new ArrayList<>();
 
         rooms.add(new Room("Prison Cell", "Cold and humid air makes you shiver. "
                 + "Rats running across the floor and spiders in the ceiling.\n"
