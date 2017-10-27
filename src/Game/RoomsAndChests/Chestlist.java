@@ -10,8 +10,8 @@ public class Chestlist {
             case Draw:
                 System.out.println("The game ends with a draw!");
                 break;
-            case Loose:
-                System.out.println("you get poison, \"you dead\"");
+            case Lost:
+                System.out.println("you get poisoned, \"you have died\"");
 
                 break;
             case Win:
