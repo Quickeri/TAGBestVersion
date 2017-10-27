@@ -1,6 +1,5 @@
 package Game.RoomsAndChests;
 
-import Game.RoomsAndChests.Room;
 import java.util.ArrayList;
 
 public class RoomList {
@@ -127,6 +126,7 @@ public class RoomList {
         
         
         rooms.get(0).setNorth(rooms.get(1));
+        rooms.get(0).setRoomInventory(RoomInventory);
 
 
         rooms.get(1).setSouth(rooms.get(0));

@@ -1,11 +1,12 @@
 package Game.RoomsAndChests;
 
+import Game.Inventory;
 import Game.RoomsAndChests.Chest;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Room {
-
+    private Inventory RoomInventory = new Inventory();
     private String description, roomName;
     private Room north, south, east, west;
     Scanner sc = new Scanner(System.in);
@@ -21,6 +22,15 @@ public class Room {
         this.description = description;
         this.roomName = roomName;
     }
+
+    public Inventory getRoomInventory() {
+        return RoomInventory;
+    }
+
+    public void setRoomInventory(Inventory RoomInventory) {
+        this.RoomInventory = RoomInventory;
+    }
+    
 
     /**
      * this method is used to connect current room with the room north of it.
@@ -112,8 +122,8 @@ public class Room {
         return east;
     }
 
-    @Override
-    public String toString() {
+
+    public String getDescription() {
         return description;
     }
 

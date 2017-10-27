@@ -13,6 +13,7 @@ public class Player extends Character {
     private String name;
     private int playerHP;
     private int maxPlayerHP = 100;
+    private Inventory PlayerInventory = new Inventory();
     PlayerHistory playerHistory;
     // private Chestlist chestlist = new Chestlist();
 
@@ -31,6 +32,14 @@ public class Player extends Character {
         this.playerHP = playerHP;
         this.maxPlayerHP = maxPlayerHP;
         this.playerHistory = playerHistory;
+    }
+
+    public Inventory getPlayerInventory() {
+        return PlayerInventory;
+    }
+
+    public void setPlayerInventory(Inventory PlayerInventory) {
+        this.PlayerInventory = PlayerInventory;
     }
 
     /**
@@ -129,44 +138,39 @@ public class Player extends Character {
             case 1:
                 if (currentRoom.getNorth() == null) {
                     System.out.println("---------------------\n You cannot go there!\n-----------------------");
-                    System.out.println("this is your motherfing room:" + currentRoom.getRoomName());
-                    System.out.println("You are in room " + getCurrentRoom());
+                    System.out.println(currentRoom.getDescription());
                 } else {
                     
                     super.move(select);
-                    System.out.println("this is your motherfing room:" + currentRoom.getRoomName());
-                    System.out.println("you go north \n You are now in room " + getCurrentRoom());
+                    System.out.println("you go north \n " + currentRoom.getDescription());
                     playerHistory.addToVisitedRooms(currentRoom);
                 }
                 break;
             case 2:
                 if (currentRoom.getSouth() == null) {
                     System.out.println("---------------------\n You cannot go there!\n-----------------------");
-                    System.out.println("You are in room " + getCurrentRoom());
+                    System.out.println(currentRoom.getDescription());
                 } else {
                     super.move(select);
-                    System.out.println("this is your motherfing room:" + currentRoom.getRoomName());
-                    System.out.println("You go south \n You are now in room " + getCurrentRoom());
+                    System.out.println("You go south \n" + currentRoom.getDescription());
                 }
                 break;
             case 3:
                 if (currentRoom.getEast() == null) {
                     System.out.println("---------------------\n You cannot go there!\n-----------------------");
-                    System.out.println("You are in room " + getCurrentRoom());
+                    System.out.println(currentRoom.getDescription());
                 } else {
                    super.move(select);
-                   System.out.println("this is your motherfing room:" + currentRoom.getRoomName());
-                    System.out.println("You go east \n You are now in room " + getCurrentRoom());
+                    System.out.println("You go east \n" + currentRoom.getDescription());
                 }
                 break;
             case 4:
                 if (currentRoom.getWest() == null) {
                     System.out.println("---------------------\n You cannot go there!\n-----------------------");
-                    System.out.println("You are in room " + getCurrentRoom());
+                    System.out.println(currentRoom.getDescription());
                 } else {
                     super.move(select);
-                    System.out.println("this is your motherfing room:" + currentRoom.getRoomName());
-                    System.out.println("You go west \nYou are now in room " + getCurrentRoom());
+                    System.out.println("You go west \n" + currentRoom.getDescription());
                 }
                 break;
             case 5:

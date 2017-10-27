@@ -5,16 +5,17 @@ import java.util.ArrayList;
 
 public class Inventory {
     
+    ArrayList<Item> inventory = new ArrayList<>();
     
     public Inventory(){
-        
+
     }
     
-    public void addItem(){
-        
+    public void addItem(Item item){
+        inventory.add(item);
     }
-    public void removeItem(){
-        
+    public void removeItem(Item item){
+        inventory.remove(item);
     }
     public void printInventory(){
         

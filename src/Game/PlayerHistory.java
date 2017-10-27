@@ -20,5 +20,4 @@ public class PlayerHistory {
     public String toString() {
         return "PlayerHistory{" + "visitedRooms=" + visitedRooms + '}';
     }
-
 }
