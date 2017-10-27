@@ -6,9 +6,9 @@ import java.util.ArrayList;
 public class PlayerHistory {
 
     ArrayList<String> visitedRooms = new ArrayList<>();
-    HumanPlayer player;
+    Player player;
 
-    public PlayerHistory(HumanPlayer player) {
+    public PlayerHistory(Player player) {
         this.player = player;
     }
 

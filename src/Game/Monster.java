@@ -2,7 +2,7 @@ package Game;
 
 import Game.RoomsAndChests.Room;
 
-public class Monster extends Player {
+public class Monster extends Character {
 
     private String name;
 

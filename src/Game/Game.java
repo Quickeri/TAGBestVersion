@@ -13,7 +13,7 @@ public class Game {
 
     private Scanner sc = new Scanner(System.in);
     private TextIO io = new TextIO(new SysTextIO());
-    private HumanPlayer player;
+    private Player player;
 
     private ArrayList<Room> rooms;
     private ArrayList<Room> visitedRooms;
@@ -29,7 +29,7 @@ public class Game {
         RoomList rl = new RoomList();
         this.rooms = rl.createRooms();
         this.ph = new PlayerHistory(player);
-        this.player = new HumanPlayer("Hansi", rooms.get(0), 100, 100, ph);
+        this.player = new Player("Hansi", rooms.get(0), 100, 100, ph);
         
         this.monster = new Monster("Boo", rooms.get(randomNumber.nextInt(19) + 2));
     }
@@ -78,7 +78,7 @@ public class Game {
 
     /**
      * The claergame method clears the game data, so the game can start fresh
-     * when the player choose to play again.
+     * when the player chooses to play again.
      */
     private void clearGame() {
         player.setCurrentRoom(rooms.get(0));
