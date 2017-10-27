@@ -17,7 +17,21 @@ public class Inventory {
     public void removeItem(Item item){
         inventory.remove(item);
     }
-    public void printInventory(){
-        
+    
+    public String printInventory(){
+        String ress = "";
+              for (int i = 0; i < inventory.size(); i++) {
+                  
+            ress += inventory.get(i).getName() + "\n";
+            
+        }
+  
+        return ress;
+    }
+    
+    Item[] getItems(){
+        Item[] result = new Item[inventory.size()];
+        inventory.toArray(result);
+        return result;
     }
 }

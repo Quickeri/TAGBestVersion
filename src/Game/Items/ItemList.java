@@ -50,4 +50,60 @@ public class ItemList {
 //
 //        return items;
 //    }
+
+    public Item getWoodKnife() {
+        return woodKnife;
+    }
+
+    public Item getCookingKnife() {
+        return cookingKnife;
+    }
+
+    public Item getSmallBastardSword() {
+        return smallBastardSword;
+    }
+
+    public Item getLongSword() {
+        return longSword;
+    }
+
+    public Item getGreatSword() {
+        return greatSword;
+    }
+
+    public Item getKingKongor() {
+        return kingKongor;
+    }
+
+    public Item getClothArmour() {
+        return clothArmour;
+    }
+
+    public Item getLeatherArmour() {
+        return leatherArmour;
+    }
+
+    public Item getChainmail() {
+        return chainmail;
+    }
+
+    public Item getPlateArmour() {
+        return plateArmour;
+    }
+
+    public Item getHealingPotion() {
+        return healingPotion;
+    }
+
+    public Item getGreaterHealingPotion() {
+        return greaterHealingPotion;
+    }
+
+    public Item getCoins() {
+        return coins;
+    }
+
+    public Item getBlank() {
+        return blank;
+    }
 }

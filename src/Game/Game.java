@@ -41,7 +41,8 @@ public class Game {
         String replay;
         System.out.println("------------------------- \n Welcome to our TAG v1.0 \n-------------------------");
         System.out.println("If you need a \"hand \" while playing - just ask for help!\n ");
-        System.out.println("You are in room " + player.getCurrentRoom());
+        System.out.println("You are in room " + player.currentRoom.getRoomName());
+        System.out.println(player.currentRoom.getDescription());
         while (gameRunning && player.getCurrentRoom() != rooms.get(21) &&
                  player.getCurrentRoom() != monster.getCurrentRoom()) {
             player.move();

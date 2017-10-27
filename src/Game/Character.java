@@ -13,7 +13,9 @@ public abstract class Character {
        
         switch (select) {
             case 1:
-                if (currentRoom.getNorth()== null) { System.out.println("sourth is null");
+                if (currentRoom.getNorth()== null) { 
+                    
+                   // System.out.println("sourth is null");
                 } else { 
                     currentRoom = currentRoom.getNorth();
                 }
@@ -40,6 +42,9 @@ public abstract class Character {
         }
     }
 
+    
+    
+    
     public abstract String getName();
 
     public abstract Room getCurrentRoom();

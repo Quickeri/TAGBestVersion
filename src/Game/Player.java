@@ -1,5 +1,6 @@
 package Game;
 
+import Game.Items.Item;
 import Game.RoomsAndChests.Room;
 import java.util.Arrays;
 import java.util.List;
@@ -13,7 +14,7 @@ public class Player extends Character {
     private String name;
     private int playerHP;
     private int maxPlayerHP = 100;
-    private Inventory PlayerInventory = new Inventory();
+    private Inventory inventory = new Inventory();
     PlayerHistory playerHistory;
     // private Chestlist chestlist = new Chestlist();
 
@@ -35,11 +36,11 @@ public class Player extends Character {
     }
 
     public Inventory getPlayerInventory() {
-        return PlayerInventory;
+        return inventory;
     }
 
     public void setPlayerInventory(Inventory PlayerInventory) {
-        this.PlayerInventory = PlayerInventory;
+        this.inventory = PlayerInventory;
     }
 
     /**
@@ -123,6 +124,9 @@ public class Player extends Character {
      * and route option.
      */
     public void move() {
+
+        io.put(currentRoom.getRoomInventory().printInventory());
+
         int select = io.select("which way do you wanna go?", l, "");
 
         if (playerHistory.visitedRooms.isEmpty()) {
@@ -140,7 +144,7 @@ public class Player extends Character {
                     System.out.println("---------------------\n You cannot go there!\n-----------------------");
                     System.out.println(currentRoom.getDescription());
                 } else {
-                    
+
                     super.move(select);
                     System.out.println("you go north \n " + currentRoom.getDescription());
                     playerHistory.addToVisitedRooms(currentRoom);
@@ -160,7 +164,7 @@ public class Player extends Character {
                     System.out.println("---------------------\n You cannot go there!\n-----------------------");
                     System.out.println(currentRoom.getDescription());
                 } else {
-                   super.move(select);
+                    super.move(select);
                     System.out.println("You go east \n" + currentRoom.getDescription());
                 }
                 break;
@@ -189,6 +193,13 @@ public class Player extends Character {
         }
     }
 
+    public int getScore() {
+        int score = 0;
+        for (Item item : inventory.getItems()) {
+            score += item.getItemPoints();
+        }
+        return score;
 
     }
 
+}

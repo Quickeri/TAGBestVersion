@@ -1,5 +1,6 @@
 package Game.RoomsAndChests;
 
+import Game.Items.ItemList;
 import java.util.ArrayList;
 
 public class RoomList {
@@ -8,6 +9,7 @@ public class RoomList {
  * and connects the rooms together as a dungeon.
  * @return 
  */
+   ItemList itemList = new ItemList();
     public ArrayList<Room> createRooms() {
 
             ArrayList<Room> rooms = new ArrayList<>();
@@ -126,7 +128,9 @@ public class RoomList {
         
         
         rooms.get(0).setNorth(rooms.get(1));
-        rooms.get(0).setRoomInventory(RoomInventory);
+        rooms.get(0).getRoomInventory().addItem(itemList.getWoodKnife());
+        //rooms.get(0).setRoomInventory().;
+       // rooms.get(0).setRoomInventory(RoomInventory);
 
 
         rooms.get(1).setSouth(rooms.get(0));
