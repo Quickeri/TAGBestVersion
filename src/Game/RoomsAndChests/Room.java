@@ -122,7 +122,7 @@ public class Room {
     }
 
     enum action_type {
-        No_operation, Win, Loose, Draw, item
+        No_operation, Win, Lost, Draw, item
     };
 
     public ArrayList<Chest> getChest() {
@@ -165,7 +165,7 @@ public class Room {
                     return action_type.Win;
 
                 } else if (Chestlist.get(Chest_number).item.equals("poison")) {
-                    return action_type.Loose;
+                    return action_type.Lost;
                 } else if (Chestlist.get(Chest_number).item.equals("item")) {
                     return action_type.item;
                 }
