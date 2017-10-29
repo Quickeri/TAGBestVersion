@@ -7,10 +7,6 @@ public class Inventory {
     
     ArrayList<Item> inventory = new ArrayList<>();
     
-    public Inventory(){
-
-    }
-    
     public void addItem(Item item){
         inventory.add(item);
     }
@@ -35,3 +31,21 @@ public class Inventory {
         return result;
     }
 }
+//public static void moveItem( ArrayList<Item> roomInventory,
+//                                    ArrayList<Item> Inventory,
+//                                    int start,
+//                                    int target,
+//                                     )
+//
+//
+//   {
+//    for (int i = 0; i < roomInventory.length(); i++)
+//     {
+//        if (roomInventory.size() > roomInventory.length())
+//         {
+//            String removed = roomInventory.remove(start);
+//            Inventory.add(target, removed);
+//            target++;
+//        }
+//    }
+//   }

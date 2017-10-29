@@ -1,16 +1,18 @@
 package Game.RoomsAndChests;
 
 import Game.Inventory;
-import Game.RoomsAndChests.Chest;
+import Game.Items.Item;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Room {
-    private Inventory RoomInventory = new Inventory();
+
     private String description, roomName;
     private Room north, south, east, west;
     Scanner sc = new Scanner(System.in);
     private ArrayList<Chest> Chestlist = new ArrayList<>();
+    private Inventory roomInventory = new Inventory();
 
     /**
      * Constructs room with name and description.
@@ -24,14 +26,14 @@ public class Room {
     }
 
     public Inventory getRoomInventory() {
-        return RoomInventory;
+        return roomInventory;
     }
 
-    public void setRoomInventory(Inventory RoomInventory) {
-        this.RoomInventory = RoomInventory;
+    public void setRoomInventory(Item item) {
+        this.roomInventory = roomInventory;
     }
     
-
+    
     /**
      * this method is used to connect current room with the room north of it.
      *

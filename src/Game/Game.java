@@ -31,7 +31,7 @@ public class Game {
         this.rooms = rl.createRooms();
         this.ph = new PlayerHistory(player);
         this.player = new Player(playerName, rooms.get(0), 100, 100, ph);
-        
+
         this.monster = new Monster("Boo", rooms.get(randomNumber.nextInt(19) + 2));
     }
 
@@ -48,9 +48,14 @@ public class Game {
         System.out.println("If you need a \"hand \" while playing - just ask for help!\n ");
         System.out.println("You are in room " + player.currentRoom.getRoomName());
         System.out.println(player.currentRoom.getDescription());
-        while (gameRunning && player.getCurrentRoom() != rooms.get(21) &&
-                 player.getCurrentRoom() != monster.getCurrentRoom()) {
+        while (gameRunning && player.getCurrentRoom() != rooms.get(21)
+                && player.getCurrentRoom() != monster.getCurrentRoom()) {
             player.move();
+//            if (player.currentRoom.getRoomInventory() != null) {
+//                for (int i = 0; i < player.currentRoom.getRoomInventory(); i++ ) {
+//                    player.getPlayerInventory().addItem(player.currentRoom.getRoomInventory(i));
+//                }
+//            }
             monster.move();
         }
         if (player.getCurrentRoom() == monster.getCurrentRoom()) {
@@ -78,7 +83,7 @@ public class Game {
             } else if ("n".equals(replay)) {
                 System.out.println("Game Over!");
                 System.exit(0);
-            }
+            }            
         }
     }
 

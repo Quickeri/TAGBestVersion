@@ -8,16 +8,9 @@ import java.util.ArrayList;
 public abstract class Character {
 
     private String name;
+    Item currentItem;
     Room currentRoom;
-    ArrayList<Item> inventory = new ArrayList<>();
-
-    public void setInventory(ArrayList<Item> inventory) {
-        this.inventory = inventory;
-    }
-
-    public ArrayList<Item> getInventory() {
-        return inventory;
-    }
+    Inventory inventory;
     
     public void move(int select) {
        
