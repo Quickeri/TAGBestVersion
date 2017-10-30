@@ -2,6 +2,7 @@ package Game;
 
 import Game.Items.Item;
 import Game.RoomsAndChests.Room;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import textio.SysTextIO;
@@ -9,7 +10,7 @@ import textio.TextIO;
 
 public class Player extends Character {
 
-    private List l = Arrays.asList(new String[]{"Help", "North", "South", "East", "West", "Route", "Quit"});
+    private List l = Arrays.asList(new String[]{"Help", "North", "South", "East", "West", "Route", "pickup", "showitem" ,"quit"});
     private TextIO io = new TextIO(new SysTextIO());
     private String name;
     private int playerHP;
@@ -125,7 +126,7 @@ public class Player extends Character {
      */
     public void move() {
 
-        io.put(currentRoom.getRoomInventory().printInventory());
+        io.put(currentRoom.getroomInventory().printInventory());
 
         int select = io.select("which way do you wanna go?", l, "");
 
@@ -181,6 +182,15 @@ public class Player extends Character {
                 System.out.println(playerHistory);
                 break;
             case 6:
+               
+                pickupItem();
+                break;
+            case 7: 
+                io.put(inventory.printInventory());
+                
+                break;
+            case 8:
+                
                 System.exit(0);
                 break;
             default:
@@ -201,5 +211,19 @@ public class Player extends Character {
         return score;
 
     }
+
+    public void pickupItem() {
+        ArrayList<Item> roomInv = currentRoom.getroomInventory().getInventory();
+        for (int i = 0; i < roomInv.size(); i++) {
+            
+           inventory.addItem(roomInv.get(i));
+            io.put(roomInv.get(i) + "\n");
+        }
+        roomInv.clear();
+       
+        
+    } 
+    
+    
 
 }

@@ -4,25 +4,25 @@ import java.util.ArrayList;
 
 public class ItemList {
 
-    Item woodKnife = new Weapon("Wood knife", "Made of wood and why would you use this?", 2, 0, true);
-    Item cookingKnife = new Weapon("Cooking knife", "Made for chopping salad", 3, 3, true);
-    Item smallBastardSword = new Weapon("Small Bastard sword", "A small but easy to handle sword", 6, 6, true);
-    Item longSword = new Weapon("Long sword", "Great impact and good balance", 12, 8, true);
-    Item greatSword = new Weapon("Great sword", "The best sword. Well balanced, great edge and weigth", 24, 20, true);
-    Item kingKongor = new Weapon("King Kongors boogersmasher!", "The mythical King Kongors Boogersmasher! Legends tell that anything the mace hits will die!", 500, 1000, true); //oneshot wonder!
+    private Item woodKnife = new Weapon("Wood knife", "Made of wood and why would you use this?", 2, 0, true);
+    private Item cookingKnife = new Weapon("Cooking knife", "Made for chopping salad", 3, 3, true);
+    private Item smallBastardSword = new Weapon("Small Bastard sword", "A small but easy to handle sword", 6, 6, true);
+    private Item longSword = new Weapon("Long sword", "Great impact and good balance", 12, 8, true);
+    private Item greatSword = new Weapon("Great sword", "The best sword. Well balanced, great edge and weigth", 24, 20, true);
+    private Item kingKongor = new Weapon("King Kongors boogersmasher!", "The mythical King Kongors Boogersmasher! Legends tell that anything the mace hits will die!", 500, 1000, true); //oneshot wonder!
 
 //creates armour - name, description, points(for the endgame score), armourrating and equipable
 //Armourrating adds to maximum hitpoints
-    Item clothArmour = new Armour("Cloth armour", "lightweight armour, good for mobility but bad for medigation", 3, 30, true);
-    Item leatherArmour = new Armour("Leather armour", "better for medigation, with good mobility", 6, 60, true);
-    Item chainmail = new Armour("Chainmail", "Very good for medigation, but bad for mobility", 12, 90, true);
-    Item plateArmour = new Armour("Plate armour", "The best armour for medigation, with bad mobility", 24, 120, true);
+    private Item clothArmour = new Armour("Cloth armour", "lightweight armour, good for mobility but bad for medigation", 3, 30, true);
+    private Item leatherArmour = new Armour("Leather armour", "better for medigation, with good mobility", 6, 60, true);
+    private Item chainmail = new Armour("Chainmail", "Very good for medigation, but bad for mobility", 12, 90, true);
+    private Item plateArmour = new Armour("Plate armour", "The best armour for medigation, with bad mobility", 24, 120, true);
 
 //creates general items - name, description, points(for the endgame score, Equipable)
-    Item healingPotion = new GeneralItems("Healing Potion", "Heals 30HP", 0, 30, true);
-    Item greaterHealingPotion = new GeneralItems("Greater Healing Potion", "Heals 60HP", 0, 60, true);
-    Item coins = new GeneralItems("Coins", "Ohhh Shiny!", 0, 1, false);
-    Item blank = new GeneralItems("", "", 0, 0, false);
+    private Item healingPotion = new GeneralItems("Healing Potion", "Heals 30HP", 0, 30, true);
+    private Item greaterHealingPotion = new GeneralItems("Greater Healing Potion", "Heals 60HP", 0, 60, true);
+    private Item coins = new GeneralItems("Coins", "Ohhh Shiny!", 0, 1, false);
+    private Item blank = new GeneralItems("", "", 0, 0, false);
 
     //creates all sorts of items and places them in an arraylist
 //    public ArrayList<Item> createItems() {

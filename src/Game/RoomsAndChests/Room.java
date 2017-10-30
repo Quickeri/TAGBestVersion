@@ -1,17 +1,19 @@
 package Game.RoomsAndChests;
 
 import Game.Inventory;
+import Game.Items.Item;
 import Game.RoomsAndChests.Chest;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Room {
-    private Inventory RoomInventory = new Inventory();
+    private Inventory roomInventory = new Inventory();
     private String description, roomName;
     private Room north, south, east, west;
     Scanner sc = new Scanner(System.in);
     private ArrayList<Chest> Chestlist = new ArrayList<>();
-
+    private ArrayList<Item> inventory = new ArrayList<>();
+    
     /**
      * Constructs room with name and description.
      *
@@ -23,12 +25,12 @@ public class Room {
         this.roomName = roomName;
     }
 
-    public Inventory getRoomInventory() {
-        return RoomInventory;
+    public Inventory getroomInventory() {
+        return roomInventory;
     }
 
-    public void setRoomInventory(Inventory RoomInventory) {
-        this.RoomInventory = RoomInventory;
+    public void setroomInventory(Inventory RoomInventory) {
+        this.roomInventory = RoomInventory;
     }
     
 

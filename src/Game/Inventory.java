@@ -6,13 +6,23 @@ import java.util.ArrayList;
 public class Inventory {
     
     ArrayList<Item> inventory = new ArrayList<>();
+
     
-    public Inventory(){
+       public Inventory(){
 
     }
+    public void setInventory(ArrayList<Item> inventory) {
+        this.inventory = inventory;
+    }
+
+    public ArrayList<Item> getInventory() {
+        return inventory;
+    }
+    
+ 
     
     public void addItem(Item item){
-        inventory.add(item);
+        inventory.add(item);     
     }
     public void removeItem(Item item){
         inventory.remove(item);

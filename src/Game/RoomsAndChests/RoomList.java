@@ -128,7 +128,7 @@ public class RoomList {
         
         
         rooms.get(0).setNorth(rooms.get(1));
-        rooms.get(0).getRoomInventory().addItem(itemList.getWoodKnife());
+        rooms.get(0).getroomInventory().addItem(itemList.getWoodKnife());
         //rooms.get(0).setRoomInventory().;
        // rooms.get(0).setRoomInventory(RoomInventory);
 
