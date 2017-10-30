@@ -39,6 +39,6 @@ public abstract class Item {
     }
     @Override
     public String toString() {
-        return   "name on item = " + name ;
+        return   "get item up = " + name ;
     }
 }
