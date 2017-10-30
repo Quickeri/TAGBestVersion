@@ -2,25 +2,43 @@ package Game;
 
 import Game.Items.Item;
 import Game.RoomsAndChests.Room;
-import java.util.ArrayList;
 
 
 public abstract class Character {
 
-    private String name;
+    String name;
+    int health;
+    int damage;
     Item currentItem;
     Room currentRoom;
     Inventory inventory = new Inventory();
-    
+
+//    public void combat(int select) {
+//        switch (select) {
+//            case 1:
+//               monster.health = monster.health - player.damage;
+//              
+//                    break;
+//                }
+//            case 2:
+//                run
+//                break 
+//                        defult
+//        
+//    
+//
+//    
+//                                    
+//    }
+//    }
     public void move(int select) {
-       
-       
+
         switch (select) {
             case 1:
-                if (currentRoom.getNorth()== null) { 
-                    
-                   // System.out.println("sourth is null");
-                } else { 
+                if (currentRoom.getNorth() == null) {
+
+                    // System.out.println("sourth is null");
+                } else {
                     currentRoom = currentRoom.getNorth();
                 }
                 break;
@@ -46,9 +64,6 @@ public abstract class Character {
         }
     }
 
-    
-    
-    
     public abstract String getName();
 
     public abstract Room getCurrentRoom();
