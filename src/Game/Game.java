@@ -4,6 +4,8 @@ import Game.RoomsAndChests.Souts;
 import Game.RoomsAndChests.RoomList;
 import Game.RoomsAndChests.Room;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 import textio.SysTextIO;
@@ -11,6 +13,7 @@ import textio.TextIO;
 
 public class Game {
 
+    private List l = Arrays.asList(new String[]{"Help", "North", "South", "East", "West", "Route", "pickup", "showitem", "quit"});
     private Scanner sc = new Scanner(System.in);
     private TextIO io = new TextIO(new SysTextIO());
     private Player player;
@@ -50,13 +53,58 @@ public class Game {
         System.out.println(player.currentRoom.getDescription());
         while (gameRunning && player.getCurrentRoom() != rooms.get(21)
                 && player.getCurrentRoom() != monster.getCurrentRoom()) {
-            player.move();
-//            if (player.currentRoom.getRoomInventory() != null) {
-//                for (int i = 0; i < player.currentRoom.getRoomInventory(); i++ ) {
-//                    player.getPlayerInventory().addItem(player.currentRoom.getRoomInventory(i));
-//                }
-//            }
-            monster.move();
+
+            if (player.playerHistory.visitedRooms.isEmpty()) {
+                player.playerHistory.addToVisitedRooms(player.currentRoom);
+            }
+
+            io.put(player.currentRoom.getroomInventory().printInventory());
+
+            int select = io.select("which way do you wanna go?", l, "");
+
+            switch (select) {
+
+                case 1:
+                    player.moveNorth();
+                    monster.move();
+                    break;
+                case 2:
+                    player.moveSouth();
+                    monster.move();
+                    break;
+                case 3:
+                    player.moveEast();
+                    monster.move();
+                    break;
+                case 4:
+                    player.moveWest();
+                    monster.move();
+                    break;
+                case 5:
+                    System.out.println(player.playerHistory);
+                    break;
+                case 6:
+
+                    player.pickupItem();
+                    break;
+                case 7:
+                    io.put(player.inventory.printInventory());
+
+                    break;
+                case 8:
+
+                    System.exit(0);
+                    break;
+
+                default:
+
+                    System.out.println("Help I'm retarded!\n"
+                            + "1 = Help \n"
+                            + "2 = North 3 = South 4 = East 5 = West \n"
+                            + "6 = Route 7 = quit");
+                    break;
+            }
+      
         }
         if (player.getCurrentRoom() == monster.getCurrentRoom()) {
 
@@ -83,7 +131,7 @@ public class Game {
             } else if ("n".equals(replay)) {
                 System.out.println("Game Over!");
                 System.exit(0);
-            }            
+            }
         }
     }
 
