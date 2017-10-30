@@ -15,7 +15,7 @@ public class Player extends Character {
     private String name;
     private int playerHP;
     private int maxPlayerHP = 100;
-    private Inventory playerInventory = new Inventory();
+    private Inventory inventory = new Inventory();
     PlayerHistory playerHistory;
     // private Chestlist chestlist = new Chestlist();
 
@@ -37,12 +37,12 @@ public class Player extends Character {
         
     }
 
-    public Inventory getPlayerInventory() {
-        return playerInventory;
+    public Inventory getinventory() {
+        return inventory;
     }
 
-    public void setPlayerInventory(Inventory PlayerInventory) {
-        this.playerInventory = PlayerInventory;
+    public void setinventory(Inventory PlayerInventory) {
+        this.inventory = PlayerInventory;
     }
 
     /**
@@ -218,7 +218,7 @@ public class Player extends Character {
 
     public int getScore() {
         int score = 0;
-        for (Item item : playerInventory.getItems()) {
+        for (Item item : inventory.getItems()) {
             score += item.getItemPoints();
         }
         return score;
