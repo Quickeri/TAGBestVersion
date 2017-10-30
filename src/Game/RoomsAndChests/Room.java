@@ -33,7 +33,7 @@ public class Room {
         this.roomInventory = RoomInventory;
     }
     
-
+    
     /**
      * this method is used to connect current room with the room north of it.
      *

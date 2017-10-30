@@ -15,7 +15,7 @@ public class Player extends Character {
     private String name;
     private int playerHP;
     private int maxPlayerHP = 100;
-    private Inventory inventory = new Inventory();
+    private Inventory playerInventory = new Inventory();
     PlayerHistory playerHistory;
     // private Chestlist chestlist = new Chestlist();
 
@@ -34,14 +34,15 @@ public class Player extends Character {
         this.playerHP = playerHP;
         this.maxPlayerHP = maxPlayerHP;
         this.playerHistory = playerHistory;
+        
     }
 
     public Inventory getPlayerInventory() {
-        return inventory;
+        return playerInventory;
     }
 
     public void setPlayerInventory(Inventory PlayerInventory) {
-        this.inventory = PlayerInventory;
+        this.playerInventory = PlayerInventory;
     }
 
     /**
@@ -193,6 +194,18 @@ public class Player extends Character {
                 
                 System.exit(0);
                 break;
+//            case 7:
+//                if (currentRoom.getRoomInventory() == null) {
+//                    System.out.println("there is no items to pick up");
+//                } else {
+////                    Inventory currentRoom = null;
+//                    playerInventory.addItem(currentRoom.getRoomInventory().get(0));
+//
+//                    for (int i = 0; i < currentRoom.getRoomInventory().size(); i++) {
+//                        
+//                    }
+//                }
+
             default:
 
                 System.out.println("Help I'm retarded!\n"
@@ -205,7 +218,7 @@ public class Player extends Character {
 
     public int getScore() {
         int score = 0;
-        for (Item item : inventory.getItems()) {
+        for (Item item : playerInventory.getItems()) {
             score += item.getItemPoints();
         }
         return score;

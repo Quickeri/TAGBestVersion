@@ -1,13 +1,17 @@
 package Game;
 
+import Game.Items.Item;
 import Game.RoomsAndChests.Room;
+import java.util.ArrayList;
 
 
 public abstract class Character {
 
     private String name;
+    Item currentItem;
     Room currentRoom;
-
+    Inventory inventory;
+    
     public void move(int select) {
        
        

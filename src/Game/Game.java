@@ -20,6 +20,7 @@ public class Game {
     private boolean gameRunning = true;
     private Monster monster;
     private PlayerHistory ph;
+    private String playerName;
     Random randomNumber = new Random();
 
     /**
@@ -29,8 +30,8 @@ public class Game {
         RoomList rl = new RoomList();
         this.rooms = rl.createRooms();
         this.ph = new PlayerHistory(player);
-        this.player = new Player("Hansi", rooms.get(0), 100, 100, ph);
-        
+        this.player = new Player(playerName, rooms.get(0), 100, 100, ph);
+
         this.monster = new Monster("Boo", rooms.get(randomNumber.nextInt(19) + 2));
     }
 
@@ -40,12 +41,21 @@ public class Game {
     public void play() {
         String replay;
         System.out.println("------------------------- \n Welcome to our TAG v1.0 \n-------------------------");
+        System.out.println("input your name for this run:");
+        playerName = sc.nextLine();
+        System.out.println("your name is: " + playerName);
+        System.out.println("and now the game begins!");
         System.out.println("If you need a \"hand \" while playing - just ask for help!\n ");
         System.out.println("You are in room " + player.currentRoom.getRoomName());
         System.out.println(player.currentRoom.getDescription());
-        while (gameRunning && player.getCurrentRoom() != rooms.get(21) &&
-                 player.getCurrentRoom() != monster.getCurrentRoom()) {
+        while (gameRunning && player.getCurrentRoom() != rooms.get(21)
+                && player.getCurrentRoom() != monster.getCurrentRoom()) {
             player.move();
+//            if (player.currentRoom.getRoomInventory() != null) {
+//                for (int i = 0; i < player.currentRoom.getRoomInventory(); i++ ) {
+//                    player.getPlayerInventory().addItem(player.currentRoom.getRoomInventory(i));
+//                }
+//            }
             monster.move();
         }
         if (player.getCurrentRoom() == monster.getCurrentRoom()) {
@@ -73,7 +83,7 @@ public class Game {
             } else if ("n".equals(replay)) {
                 System.out.println("Game Over!");
                 System.exit(0);
-            }
+            }            
         }
     }
 
