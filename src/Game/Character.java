@@ -10,7 +10,7 @@ public abstract class Character {
     private String name;
     Item currentItem;
     Room currentRoom;
-    Inventory inventory;
+    Inventory inventory = new Inventory();
     
     public void move(int select) {
        

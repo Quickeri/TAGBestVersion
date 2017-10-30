@@ -15,7 +15,7 @@ public class Player extends Character {
     private String name;
     private int playerHP;
     private int maxPlayerHP = 100;
-    private Inventory inventory = new Inventory();
+   
     PlayerHistory playerHistory;
     // private Chestlist chestlist = new Chestlist();
 
