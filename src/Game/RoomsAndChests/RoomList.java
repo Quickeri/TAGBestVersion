@@ -3,17 +3,18 @@ package Game.RoomsAndChests;
 
 import Game.Items.ItemList;
 import java.util.ArrayList;
-
+import java.util.Random;
 public class RoomList {
 /**
  * createRooms method creates the rooms,
  * and connects the rooms together as a dungeon.
  * @return 
  */
+           private ArrayList<Room> rooms = new ArrayList<>();
+            private  Random randomNumber = new Random();
    ItemList itemList = new ItemList();
     public ArrayList<Room> createRooms() {
 
-            ArrayList<Room> rooms = new ArrayList<>();
 
         rooms.add(new Room("Prison Cell", "Cold and humid air makes you shiver. "
                 + "Rats running across the floor and spiders in the ceiling.\n"
@@ -248,5 +249,7 @@ public class RoomList {
         
         return rooms;
     }
-
+public Room getRandomRoom(){
+    return rooms.get(randomNumber.nextInt(19));
+}
 }
