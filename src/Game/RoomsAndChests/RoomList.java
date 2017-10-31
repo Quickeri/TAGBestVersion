@@ -127,12 +127,10 @@ public class RoomList {
         
         rooms.add(new Room("Masters workshop","You have entered the Masters workshop!"));    //Room number 21 - Last Room - winnerchest
         
-        
+        /**
+         * Sets the direction and the rooms next to each room
+         */
         rooms.get(0).setNorth(rooms.get(1));
-        rooms.get(0).getroomInventory().addItem(itemList.getWoodKnife());
-        //rooms.get(0).setRoomInventory().;
-       // rooms.get(0).setRoomInventory(RoomInventory);
-
 
         rooms.get(1).setSouth(rooms.get(0));
         rooms.get(1).setEast(rooms.get(3));
@@ -201,7 +199,52 @@ public class RoomList {
         rooms.get(20).setNorth(rooms.get(21));
 
         rooms.get(21).setSouth(rooms.get(20));
-
+        
+        /**
+         * Adds items to each rooms inventory
+         */
+        
+        rooms.get(1).getroomInventory().addItem(itemList.getWoodKnife());
+        
+        rooms.get(2).getroomInventory().addItem(itemList.getClothArmour());
+        
+        rooms.get(3).getroomInventory().addItem(itemList.getSmallBastardSword());
+        
+        rooms.get(6).getroomInventory().addItem(itemList.getClothArmour());
+        
+        rooms.get(7).getroomInventory().addItem(itemList.getWoodKnife());
+        
+        rooms.get(8).getroomInventory().addItem(itemList.getKingKongor());
+        
+        rooms.get(9).getroomInventory().addItem(itemList.getLeatherArmour());
+        rooms.get(9).getroomInventory().addItem(itemList.getLongSword());
+        
+        rooms.get(10).getroomInventory().addItem(itemList.getChainmail());
+        
+        rooms.get(11).getroomInventory().addItem(itemList.getCoins());
+        
+        rooms.get(12).getroomInventory().addItem(itemList.getCoins());
+        
+        rooms.get(13).getroomInventory().addItem(itemList.getCoins());
+        
+        rooms.get(14).getroomInventory().addItem(itemList.getCoins());
+        rooms.get(14).getroomInventory().addItem(itemList.getGreatSword());
+        
+        rooms.get(15).getroomInventory().addItem(itemList.getCoins());
+        
+        rooms.get(16).getroomInventory().addItem(itemList.getCoins());
+        
+        rooms.get(17).getroomInventory().addItem(itemList.getCoins());
+        
+        rooms.get(18).getroomInventory().addItem(itemList.getCoins());
+        
+        rooms.get(19).getroomInventory().addItem(itemList.getCoins());
+        
+        rooms.get(17).getroomInventory().addItem(itemList.getGreaterHealingPotion());
+        rooms.get(17).getroomInventory().addItem(itemList.getCoins());
+        
+        rooms.get(20).getroomInventory().addItem(itemList.getHealingPotion());
+        
         return rooms;
     }
 
