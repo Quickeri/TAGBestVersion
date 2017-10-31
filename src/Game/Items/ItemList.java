@@ -23,7 +23,7 @@ public class ItemList {
     private final Item coins = new GeneralItems("Coins", "Ohhh Shiny!", 0, 1, false);
     private final Item blank = new GeneralItems("", "", 0, 0, false);
 // creates general Item for monster.
-    private final Item monsterheart = new GeneralItems("Monsterheart","Still pulsating heart", 10000, 0 , false);
+    public final Item monsterheart = new GeneralItems("Monsterheart","Still pulsating heart", 10000, 0 , false);
 
     public Item getMonsterheart() {
         return monsterheart;

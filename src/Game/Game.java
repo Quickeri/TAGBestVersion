@@ -27,6 +27,7 @@ public class Game {
     private PlayerHistory ph;
     private String playerName;
     Random randomNumber = new Random();
+    private ItemList itemList = new ItemList();
 
     /**
      * The game method constructs the dungoen, rooms, player, and the monster.
@@ -38,8 +39,8 @@ public class Game {
 
         this.player = new Player(playerName, rooms.get(0), 100, 100, ph, 20);
         this.monster = new Monster("Boo", rooms.get(randomNumber.nextInt(19) + 2), 100, 10);
-        
-        
+        Item mItem = itemList.getMonsterheart();
+        monster.addItem(mItem);
     }
 
     /**
@@ -55,8 +56,8 @@ public class Game {
         System.out.println("If you need a \"hand \" while playing - just ask for help!\n ");
         System.out.println("You are in room " + player.currentRoom.getRoomName());
         System.out.println(player.currentRoom.getDescription());
-        while (gameRunning && player.getCurrentRoom() != rooms.get(21))
-                {
+        
+        while (gameRunning && player.getCurrentRoom() != rooms.get(21)) {
 
             if (player.playerHistory.visitedRooms.isEmpty()) {
                 player.playerHistory.addToVisitedRooms(player.currentRoom);
@@ -109,37 +110,35 @@ public class Game {
                     break;
             }
 
-        
-        if (player.getCurrentRoom() == monster.getCurrentRoom()) {
-            
-           
-        
-            Combat combat = new Combat(player, monster);
-            combat.fight();
-            if (player == combat.getWinner()) {
-                for (int i = 0; i < monster.getInventorySize(); i++) {
-                    Item item = monster.inventory.inventory.get(i);
-                    player.currentRoom.getroomInventory().addItem(item);
+            if (player.getCurrentRoom() == monster.getCurrentRoom()) {
+
+                Combat combat = new Combat(player, monster);
+                combat.fight();
+                if (player == combat.getWinner()) {
+                    for (int i = 0; i < monster.getInventorySize(); i++) {
+                        Item item = monster.inventory.inventory.get(i);
+                        player.currentRoom.getroomInventory().addItem(item);
+                    }
+                    io.put("you killed the monster!!!!!!!!!!!!");
+                    io.put(player.currentRoom.getRoomName());
+                    io.put("The Monster droped some items");
+                    io.put(player.currentRoom.getroomInventory().printInventory());
 
                 }
-               
-                
-            
-        }
-            if (monster == combat.getWinner()) {
+                if (monster == combat.getWinner()) {
 
-                Souts.youDiedMSG();
-                System.out.println("do you want to play again? y/n");
-                replay = sc.next();
+                    Souts.youDiedMSG();
+                    System.out.println("do you want to play again? y/n");
+                    replay = sc.next();
 
-                if ("y".equals(replay)) {
-                    clearGame();
-                    play();
-                } else if ("n".equals(replay)) {
-                    System.out.println("Game Over!");
-                    System.exit(0);
+                    if ("y".equals(replay)) {
+                        clearGame();
+                        play();
+                    } else if ("n".equals(replay)) {
+                        System.out.println("Game Over!");
+                        System.exit(0);
+                    }
                 }
-            }
             }
             if (player.getCurrentRoom() == rooms.get(21)) {
                 Souts.winnerMSG();
@@ -153,7 +152,7 @@ public class Game {
                     System.out.println("Game Over!");
                     System.exit(0);
                 }
-               
+
             }
         }
     }
