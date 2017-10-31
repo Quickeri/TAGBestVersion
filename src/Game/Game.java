@@ -1,5 +1,7 @@
 package Game;
 
+import Game.Items.Item;
+import Game.Items.ItemList;
 import Game.RoomsAndChests.Souts;
 import Game.RoomsAndChests.RoomList;
 import Game.RoomsAndChests.Room;
@@ -33,9 +35,11 @@ public class Game {
         RoomList rl = new RoomList();
         this.rooms = rl.createRooms();
         this.ph = new PlayerHistory(player);
-        this.player = new Player(playerName, rooms.get(0), 100, 100, ph);
 
-        this.monster = new Monster("Boo", rooms.get(randomNumber.nextInt(19) + 2));
+        this.player = new Player(playerName, rooms.get(0), 100, 100, ph, 20);
+        this.monster = new Monster("Boo", rooms.get(randomNumber.nextInt(19) + 2), 100, 10);
+        
+        
     }
 
     /**
@@ -51,8 +55,8 @@ public class Game {
         System.out.println("If you need a \"hand \" while playing - just ask for help!\n ");
         System.out.println("You are in room " + player.currentRoom.getRoomName());
         System.out.println(player.currentRoom.getDescription());
-        while (gameRunning && player.getCurrentRoom() != rooms.get(21)
-                && player.getCurrentRoom() != monster.getCurrentRoom()) {
+        while (gameRunning && player.getCurrentRoom() != rooms.get(21))
+                {
 
             if (player.playerHistory.visitedRooms.isEmpty()) {
                 player.playerHistory.addToVisitedRooms(player.currentRoom);
@@ -105,13 +109,23 @@ public class Game {
                     break;
             }
 
-        }
+        
         if (player.getCurrentRoom() == monster.getCurrentRoom()) {
+            
+           
+        
             Combat combat = new Combat(player, monster);
             combat.fight();
             if (player == combat.getWinner()) {
+                for (int i = 0; i < monster.getInventorySize(); i++) {
+                    Item item = monster.inventory.inventory.get(i);
+                    player.currentRoom.getroomInventory().addItem(item);
+
+                }
+               
+                
             
-            }
+        }
             if (monster == combat.getWinner()) {
 
                 Souts.youDiedMSG();
@@ -126,6 +140,7 @@ public class Game {
                     System.exit(0);
                 }
             }
+            }
             if (player.getCurrentRoom() == rooms.get(21)) {
                 Souts.winnerMSG();
                 System.out.println("do you want to play again? y/n");
@@ -138,14 +153,16 @@ public class Game {
                     System.out.println("Game Over!");
                     System.exit(0);
                 }
+               
             }
         }
     }
-        /**
-         * The claergame method clears the game data, so the game can start
-         * fresh when the player chooses to play again.
-         */
-        private void clearGame() {
+
+    /**
+     * The claergame method clears the game data, so the game can start fresh
+     * when the player chooses to play again.
+     */
+    private void clearGame() {
         player.setCurrentRoom(rooms.get(0));
         player.playerHistory.visitedRooms.clear();
     }

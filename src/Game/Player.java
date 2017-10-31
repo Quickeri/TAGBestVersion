@@ -26,13 +26,15 @@ public class Player extends Character {
      * @param playerHP
      * @param maxPlayerHP
      * @param playerHistory
+     * @param damage
      */
-    public Player(String name, Room currentRoom, int playerHP, int maxPlayerHP, PlayerHistory playerHistory) {
+    public Player(String name, Room currentRoom, int playerHP, int maxPlayerHP, PlayerHistory playerHistory, int damage) {
         this.name = name;
         this.currentRoom = currentRoom;
         this.health = playerHP;
         this.maxHealth = maxPlayerHP;
         this.playerHistory = playerHistory;
+        this.damage = damage;
 
     }
 
@@ -112,6 +114,7 @@ public class Player extends Character {
     public void printPlayerHistory(){
         if (playerHistory.visitedRooms.isEmpty()) {
             playerHistory.addToVisitedRooms(currentRoom);
+            
         }
     }
  
@@ -124,6 +127,9 @@ public class Player extends Character {
             currentRoom = currentRoom.getNorth();
             System.out.println("you go north \n " + currentRoom.getDescription());
             playerHistory.addToVisitedRooms(currentRoom);
+            System.out.println("-----------------------------");
+        System.out.println("player is in" + currentRoom.getRoomName());
+        System.out.println("-----------------------------");
         }
 
     }
@@ -133,8 +139,12 @@ public class Player extends Character {
             System.out.println("---------------------\n You cannot go there!\n-----------------------");
             System.out.println(currentRoom.getDescription());
         } else {
+        
             currentRoom = currentRoom.getSouth();
             System.out.println("You go south \n" + currentRoom.getDescription());
+            System.out.println("-----------------------------");
+        System.out.println("player is in" + currentRoom.getRoomName());
+        System.out.println("-----------------------------");
         }
 
     }
@@ -144,8 +154,12 @@ public class Player extends Character {
             System.out.println("---------------------\n You cannot go there!\n-----------------------");
             System.out.println(currentRoom.getDescription());
         } else {
+        
             currentRoom = currentRoom.getEast();
             System.out.println("You go east \n" + currentRoom.getDescription());
+            System.out.println("-----------------------------");
+        System.out.println("player is in" + currentRoom.getRoomName());
+        System.out.println("-----------------------------");
         }
 
     }
@@ -157,6 +171,9 @@ public class Player extends Character {
         } else {
             currentRoom = currentRoom.getWest();
             System.out.println("You go west \n" + currentRoom.getDescription());
+            System.out.println("-----------------------------");
+        System.out.println("player is in" + currentRoom.getRoomName());
+        System.out.println("-----------------------------");
         }
 
     }
@@ -179,6 +196,12 @@ public class Player extends Character {
             io.put(roomInv.get(i) + "\n");
         }
         roomInv.clear();
+
+    }
+
+    @Override
+    public void setDamage() {
+damage = 20;
 
     }
 

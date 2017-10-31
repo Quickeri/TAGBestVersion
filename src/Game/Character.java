@@ -69,5 +69,6 @@ public abstract class Character {
     public abstract Room getCurrentRoom();
 
     public abstract void setCurrentRoom(Room currentRoom);
+    public abstract void setDamage();
 
 }
