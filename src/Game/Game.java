@@ -102,17 +102,20 @@ public class Game {
 
                 default:
 
-                    System.out.println("Help I'm retarded!\n"
+                    System.out.println(
+                            "Help I'm retarded!\n"
+                            +player.playerHistory + "\n" 
                             + "1 = Help \n"
                             + "2 = North 3 = South 4 = East 5 = West \n"
-                            + "6 = Route 7 = quit");
+                            + "6 = Route 7 = Pickupitem 8 = ShowItem \n"
+                            + "9 = quit");
                     break;
             }
 
         
         if (player.getCurrentRoom() == monster.getCurrentRoom()) {
             
-           
+           //Item iteml = ;
         
             Combat combat = new Combat(player, monster);
             combat.fight();
