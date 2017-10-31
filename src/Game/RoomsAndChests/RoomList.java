@@ -205,7 +205,8 @@ public class RoomList {
          */
         
         rooms.get(1).getroomInventory().addItem(itemList.getWoodKnife());
-        
+        rooms.get(1).getroomInventory().addItem(itemList.getHealingPotion());
+      
         rooms.get(2).getroomInventory().addItem(itemList.getClothArmour());
         
         rooms.get(3).getroomInventory().addItem(itemList.getSmallBastardSword());
