@@ -38,7 +38,7 @@ public class Game {
         this.ph = new PlayerHistory(player);
 
         this.player = new Player(playerName, rooms.get(0), 100, 100, ph, 20);
-        this.monster = new Monster("Boo", rooms.get(randomNumber.nextInt(19) + 2), 100, 10);
+        this.monster = new Monster("Boo", rooms.get(randomNumber.nextInt(19) + 2), 100, 10,rl);
         Item mItem = itemList.getMonsterheart();
         monster.addItem(mItem);
     }
