@@ -104,42 +104,48 @@ public class Game {
                             + "6 = Route 7 = quit");
                     break;
             }
-      
+
         }
         if (player.getCurrentRoom() == monster.getCurrentRoom()) {
-
-            Souts.youDiedMSG();
-            System.out.println("do you want to play again? y/n");
-            replay = sc.next();
-
-            if ("y".equals(replay)) {
-                clearGame();
-                play();
-            } else if ("n".equals(replay)) {
-                System.out.println("Game Over!");
-                System.exit(0);
+            Combat combat = new Combat(player, monster);
+            combat.fight();
+            if (player == combat.getWinner()) {
+            
             }
-        }
-        if (player.getCurrentRoom() == rooms.get(21)) {
-            Souts.winnerMSG();
-            System.out.println("do you want to play again? y/n");
-            replay = sc.next();
+            if (monster == combat.getWinner()) {
 
-            if ("y".equals(replay)) {
-                clearGame();
-                play();
-            } else if ("n".equals(replay)) {
-                System.out.println("Game Over!");
-                System.exit(0);
+                Souts.youDiedMSG();
+                System.out.println("do you want to play again? y/n");
+                replay = sc.next();
+
+                if ("y".equals(replay)) {
+                    clearGame();
+                    play();
+                } else if ("n".equals(replay)) {
+                    System.out.println("Game Over!");
+                    System.exit(0);
+                }
+            }
+            if (player.getCurrentRoom() == rooms.get(21)) {
+                Souts.winnerMSG();
+                System.out.println("do you want to play again? y/n");
+                replay = sc.next();
+
+                if ("y".equals(replay)) {
+                    clearGame();
+                    play();
+                } else if ("n".equals(replay)) {
+                    System.out.println("Game Over!");
+                    System.exit(0);
+                }
             }
         }
     }
-
-    /**
-     * The claergame method clears the game data, so the game can start fresh
-     * when the player chooses to play again.
-     */
-    private void clearGame() {
+        /**
+         * The claergame method clears the game data, so the game can start
+         * fresh when the player chooses to play again.
+         */
+        private void clearGame() {
         player.setCurrentRoom(rooms.get(0));
         player.playerHistory.visitedRooms.clear();
     }
