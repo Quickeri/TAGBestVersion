@@ -68,9 +68,7 @@ public class Game {
             io.put(player.currentRoom.getroomInventory().printInventory());
 
             int select = io.select("which way do you wanna go?", l, "");
-            
-//            io.put("index of =" + player.inventory.inventory.indexOf(itemList.getKey()));
-//            System.out.println("");
+          
           
             if ( 
             player.currentRoom.getRoomName().equals("Secret room")
