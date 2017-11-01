@@ -2,10 +2,12 @@ package Game;
 
 import Game.Items.Item;
 import Game.RoomsAndChests.Room;
+import Game.RoomsAndChests.RoomList;
 
 public class Monster extends Character {
 
     private String name;
+    private final RoomList rl;
 
     /**
      * Constructs monster.
@@ -15,11 +17,13 @@ public class Monster extends Character {
      * @param health
      * @param damage
      */
-    public Monster(String name, Room currentRoom, int health, int damage) {
+    public Monster(String name, Room currentRoom, int health, int damage,RoomList rl) {
         this.name = name;
         this.currentRoom = currentRoom;
         this.damage = damage;
         this.health = health;
+        this.rl = rl;
+        
         
 
     }
@@ -34,17 +38,18 @@ public void addItem(Item item){
      *
      */
     public void move() {
-//        if(health > 0){
+        if(health > 0){
         int select = (int) (Math.random() * 4) + 1;
 
         super.move(select);
         System.out.println("-----------------------------");
         System.out.println("Monster is in" + currentRoom.getRoomName());
         System.out.println("-----------------------------");
-//        }
-//        if (health < 1){
-//            setCurrentRoom(rooms.get(Math.random(19));
-//        }
+        }
+        if (health < 1){
+           Room room = rl.getRandomRoom();
+            setCurrentRoom(room);
+        }
     }
 
     public void setInventory(Item item) {
