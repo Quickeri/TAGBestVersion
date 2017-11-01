@@ -20,18 +20,24 @@ public class ItemList {
 //creates general items - name, description, points(for the endgame score, Equipable)
     private final Item healingPotion = new GeneralItems("Healing Potion", "Heals 30HP", 0, 30, true);
     private final Item greaterHealingPotion = new GeneralItems("Greater Healing Potion", "Heals 60HP", 0, 60, true);
-    private final Item coins = new GeneralItems("Coins", "Ohhh Shiny!", 0, 1, false);
+    private final Item key = new GeneralItems("Key", "The secret key", 10, 0, true);
+    private final Item coins = new GeneralItems("Coins", "Ohhh Shiny!", 1, 0, false);
     private final Item blank = new GeneralItems("", "", 0, 0, false);
+
+
+    
 // creates general Item for monster.
     public final Item monsterheart = new GeneralItems("Monsterheart","Still pulsating heart", 10000, 0 , false);
 
+    
+        public Item getKey() {
+            
+        return key;
+    }
     public Item getMonsterheart() {
         return monsterheart;
     }
     
-    
-    
-
     public Item getWoodKnife() {
         return woodKnife;
     }

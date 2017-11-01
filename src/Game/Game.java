@@ -41,6 +41,8 @@ public class Game {
         this.monster = new Monster("Boo", rooms.get(randomNumber.nextInt(19) + 2), 100, 10);
         Item mItem = itemList.getMonsterheart();
         monster.addItem(mItem);
+        
+       // player.inventory.addItem(itemList.getKey());
     }
 
     /**
@@ -66,7 +68,17 @@ public class Game {
             io.put(player.currentRoom.getroomInventory().printInventory());
 
             int select = io.select("which way do you wanna go?", l, "");
-
+            
+//            io.put("index of =" + player.inventory.inventory.indexOf(itemList.getKey()));
+//            System.out.println("");
+          
+            if ( 
+            player.currentRoom.getRoomName().equals("Secret room")
+            &&  -1 == player.inventory.inventory.indexOf(itemList.getKey())){
+                select = 2; 
+           io.put("Sorry mate you are trapped \n");
+           
+            }
             switch (select) {
 
                 case 1:

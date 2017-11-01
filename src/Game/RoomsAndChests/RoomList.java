@@ -128,6 +128,8 @@ public class RoomList {
         
         rooms.add(new Room("Masters workshop","You have entered the Masters workshop!"));    //Room number 21 - Last Room - winnerchest
         
+        
+        rooms.add(new Room("Secret room", "you have entered a secret room there are a sword in the room nothing else"));
         /**
          * Sets the direction and the rooms next to each room
          */
@@ -175,7 +177,8 @@ public class RoomList {
         rooms.get(12).setEast(rooms.get(11));
         rooms.get(12).setWest(rooms.get(19));
         rooms.get(12).setNorth(rooms.get(13));
-
+        rooms.get(12).setSouth(rooms.get(22));
+        
         rooms.get(13).setSouth(rooms.get(12));
         rooms.get(13).setNorth(rooms.get(14));
 
@@ -201,6 +204,8 @@ public class RoomList {
 
         rooms.get(21).setSouth(rooms.get(20));
         
+        // secret room number 22 
+        rooms.get(22).setNorth(rooms.get(12));
         /**
          * Adds items to each rooms inventory
          */
@@ -216,7 +221,7 @@ public class RoomList {
         
         rooms.get(7).getroomInventory().addItem(itemList.getWoodKnife());
         
-        rooms.get(8).getroomInventory().addItem(itemList.getKingKongor());
+        rooms.get(8).getroomInventory().addItem(itemList.getCoins());
         
         rooms.get(9).getroomInventory().addItem(itemList.getLeatherArmour());
         rooms.get(9).getroomInventory().addItem(itemList.getLongSword());
@@ -233,6 +238,7 @@ public class RoomList {
         rooms.get(14).getroomInventory().addItem(itemList.getGreatSword());
         
         rooms.get(15).getroomInventory().addItem(itemList.getCoins());
+        rooms.get(15).getroomInventory().addItem(itemList.getKey());
         
         rooms.get(16).getroomInventory().addItem(itemList.getCoins());
         
@@ -247,6 +253,7 @@ public class RoomList {
         
         rooms.get(20).getroomInventory().addItem(itemList.getHealingPotion());
         
+        rooms.get(22).getroomInventory().addItem(itemList.getKingKongor());
         return rooms;
     }
 public Room getRandomRoom(){

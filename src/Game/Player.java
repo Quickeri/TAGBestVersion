@@ -196,7 +196,7 @@ public class Player extends Character {
             io.put(roomInv.get(i) + "\n");
         }
         roomInv.clear();
-
+            
     }
 
     @Override

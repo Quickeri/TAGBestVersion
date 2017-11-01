@@ -10,6 +10,8 @@ public abstract class Character {
     int health;
     int damage;
     Item currentItem;
+
+    
     Room currentRoom;
     Inventory inventory = new Inventory();
 
@@ -71,4 +73,8 @@ public abstract class Character {
     public abstract void setCurrentRoom(Room currentRoom);
     public abstract void setDamage();
 
+    @Override
+    public String toString() {
+        return "currentRoom=" + currentRoom + '}';
+    }
 }

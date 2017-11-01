@@ -1,13 +1,13 @@
 package Game.RoomsAndChests;
-
+import Game.Items.*;
 public class Chest {
 
     public String name;
-    public String item;
+    public Item item;
 
     
 
-    public Chest(String name, String item) {
+    public Chest(String name, Item item) {
         this.name = name;
         this.item = item;
     }
@@ -16,13 +16,15 @@ public class Chest {
 
     }
 
-    public void setItem(String item) {
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
         this.item = item;
     }
 
-    public String getItem() {
-        return item;
-    }
+   
     
 
     public void setName(String name) {
