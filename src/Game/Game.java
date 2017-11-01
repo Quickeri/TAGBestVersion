@@ -25,8 +25,9 @@ public class Game {
     private boolean gameRunning = true;
     private Monster monster;
     private PlayerHistory ph;
-    private String playerName;
-    Random randomNumber = new Random();
+ 
+    private HighScore hScore = new HighScore();
+            Random randomNumber = new Random();
     private ItemList itemList = new ItemList();
 
     /**
@@ -37,7 +38,7 @@ public class Game {
         this.rooms = rl.createRooms();
         this.ph = new PlayerHistory(player);
 
-        this.player = new Player(playerName, rooms.get(0), 100, 100, ph, 20);
+        this.player = new Player("name", rooms.get(0), 100, 100, ph, 20);
         this.monster = new Monster("Boo", rooms.get(randomNumber.nextInt(19) + 2), 100, 10, rl);
         Item mItem = itemList.getMonsterheart();
         monster.addItem(mItem);
@@ -52,8 +53,8 @@ public class Game {
         String replay;
         System.out.println("------------------------- \n Welcome to our TAG v1.0 \n-------------------------");
         System.out.println("input your name for this run:");
-        playerName = sc.nextLine();
-        System.out.println("your name is: " + playerName);
+        player.setName(sc.nextLine());
+        System.out.println("your name is: " + player.getName());
         System.out.println("and now the game begins!");
         System.out.println("If you need a \"hand \" while playing - just ask for help!\n ");
         System.out.println("You are in room " + player.currentRoom.getRoomName());
@@ -156,7 +157,7 @@ public class Game {
             }
             if (player.getCurrentRoom() == rooms.get(21)) {
                 String hs = player.getName() + " " + player.getScore();
-                //HighScore.setHighScore(hs);
+                hScore.addHighscore(hs);
                 Souts.winnerMSG();
                 System.out.println("do you want to play again? y/n");
                 replay = sc.next();

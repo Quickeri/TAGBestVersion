@@ -7,78 +7,77 @@ package Game;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class HighScore {
 
-    
-
-
-public ArrayList<String> getHighScore() throws IOException
-    {
+    public ArrayList<String> getHighScore() throws IOException {
         BufferedReader inputStream = null;
         ArrayList<String> highScore = new ArrayList<>();
-        try
-        {
+        try {
             String line;
             //File file = new File("highScore.txt");
-         //   System.err.println(file.getAbsolutePath());
-            inputStream = new BufferedReader(new FileReader(new File("highScore.txt")));
+            //   System.err.println(file.getAbsolutePath());
+            inputStream = new BufferedReader(new FileReader("highScore.txt"));
 
-            while ((line = inputStream.readLine()) != null)
-            {
+            while ((line = inputStream.readLine()) != null) {
                 highScore.add(line);
             }
 
-        } catch (IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
-        } finally
-        {
+        } finally {
             inputStream.close();
         }
 
-        return highScore;   
-                }
+        return highScore;
+    }
 //setHighScore(this.player.getName() + " " + player.getInventory)
-public void setHighScore(String Score) throws IOException
-    {
-        ArrayList<String> highScore = getHighScore();
-        highScore.add(Score);
-        
-        BufferedWriter outputStream = null;
-        String str="";
-        try
-        {
-            String line;
-            //File file = new File("highScore.txt");
-//            System.err.println(file.getAbsolutePath());
-            outputStream = new BufferedWriter(new FileWriter(new File("highScore.txt")));
 
-            for(String s : highScore) {
-                outputStream.write(s);
+    private void setHighScore(String Score, List<String> scores) {
+
+        try (FileWriter writer = new FileWriter("highScore.txt"); BufferedWriter bWriter = new BufferedWriter(writer)) {
+            scores.add(Score);
+            System.out.println("List = " + scores);
+
+            String body = "";
+            for (String s : scores) {
+                bWriter.append(s);
+                bWriter.newLine();
             }
-           
+            
+            bWriter.write(body);
+            bWriter.flush();
 
-        } catch (IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
-        } finally
-        {
-            outputStream.close();
         }
 
+    }
+    
+    public void addHighscore(String score)
+    {
+        try {
+            ArrayList<String> scores = getHighScore();
+            setHighScore(score, scores);
+        } catch (IOException ex) {
+            Logger.getLogger(HighScore.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
-
+    
+    
 //    public static void main(String[] args) throws IOException {
 //        HighScore hs = new HighScore();
-//        hs.setHighScore("asds " + 5000);
-//        System.out.println(hs.getHighScore());
+//        hs.addHighscore("Bob 69");
+//        System.out.println( hs.getHighScore());
+//               
+//       
 //    }
 }

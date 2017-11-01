@@ -3,7 +3,7 @@ package Game.Items;
 
 public class ItemList {
 
-    private final Item woodKnife = new Weapon("Wood knife", "Made of wood and why would you use this?", 2, 0, true);
+    private final Item woodKnife = new Weapon("Wood knife", "Made of wood and why would you use this?", 2, 43, true);
     private final Item cookingKnife = new Weapon("Cooking knife", "Made for chopping salad", 3, 3, true);
     private final Item smallBastardSword = new Weapon("Small Bastard sword", "A small but easy to handle sword", 6, 6, true);
     private final Item longSword = new Weapon("Long sword", "Great impact and good balance", 12, 8, true);

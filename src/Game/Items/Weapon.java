@@ -8,7 +8,7 @@ public class Weapon extends EquipableItem{
 //    private boolean equipable;
 //    private int itemPoints, weaponDamage;
 
-    public Weapon(String name, String description, int itemPoints, int weaponDamage, boolean equipable) {
+    public Weapon(String name, String description,int weaponDamage, int itemPoints, boolean equipable) {
         super(name, description, itemPoints, equipable);
     }   
  
