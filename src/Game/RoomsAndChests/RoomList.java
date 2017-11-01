@@ -252,6 +252,9 @@ public class RoomList {
         rooms.get(17).getroomInventory().addItem(itemList.getCoins());
 
         rooms.get(20).getroomInventory().addItem(itemList.getHealingPotion());
+        
+        rooms.get(22).getroomInventory().addItem(itemList.getKingKongor());
+        
         return rooms;
     }
 
