@@ -46,7 +46,6 @@ public ArrayList<String> getHighScore() throws IOException
         return highScore;   
                 }
 //setHighScore(this.player.getName() + " " + player.getInventory)
-
 public void setHighScore(String Score) throws IOException
     {
         ArrayList<String> highScore = getHighScore();

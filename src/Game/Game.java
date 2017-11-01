@@ -38,11 +38,11 @@ public class Game {
         this.ph = new PlayerHistory(player);
 
         this.player = new Player(playerName, rooms.get(0), 100, 100, ph, 20);
-        this.monster = new Monster("Boo", rooms.get(randomNumber.nextInt(19) + 2), 100, 10,rl);
+        this.monster = new Monster("Boo", rooms.get(randomNumber.nextInt(19) + 2), 100, 10, rl);
         Item mItem = itemList.getMonsterheart();
         monster.addItem(mItem);
-        
-       // player.inventory.addItem(itemList.getKey());
+
+        // player.inventory.addItem(itemList.getKey());
     }
 
     /**
@@ -58,7 +58,7 @@ public class Game {
         System.out.println("If you need a \"hand \" while playing - just ask for help!\n ");
         System.out.println("You are in room " + player.currentRoom.getRoomName());
         System.out.println(player.currentRoom.getDescription());
-        
+
         while (gameRunning && player.getCurrentRoom() != rooms.get(21)) {
 
             if (player.playerHistory.visitedRooms.isEmpty()) {
@@ -68,16 +68,14 @@ public class Game {
             io.put(player.currentRoom.getroomInventory().printInventory());
 
             int select = io.select("which way do you wanna go?", l, "");
-            
+
 //            io.put("index of =" + player.inventory.inventory.indexOf(itemList.getKey()));
 //            System.out.println("");
-          
-            if ( 
-            player.currentRoom.getRoomName().equals("Secret room")
-            &&  -1 == player.inventory.inventory.indexOf(itemList.getKey())){
-                select = 2; 
-           io.put("Sorry mate you are trapped \n");
-           
+            if (player.currentRoom.getRoomName().equals("Secret room")
+                    && -1 == player.inventory.inventory.indexOf(itemList.getKey())) {
+                select = 2;
+                io.put("Sorry mate you are trapped \n");
+
             }
             switch (select) {
 
@@ -117,7 +115,7 @@ public class Game {
 
                     System.out.println(
                             "Help I'm retarded!\n"
-                            +player.playerHistory + "\n" 
+                            + player.playerHistory + "\n"
                             + "1 = Help \n"
                             + "2 = North 3 = South 4 = East 5 = West \n"
                             + "6 = Route 7 = Pickupitem 8 = ShowItem \n"
@@ -129,18 +127,19 @@ public class Game {
 
                 Combat combat = new Combat(player, monster);
                 combat.fight();
-                if (player == combat.getWinner()) {
+                if (player.getName() == combat.getWinner()) {
                     for (int i = 0; i < monster.getInventorySize(); i++) {
                         Item item = monster.inventory.inventory.get(i);
                         player.currentRoom.getroomInventory().addItem(item);
                     }
-                    io.put("you killed the monster!!!!!!!!!!!!");
-                    io.put(player.currentRoom.getRoomName());
-                    io.put("The Monster droped some items");
-                    io.put(player.currentRoom.getroomInventory().printInventory());
+                    monster.setCurrentRoom(rooms.get(randomNumber.nextInt(19) + 2));
+                    monster.setHealth(100);
+                    io.put("The monster drops some items as it disappears in a smoky cloud!\n"
+                            + " you have a feeling this isn't the last time you'll encounter him!\n");
+//                    io.put(player.currentRoom.getroomInventory().printInventory());
 
                 }
-                if (monster == combat.getWinner()) {
+                if (monster.getName() == combat.getWinner()) {
 
                     Souts.youDiedMSG();
                     System.out.println("do you want to play again? y/n");
@@ -156,6 +155,8 @@ public class Game {
                 }
             }
             if (player.getCurrentRoom() == rooms.get(21)) {
+                String hs = player.getName() + " " + player.getScore();
+                //HighScore.setHighScore(hs);
                 Souts.winnerMSG();
                 System.out.println("do you want to play again? y/n");
                 replay = sc.next();

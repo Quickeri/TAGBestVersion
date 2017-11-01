@@ -15,17 +15,17 @@ public class Combat {
         while (c1.health <= 0 || c2.health <= 0){
         
        c2.health = c2.health - c1.damage;
-            c1.health = c1.health - c2.damage;
+        c1.health = c1.health - c2.damage;
         }
 
     }
 
-    public Character getWinner() {
+    public String getWinner() {
         if(c2.health > 0 && c1.health <= 0 ){
-            return c2;
+            return c2.getName();
         }
         if(c1.health > 0 && c2.health <= 0 ){
-            return c1;
+            return c1.getName();
         
         }
         else;

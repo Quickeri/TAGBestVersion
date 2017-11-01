@@ -38,18 +38,19 @@ public void addItem(Item item){
      *
      */
     public void move() {
-        if(health > 0){
+        
         int select = (int) (Math.random() * 4) + 1;
 
         super.move(select);
         System.out.println("-----------------------------");
         System.out.println("Monster is in" + currentRoom.getRoomName());
         System.out.println("-----------------------------");
-        }
-        if (health < 1){
-           Room room = rl.getRandomRoom();
-            setCurrentRoom(room);
-        }
+        
+       
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
     }
 
     public void setInventory(Item item) {
