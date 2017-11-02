@@ -9,7 +9,7 @@ import textio.TextIO;
 public class Player extends Character {
 
     private TextIO io = new TextIO(new SysTextIO());
-   
+
     private int maxHealth = 100;
 
     PlayerHistory playerHistory;
@@ -86,7 +86,18 @@ public class Player extends Character {
      * @param name
      */
     public void setName(String name) {
-        this.name = name;
+        
+        char arr[] = name.toCharArray();
+        for (int i = 0; i < arr.length; i++) {
+
+            if (arr[i] == ',') {
+                arr[i] = '.';
+            }
+        }
+        String fName = new String(arr);
+    
+           this.name = fName;
+
     }
 
     /**
@@ -108,13 +119,14 @@ public class Player extends Character {
     public String getName() {
         return name;
     }
-    public void printPlayerHistory(){
+
+    public void printPlayerHistory() {
         if (playerHistory.visitedRooms.isEmpty()) {
             playerHistory.addToVisitedRooms(currentRoom);
-            
+
         }
     }
- 
+
     public void moveNorth() {
         if (currentRoom.getNorth() == null) {
             System.out.println("---------------------\n You cannot go there!\n-----------------------");
@@ -125,8 +137,8 @@ public class Player extends Character {
             System.out.println("you go north \n " + currentRoom.getDescription());
             playerHistory.addToVisitedRooms(currentRoom);
             System.out.println("-----------------------------");
-        System.out.println("player is in" + currentRoom.getRoomName());
-        System.out.println("-----------------------------");
+            System.out.println("player is in" + currentRoom.getRoomName());
+            System.out.println("-----------------------------");
         }
 
     }
@@ -136,12 +148,12 @@ public class Player extends Character {
             System.out.println("---------------------\n You cannot go there!\n-----------------------");
             System.out.println(currentRoom.getDescription());
         } else {
-        
+
             currentRoom = currentRoom.getSouth();
             System.out.println("You go south \n" + currentRoom.getDescription());
             System.out.println("-----------------------------");
-        System.out.println("player is in" + currentRoom.getRoomName());
-        System.out.println("-----------------------------");
+            System.out.println("player is in" + currentRoom.getRoomName());
+            System.out.println("-----------------------------");
         }
 
     }
@@ -151,12 +163,12 @@ public class Player extends Character {
             System.out.println("---------------------\n You cannot go there!\n-----------------------");
             System.out.println(currentRoom.getDescription());
         } else {
-        
+
             currentRoom = currentRoom.getEast();
             System.out.println("You go east \n" + currentRoom.getDescription());
             System.out.println("-----------------------------");
-        System.out.println("player is in" + currentRoom.getRoomName());
-        System.out.println("-----------------------------");
+            System.out.println("player is in" + currentRoom.getRoomName());
+            System.out.println("-----------------------------");
         }
 
     }
@@ -169,12 +181,11 @@ public class Player extends Character {
             currentRoom = currentRoom.getWest();
             System.out.println("You go west \n" + currentRoom.getDescription());
             System.out.println("-----------------------------");
-        System.out.println("player is in" + currentRoom.getRoomName());
-        System.out.println("-----------------------------");
+            System.out.println("player is in" + currentRoom.getRoomName());
+            System.out.println("-----------------------------");
         }
 
     }
-
 
     public int getScore() {
         int score = 0;
@@ -193,13 +204,12 @@ public class Player extends Character {
             io.put(roomInv.get(i) + "\n");
         }
         roomInv.clear();
-            
+
     }
 
     @Override
     public void setDamage(int d) {
 
-        
         damage = d;
 
     }
@@ -214,8 +224,4 @@ public class Player extends Character {
 //        
 //        switch(select)
 //    }
-
-    }
-
-    
-
+}
