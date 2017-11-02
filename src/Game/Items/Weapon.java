@@ -1,7 +1,6 @@
 
 package Game.Items;
 
-import Game.Items.EquipableItem;
 
 public class Weapon extends EquipableItem{
     private String name;

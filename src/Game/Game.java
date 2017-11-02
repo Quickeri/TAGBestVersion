@@ -1,6 +1,5 @@
 package Game;
 
-import Game.Items.GeneralItems;
 import Game.Items.Item;
 import Game.Items.ItemList;
 import Game.RoomsAndChests.Souts;
@@ -17,14 +16,14 @@ import textio.TextIO;
 
 public class Game {
 
-    private List l = Arrays.asList(new String[]{"Help", "North", "South", "East", "West", "Route", "pickup", "showitem", "quit"});
-    private Scanner sc = new Scanner(System.in);
-    private TextIO io = new TextIO(new SysTextIO());
+    private final List l = Arrays.asList(new String[]{"Help", "North", "South", "East", "West", "Route", "pickup", "showitem", "quit"});
+    private final Scanner sc = new Scanner(System.in);
+    private final TextIO io = new TextIO(new SysTextIO());
     private Player player;
 
-    private ArrayList<Room> rooms;
+    private final ArrayList<Room> rooms;
     private ArrayList<Room> visitedRooms;
-    private boolean gameRunning = true;
+    private final boolean gameRunning = true;
     private Monster monster;
     private Monster monster2;
     private PlayerHistory ph;

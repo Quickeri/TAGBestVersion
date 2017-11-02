@@ -3,8 +3,6 @@ package Game;
 import Game.Items.Item;
 import Game.RoomsAndChests.Room;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import textio.SysTextIO;
 import textio.TextIO;
 
