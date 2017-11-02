@@ -41,6 +41,7 @@ public class Game {
 
         this.player = new Player("name", rooms.get(0), 100, 100, ph, 20);
         this.monster = new Monster("Boo", rooms.get(randomNumber.nextInt(19) + 2), 100, 10, rl);
+        this.monster = new Monster("Bob", rooms.get(randomNumber.nextInt(19) + 2), 100, 10, rl);
         Item mItem = itemList.getMonsterheart();
         monster.addItem(mItem);
 
@@ -71,11 +72,11 @@ public class Game {
 
             int select = io.select("which way do you wanna go?", l, "");
           
-          
+            
             if ( 
             player.currentRoom.getRoomName().equals("Secret room")
             &&  -1 == player.inventory.inventory.indexOf(itemList.getKey())){
-                select = 2; 
+                select = 0; 
            io.put("Sorry mate you are trapped \n");
            
             }
@@ -140,6 +141,7 @@ public class Game {
                     for (int i = 0; i < monster.getInventorySize(); i++) {
                         Item item = monster.inventory.inventory.get(i);
                         player.currentRoom.getroomInventory().addItem(item);
+                        System.out.println(player.getHealth());
                     }
                     monster.setCurrentRoom(rooms.get(randomNumber.nextInt(19) + 2));
                     monster.setHealth(100);
