@@ -2,7 +2,6 @@ package Game.RoomsAndChests;
 
 import Game.Inventory;
 import Game.Items.Item;
-import Game.RoomsAndChests.Chest;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -24,8 +23,7 @@ public class Room {
         this.hashMonster = hashMonster;
     }
     
-    
-    
+
     /**
      * Constructs room with name and description.
      *
