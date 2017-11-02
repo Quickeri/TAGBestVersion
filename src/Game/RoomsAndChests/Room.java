@@ -14,6 +14,16 @@ public class Room {
     private ArrayList<Chest> Chestlist = new ArrayList<>();
     private ArrayList<Item> inventory = new ArrayList<>();
     private boolean hashMonster = false;
+
+    public boolean hashMonster() {
+        return hashMonster;
+    }
+
+    public void setHashMonster(boolean hashMonster) {
+        this.hashMonster = hashMonster;
+    }
+    
+    
     
      public boolean hashMonster() {
         return hashMonster;
@@ -33,6 +43,7 @@ public class Room {
     public Inventory getroomInventory() {
         return roomInventory;
     }
+   
 
     public void setroomInventory(Inventory RoomInventory) {
         this.roomInventory = RoomInventory;

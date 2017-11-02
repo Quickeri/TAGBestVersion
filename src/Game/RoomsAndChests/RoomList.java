@@ -205,12 +205,14 @@ public class RoomList {
         rooms.get(20).setNorth(rooms.get(21));
 
         rooms.get(21).setSouth(rooms.get(20));
+        rooms.get(21).setHashMonster(true);
         
         // secret room number 22 
         rooms.get(22).setNorth(rooms.get(12));
         rooms.get(22).setSouth(rooms.get(12));
         rooms.get(22).setEast(rooms.get(12));
         rooms.get(22).setWest(rooms.get(12));
+        
         /**
          * Adds items to each rooms inventory
          */

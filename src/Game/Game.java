@@ -82,6 +82,8 @@ public class Game {
                 io.put("Sorry mate you are trapped \n");
 
             }
+            
+            
             switch (select) {
 
                 case 1:
@@ -151,10 +153,11 @@ public class Game {
 
                 Combat combat = new Combat(player, monster);
                 combat.fight();
-                if (player.getName() == combat.getWinner()) {
+                if (player.getName().equals(combat.getWinner())) {
                     for (int i = 0; i < monster.getInventorySize(); i++) {
                         Item item = monster.inventory.inventory.get(i);
                         player.currentRoom.getroomInventory().addItem(item);
+                        System.out.println(player.getHealth());
                     }
 //                    monster.setCurrentRoom(rooms.get(randomNumber.nextInt(19) + 2));
 //                    monster.setHealth(100);
@@ -163,7 +166,7 @@ public class Game {
 ////                    io.put(player.currentRoom.getroomInventory().printInventory());
 
                 }
-                if (monster.getName() == combat.getWinner()) {
+                if (monster.getName().equals(combat.getWinner())) {
 
                     Souts.youDiedMSG();
                     System.out.println("do you want to play again? y/n");

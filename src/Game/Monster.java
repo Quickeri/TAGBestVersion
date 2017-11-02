@@ -18,19 +18,19 @@ public class Monster extends Character {
      * @param damage
      * @param rl
      */
-    public Monster(String name, Room currentRoom, int health, int damage,RoomList rl) {
+    public Monster(String name, Room currentRoom, int health, int damage, RoomList rl) {
         this.name = name;
         this.currentRoom = currentRoom;
         this.damage = damage;
         this.health = health;
         this.rl = rl;
-        
-        
 
     }
-public void addItem(Item item){
-     inventory.addItem(item);
-}
+
+    public void addItem(Item item) {
+        inventory.addItem(item);
+    }
+
     /**
      * Monsters move method.
      *
@@ -98,12 +98,11 @@ public void addItem(Item item){
     }
 
     public void setInventory(Item item) {
-     inventory.addItem(item);
+        inventory.addItem(item);
     }
 
     public Inventory getInventory() {
-       
-        
+
         return inventory;
     }
 
@@ -142,7 +141,6 @@ public void addItem(Item item){
 
     }
 
-   
     public void setDamage() {
         damage = 10;
 

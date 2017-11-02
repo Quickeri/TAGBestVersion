@@ -13,6 +13,7 @@ public abstract class Character {
 
     
     Room currentRoom;
+    
     Inventory inventory = new Inventory();
 
 //    public void combat(int select) {
@@ -33,6 +34,8 @@ public abstract class Character {
 //                                    
 //    }
 //    }
+    
+    
     public void move(int select) {
 
         switch (select) {

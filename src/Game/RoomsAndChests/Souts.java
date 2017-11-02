@@ -5,10 +5,11 @@ public class Souts {
     public Souts() {
 
     }
-/**
- * This method is for printing the winner message.
- * Ssed to make the game smaller.
- */
+
+    /**
+     * This method is for printing the winner message. Ssed to make the game
+     * smaller.
+     */
     public static void winnerMSG() {
 
         System.out.println(
@@ -22,8 +23,9 @@ public class Souts {
                 + "  |___/                                                   \n");
 
     }
-    
-    public static void youDiedMSG(){
+
+    public static void youDiedMSG() {
         System.out.println("you died mothertrucker !!!!!!!!!!!!!!!!!!!!!!");
     }
-            }
+
+}
