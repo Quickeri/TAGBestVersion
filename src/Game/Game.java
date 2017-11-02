@@ -1,5 +1,6 @@
 package Game;
 
+import Game.Items.GeneralItems;
 import Game.Items.Item;
 import Game.Items.ItemList;
 import Game.RoomsAndChests.Souts;
@@ -108,6 +109,13 @@ public class Game {
 
                     break;
                 case 8:
+//                    player.chooseWeapon();
+//                    
+//                    Item equippedItem;
+//                    
+//                    
+//                    player.setDamage(equippedItem.getDamage());
+//                case 9:
 
                     System.exit(0);
                     break;

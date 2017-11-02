@@ -40,10 +40,12 @@ public class HighScore {
     }
 //setHighScore(this.player.getName() + " " + player.getInventory)
 
-    private void setHighScore(String Score, List<String> scores) {
+    private void setHighScore(String score, List<String> scores) {
 
-        try (FileWriter writer = new FileWriter("highScore.txt"); BufferedWriter bWriter = new BufferedWriter(writer)) {
-            scores.add(Score);
+        try (FileWriter writer = new FileWriter("highScore.txt"); 
+                BufferedWriter bWriter = new BufferedWriter(writer)) {
+            scores.add(score);
+            
             System.out.println("List = " + scores);
 
             String body = "";
@@ -61,11 +63,12 @@ public class HighScore {
 
     }
     
+    
     public void addHighscore(String score)
     {
-        try {
+        try { 
             ArrayList<String> scores = getHighScore();
-            setHighScore(score, scores);
+            setHighScore(score, getHighScore() );
         } catch (IOException ex) {
             Logger.getLogger(HighScore.class.getName()).log(Level.SEVERE, null, ex);
         }

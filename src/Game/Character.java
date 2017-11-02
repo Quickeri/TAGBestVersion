@@ -71,7 +71,7 @@ public abstract class Character {
     public abstract Room getCurrentRoom();
 
     public abstract void setCurrentRoom(Room currentRoom);
-    public abstract void setDamage();
+    public abstract void setDamage(int d);
 
     @Override
     public String toString() {

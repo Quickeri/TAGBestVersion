@@ -98,10 +98,15 @@ public void addItem(Item item){
 
     }
 
-    @Override
+   
     public void setDamage() {
         damage = 10;
 
+    }
+
+    @Override
+    public void setDamage(int d) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

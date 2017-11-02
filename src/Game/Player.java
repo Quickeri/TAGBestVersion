@@ -200,9 +200,25 @@ public class Player extends Character {
     }
 
     @Override
-    public void setDamage() {
-damage = 20;
+    public void setDamage(int d) {
+
+        
+        damage = d;
 
     }
 
-}
+//    void chooseWeapon() {
+//        ArrayList<Item> weapons = new ArrayList<>();
+//        for (Item inventory1 : inventory.inventory) {
+//            weapons += 
+//        }
+//        
+//        select = io.select("Weapon do you want to use" )
+//        
+//        switch(select)
+//    }
+
+    }
+
+    
+
