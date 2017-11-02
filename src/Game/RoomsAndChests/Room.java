@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class Room {
     private Inventory roomInventory = new Inventory();
+    private Souts souts = new Souts();
     private String description, roomName;
     private Room north, south, east, west;
     Scanner sc = new Scanner(System.in);
@@ -28,6 +29,7 @@ public class Room {
     public Inventory getroomInventory() {
         return roomInventory;
     }
+   
 
     public void setroomInventory(Inventory RoomInventory) {
         this.roomInventory = RoomInventory;

@@ -137,7 +137,7 @@ public class Game {
 
                 Combat combat = new Combat(player, monster);
                 combat.fight();
-                if (player.getName() == combat.getWinner()) {
+                if (player.getName().equals(combat.getWinner())) {
                     for (int i = 0; i < monster.getInventorySize(); i++) {
                         Item item = monster.inventory.inventory.get(i);
                         player.currentRoom.getroomInventory().addItem(item);
@@ -150,7 +150,7 @@ public class Game {
 //                    io.put(player.currentRoom.getroomInventory().printInventory());
 
                 }
-                if (monster.getName() == combat.getWinner()) {
+                if (monster.getName().equals(combat.getWinner())) {
 
                     Souts.youDiedMSG();
                     System.out.println("do you want to play again? y/n");
