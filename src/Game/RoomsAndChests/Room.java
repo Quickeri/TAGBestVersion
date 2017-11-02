@@ -23,11 +23,6 @@ public class Room {
         this.hashMonster = hashMonster;
     }
     
-    
-    
-     public boolean hashMonster() {
-        return hashMonster;
-    }
 
     /**
      * Constructs room with name and description.
