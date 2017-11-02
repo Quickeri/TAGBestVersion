@@ -16,6 +16,7 @@ public class Monster extends Character {
      * @param currentRoom
      * @param health
      * @param damage
+     * @param rl
      */
     public Monster(String name, Room currentRoom, int health, int damage,RoomList rl) {
         this.name = name;
