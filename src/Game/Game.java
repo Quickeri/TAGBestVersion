@@ -81,6 +81,8 @@ public class Game {
            io.put("Sorry mate you are trapped \n");
            
             }
+            
+            
             switch (select) {
 
                 case 1:

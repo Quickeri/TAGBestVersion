@@ -14,6 +14,17 @@ public class Room {
     Scanner sc = new Scanner(System.in);
     private ArrayList<Chest> Chestlist = new ArrayList<>();
     private ArrayList<Item> inventory = new ArrayList<>();
+    private boolean hashMonster = false;
+
+    public boolean hashMonster() {
+        return hashMonster;
+    }
+
+    public void setHashMonster(boolean hashMonster) {
+        this.hashMonster = hashMonster;
+    }
+    
+    
     
     /**
      * Constructs room with name and description.
