@@ -42,7 +42,7 @@ public class Game {
 
         this.player = new Player("name", rooms.get(0), 100, 100, ph, 20);
         this.monster = new Monster("Boo", rooms.get(randomNumber.nextInt(19) + 2), 100, 10, rl);
-        this.monster2 = new Monster("Bob", rooms.get(randomNumber.nextInt(19) + 2), 100, 10, rl);
+        this.monster2 = new Monster("Jim", rooms.get(randomNumber.nextInt(19) + 2), 100, 10, rl);
         Item mItem = itemList.getMonsterheart();
         monster.addItem(mItem);
 

@@ -67,8 +67,9 @@ public class Monster extends Character {
             if (select == 4) {
                 if (currentRoom.getWest()!= null && !currentRoom.getWest().hashMonster()) {
                     currentRoom.getWest().setHashMonster(true);
+                    
                     break;
-
+                    
                 }
 
             }
