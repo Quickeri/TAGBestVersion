@@ -18,6 +18,7 @@ public class HighScore {
     public List<Score> getHighScore() throws IOException {
         BufferedReader inputStream = null;
         List<Score> highScore = new ArrayList<>();
+        System.out.println();
         try {
             String line;
             //File file = new File("highScore.txt");

@@ -1,3 +1,6 @@
-John 90
-line 230
-Bob 69
+line,230
+John,90
+Bob,69
+bob,43
+line,43
+far,0
