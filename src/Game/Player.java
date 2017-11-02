@@ -11,8 +11,7 @@ import textio.TextIO;
 public class Player extends Character {
 
     private TextIO io = new TextIO(new SysTextIO());
-    private String name;
-    private int health;
+   
     private int maxHealth = 100;
 
     PlayerHistory playerHistory;

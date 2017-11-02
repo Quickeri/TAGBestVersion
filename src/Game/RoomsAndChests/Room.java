@@ -2,18 +2,23 @@ package Game.RoomsAndChests;
 
 import Game.Inventory;
 import Game.Items.Item;
-import Game.RoomsAndChests.Chest;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Room {
     private Inventory roomInventory = new Inventory();
+    private Souts souts = new Souts();
     private String description, roomName;
     private Room north, south, east, west;
     Scanner sc = new Scanner(System.in);
     private ArrayList<Chest> Chestlist = new ArrayList<>();
     private ArrayList<Item> inventory = new ArrayList<>();
+    private boolean hashMonster = false;
     
+     public boolean hashMonster() {
+        return hashMonster;
+    }
+
     /**
      * Constructs room with name and description.
      *

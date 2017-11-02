@@ -11,8 +11,8 @@ public class Combat {
     }
 
     public void fight() {
-
-        while (c1.health <= 0 || c2.health <= 0){
+        System.out.println("3 2 1 FIGHT!! ");
+        while (c1.health >= 0 && c2.health >= 0){
         
        c2.health = c2.health - c1.damage;
         c1.health = c1.health - c2.damage;

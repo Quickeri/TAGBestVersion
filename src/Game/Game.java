@@ -6,6 +6,7 @@ import Game.Items.ItemList;
 import Game.RoomsAndChests.Souts;
 import Game.RoomsAndChests.RoomList;
 import Game.RoomsAndChests.Room;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -25,10 +26,11 @@ public class Game {
     private ArrayList<Room> visitedRooms;
     private boolean gameRunning = true;
     private Monster monster;
+    private Monster monster2;
     private PlayerHistory ph;
- 
-    private HighScore hScore = new HighScore();
-            Random randomNumber = new Random();
+
+    private HighScore hScores = new HighScore();
+    Random randomNumber = new Random();
     private ItemList itemList = new ItemList();
 
     /**
@@ -41,6 +43,7 @@ public class Game {
 
         this.player = new Player("name", rooms.get(0), 100, 100, ph, 20);
         this.monster = new Monster("Boo", rooms.get(randomNumber.nextInt(19) + 2), 100, 10, rl);
+        this.monster2 = new Monster("Jim", rooms.get(randomNumber.nextInt(19) + 2), 100, 10, rl);
         Item mItem = itemList.getMonsterheart();
         monster.addItem(mItem);
 
@@ -49,8 +52,10 @@ public class Game {
 
     /**
      * The play method plays the rounds and checks for win and lose condition.
+     *
+     * @throws java.io.IOException
      */
-    public void play() {
+    public void play() throws IOException {
         String replay;
         System.out.println("------------------------- \n Welcome to our TAG v1.0 \n-------------------------");
         System.out.println("input your name for this run:");
@@ -70,32 +75,34 @@ public class Game {
             io.put(player.currentRoom.getroomInventory().printInventory());
 
             int select = io.select("which way do you wanna go?", l, "");
-          
-          
-            if ( 
-            player.currentRoom.getRoomName().equals("Secret room")
-            &&  -1 == player.inventory.inventory.indexOf(itemList.getKey())){
-                select = 2; 
-           io.put("Sorry mate you are trapped \n");
-           
+
+            if (player.currentRoom.getRoomName().equals("Secret room")
+                    && -1 == player.inventory.inventory.indexOf(itemList.getKey())) {
+                select = 2;
+                io.put("Sorry mate you are trapped \n");
+
             }
             switch (select) {
 
                 case 1:
                     player.moveNorth();
                     monster.move();
+                    monster2.move();
                     break;
                 case 2:
                     player.moveSouth();
                     monster.move();
+                    monster2.move();
                     break;
                 case 3:
                     player.moveEast();
                     monster.move();
+                    monster2.move();
                     break;
                 case 4:
                     player.moveWest();
                     monster.move();
+                    monster2.move();
                     break;
                 case 5:
                     System.out.println(player.playerHistory);
@@ -105,8 +112,16 @@ public class Game {
                     player.pickupItem();
                     break;
                 case 7:
-                    io.put(player.inventory.printInventory());
 
+                    io.put(player.inventory.printInventory());
+                    if (player.getHealth() <= 50) {
+
+                        System.out.println("You have: " + player.getHealth()
+                                + " Hitpoints!\n"
+                                + "Maybe you should heal up!");
+                    } else {
+                        System.out.println("You have: " + player.getHealth() + " Hitpoints!");
+                    }
                     break;
                 case 8:
 //                    player.chooseWeapon();
@@ -141,11 +156,11 @@ public class Game {
                         Item item = monster.inventory.inventory.get(i);
                         player.currentRoom.getroomInventory().addItem(item);
                     }
-                    monster.setCurrentRoom(rooms.get(randomNumber.nextInt(19) + 2));
-                    monster.setHealth(100);
-                    io.put("The monster drops some items as it disappears in a smoky cloud!\n"
-                            + " you have a feeling this isn't the last time you'll encounter him!\n");
-//                    io.put(player.currentRoom.getroomInventory().printInventory());
+//                    monster.setCurrentRoom(rooms.get(randomNumber.nextInt(19) + 2));
+//                    monster.setHealth(100);
+//                    io.put("The monster drops some items as it disappears in a smoky cloud!\n"
+//                            + " you have a feeling this isn't the last time you'll encounter him!\n");
+////                    io.put(player.currentRoom.getroomInventory().printInventory());
 
                 }
                 if (monster.getName() == combat.getWinner()) {
@@ -164,8 +179,11 @@ public class Game {
                 }
             }
             if (player.getCurrentRoom() == rooms.get(21)) {
-                String hs = player.getName() + " " + player.getScore();
-                hScore.addHighscore(hs);
+                HighScore hs = new HighScore();
+                Score score = new Score(player.getName(), player.getScore());
+                List<Score> scores = hScores.getHighScore();
+                scores.add(score);
+                hs.setHighScore(scores);
                 Souts.winnerMSG();
                 System.out.println("do you want to play again? y/n");
                 replay = sc.next();

@@ -38,17 +38,60 @@ public void addItem(Item item){
      * selects a way were there isnt a door it stays in this current room.
      *
      */
-    public void move() {
-        
-        int select = (int) (Math.random() * 4) + 1;
+        public void move() {
+        int select = 0;
+        int count = 0;
+        while (count < 100) {
+            count++;
 
-        super.move(select);
-        System.out.println("-----------------------------");
-        System.out.println("Monster is in" + currentRoom.getRoomName());
-        System.out.println("-----------------------------");
-        
-       
+            select = (int) (Math.random() * 4) + 1;
+
+            if (select == 1) {
+                if (currentRoom.getNorth() != null && !currentRoom.getNorth().hashMonster()) {
+                    currentRoom.getNorth().setHashMonster(true);
+                    break;
+
+                }
+
+            }
+            if (select == 2) {
+                if (currentRoom.getSouth() != null && !currentRoom.getSouth().hashMonster()) {
+                    currentRoom.getSouth().setHashMonster(true);
+                    break;
+
+                }
+
+            }
+            if (select == 3) {
+                if (currentRoom.getEast() != null && !currentRoom.getEast().hashMonster()) {
+                    currentRoom.getEast().setHashMonster(true);
+                    break;
+                }
+            }
+            if (select == 4) {
+                if (currentRoom.getWest() != null && !currentRoom.getWest().hashMonster()) {
+                    currentRoom.getWest().setHashMonster(true);
+
+                    break;
+
+                }
+                
+            }
+        }
+        if (count < 100) {
+            currentRoom.setHashMonster(false);
+
+            super.move(select);
+        }
+        System.out.println(
+                "-----------------------------");
+        System.out.println(
+                "Monster is in" + currentRoom.getRoomName());
+        System.out.println(
+                "-----------------------------");
+
     }
+    
 
     public void setHealth(int health) {
         this.health = health;

@@ -17,9 +17,9 @@ import java.util.logging.Logger;
 
 public class HighScore {
 
-    public ArrayList<String> getHighScore() throws IOException {
+    public List<Score> getHighScore() throws IOException {
         BufferedReader inputStream = null;
-        ArrayList<String> highScore = new ArrayList<>();
+        List<Score> highScore = new ArrayList<>();
         try {
             String line;
             //File file = new File("highScore.txt");
@@ -27,7 +27,19 @@ public class HighScore {
             inputStream = new BufferedReader(new FileReader("highScore.txt"));
 
             while ((line = inputStream.readLine()) != null) {
-                highScore.add(line);
+               String[] split = line.split(",");
+               if(split.length != 2)
+                   throw new IllegalStateException();
+               String name = split[0];
+               try{
+                   int score = Integer.parseInt(split[1].trim());
+                   highScore.add(new Score(name, score));
+               } catch(NumberFormatException e){
+                                     throw new IllegalStateException(e);
+ 
+               }
+               
+             
             }
 
         } catch (IOException e) {
@@ -40,17 +52,18 @@ public class HighScore {
     }
 //setHighScore(this.player.getName() + " " + player.getInventory)
 
-    private void setHighScore(String score, List<String> scores) {
+    public void setHighScore(List<Score> scores) {
 
+        scores.sort((a, b) -> Integer.compare(b.getScore(), a.getScore()));
+        
         try (FileWriter writer = new FileWriter("highScore.txt"); 
                 BufferedWriter bWriter = new BufferedWriter(writer)) {
-            scores.add(score);
-            
+           
             System.out.println("List = " + scores);
 
             String body = "";
-            for (String s : scores) {
-                bWriter.append(s);
+            for (Score s : scores) {
+                bWriter.append(s.toString());
                 bWriter.newLine();
             }
             
@@ -63,7 +76,7 @@ public class HighScore {
 
     }
     
-    
+    /*
     public void addHighscore(String score)
     {
         try { 
@@ -74,7 +87,7 @@ public class HighScore {
         }
         
     }
-    
+    */
     
 //    public static void main(String[] args) throws IOException {
 //        HighScore hs = new HighScore();
