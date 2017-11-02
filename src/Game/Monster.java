@@ -38,10 +38,13 @@ public class Monster extends Character {
      *
      */
     public void move() {
-        int select;
-        while (true) {
+        int select = 0;
+        int count = 0;
+        while (count < 100) {
+            count++;
+
             select = (int) (Math.random() * 4) + 1;
-            
+
             if (select == 1) {
                 if (currentRoom.getNorth() != null && !currentRoom.getNorth().hashMonster()) {
                     currentRoom.getNorth().setHashMonster(true);
@@ -51,7 +54,7 @@ public class Monster extends Character {
 
             }
             if (select == 2) {
-                if (currentRoom.getSouth()!= null && !currentRoom.getSouth().hashMonster()) {
+                if (currentRoom.getSouth() != null && !currentRoom.getSouth().hashMonster()) {
                     currentRoom.getSouth().setHashMonster(true);
                     break;
 
@@ -59,26 +62,26 @@ public class Monster extends Character {
 
             }
             if (select == 3) {
-                if (currentRoom.getEast()!= null && !currentRoom.getEast().hashMonster()) {
+                if (currentRoom.getEast() != null && !currentRoom.getEast().hashMonster()) {
                     currentRoom.getEast().setHashMonster(true);
                     break;
                 }
             }
             if (select == 4) {
-                if (currentRoom.getWest()!= null && !currentRoom.getWest().hashMonster()) {
+                if (currentRoom.getWest() != null && !currentRoom.getWest().hashMonster()) {
                     currentRoom.getWest().setHashMonster(true);
-                    
-                    break;
-                    
-                }
 
+                    break;
+
+                }
+                
             }
         }
+        if (count < 100) {
+            currentRoom.setHashMonster(false);
 
-        currentRoom.setHashMonster(false);
-
-        super.move(select);
-
+            super.move(select);
+        }
         System.out.println(
                 "-----------------------------");
         System.out.println(
