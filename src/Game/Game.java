@@ -25,6 +25,7 @@ public class Game {
     private ArrayList<Room> visitedRooms;
     private boolean gameRunning = true;
     private Monster monster;
+    private Monster monster2;
     private PlayerHistory ph;
  
     private HighScore hScore = new HighScore();
@@ -41,7 +42,7 @@ public class Game {
 
         this.player = new Player("name", rooms.get(0), 100, 100, ph, 20);
         this.monster = new Monster("Boo", rooms.get(randomNumber.nextInt(19) + 2), 100, 10, rl);
-        this.monster = new Monster("Bob", rooms.get(randomNumber.nextInt(19) + 2), 100, 10, rl);
+        this.monster2 = new Monster("Bob", rooms.get(randomNumber.nextInt(19) + 2), 100, 10, rl);
         Item mItem = itemList.getMonsterheart();
         monster.addItem(mItem);
 
@@ -85,18 +86,22 @@ public class Game {
                 case 1:
                     player.moveNorth();
                     monster.move();
+                    monster2.move();
                     break;
                 case 2:
                     player.moveSouth();
                     monster.move();
+                    monster2.move();
                     break;
                 case 3:
                     player.moveEast();
                     monster.move();
+                    monster2.move();
                     break;
                 case 4:
                     player.moveWest();
                     monster.move();
+                    monster2.move();
                     break;
                 case 5:
                     System.out.println(player.playerHistory);
