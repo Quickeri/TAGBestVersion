@@ -9,30 +9,37 @@ public class Combat {
         this.c1 = c1;
         this.c2 = c2;
     }
-/**
- *  General fight method - turn based - player starts
- */
+
+    /**
+     * General fight method - turn based - player starts
+     */
     public void fight() {
         System.out.println("3, 2, 1... FIGHT!! ");
-        while (c1.health >= 0 && c2.health >= 0){
+        while (c1.health >= 0 && c2.health >= 0) {
             c2.health = c2.health - c1.damage;
             c1.health = c1.health - c2.damage;
         }
+        if (c2.health <= 0) {
+            System.out.println("the misnter died you have " + c1.health + " health");
+      
+       
 
+        }
     }
-/**
- * getWinner returns the winner of the fight (as a string) by checking the healt of the characters
- */
+
+    /**
+     * getWinner returns the winner of the fight (as a string) by checking the
+     * healt of the characters
+     */
     public String getWinner() {
-        if(c2.health > 0 && c1.health <= 0 ){
+        if (c2.health > 0 && c1.health <= 0) {
             return c2.getName();
         }
-        if(c1.health > 0 && c2.health <= 0 ){
+        if (c1.health > 0 && c2.health <= 0) {
             return c1.getName();
-        
-        }
-        else;
-       return null;
+
+        } else;
+        return null;
     }
 
 }

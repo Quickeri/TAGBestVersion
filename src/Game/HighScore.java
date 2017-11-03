@@ -16,7 +16,7 @@ import java.util.List;
 public class HighScore {
 
     public List<Score> getHighScore() {
-        BufferedReader inputStream = null;
+        BufferedReader inputStream;
         List<Score> highScore = new ArrayList<>();
         System.out.println();
         try {
@@ -26,25 +26,25 @@ public class HighScore {
             inputStream = new BufferedReader(new FileReader("highScore.txt"));
 
             while ((line = inputStream.readLine()) != null) {
-               String[] split = line.split(",");
-               if(split.length != 2)
-                   throw new IllegalStateException();
-               String name = split[0];
-               try{
-                   int score = Integer.parseInt(split[1].trim());
-                   highScore.add(new Score(name, score));
-               } catch(NumberFormatException e){
-                                     throw new IllegalStateException(e);
- 
-               }
-               
-             
+                String[] split = line.split(",");
+                if (split.length != 2) {
+                    throw new IllegalStateException();
+                }
+                String name = split[0];
+                try {
+                    int score = Integer.parseInt(split[1].trim());
+                    highScore.add(new Score(name, score));
+                } catch (NumberFormatException e) {
+                    throw new IllegalStateException(e);
+
+                }
+
             }
 
         } catch (IOException | IllegalStateException e) {
             e.printStackTrace();
             System.out.println("HighScore file is corrupt");
-        } 
+        }
         return highScore;
     }
 //setHighScore(this.player.getName() + " " + player.getInventory)
@@ -52,18 +52,17 @@ public class HighScore {
     public void setHighScore(List<Score> scores) {
 
         scores.sort((a, b) -> Integer.compare(b.getScore(), a.getScore()));
-        
-        try (FileWriter writer = new FileWriter("highScore.txt"); 
+
+        try (FileWriter writer = new FileWriter("highScore.txt");
                 BufferedWriter bWriter = new BufferedWriter(writer)) {
-           
-            System.out.println("List = " + scores);
+            System.out.println("HighScore = " + scores);
 
             String body = "";
             for (Score s : scores) {
                 bWriter.append(s.toString());
                 bWriter.newLine();
             }
-            
+
             bWriter.write(body);
             bWriter.flush();
 
@@ -72,7 +71,7 @@ public class HighScore {
         }
 
     }
-    
+
     /*
     public void addHighscore(String score)
     {
@@ -84,8 +83,7 @@ public class HighScore {
         }
         
     }
-    */
-    
+     */
 //    public static void main(String[] args) throws IOException {
 //        HighScore hs = new HighScore();
 //        hs.addHighscore("Bob 69");

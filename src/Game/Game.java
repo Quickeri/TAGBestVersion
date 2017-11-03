@@ -16,7 +16,7 @@ import textio.TextIO;
 
 public class Game {
 
-    private final List l = Arrays.asList(new String[]{"Help", "North", "South", "East", "West", "Route", "pickup", "showitem", "quit"});
+    private final List l = Arrays.asList(new String[]{"Help", "North", "South", "East", "West", "Route", "Pickup", "Showitem", "Heal", "Quit"});
     private final Scanner sc = new Scanner(System.in);
     private final TextIO io = new TextIO(new SysTextIO());
     private Player player;
@@ -26,6 +26,7 @@ public class Game {
     private final boolean gameRunning = true;
     private Monster monster;
     private Monster monster2;
+    private Monster boss;
     private PlayerHistory ph;
 
     private HighScore hScores = new HighScore();
@@ -41,10 +42,13 @@ public class Game {
         this.ph = new PlayerHistory(player);
 
         this.player = new Player("name", rooms.get(0), 100, 100, ph, 7);
-        this.monster = new Monster("Boo", rooms.get(randomNumber.nextInt(19) + 2), 100, 10, rl);
-        this.monster2 = new Monster("Jim", rooms.get(randomNumber.nextInt(19) + 2), 100, 10, rl);
+        this.monster = new Monster("Boo", rooms.get(randomNumber.nextInt(19) + 2), 100, 1, rl);
+        this.monster2 = new Monster("Jim", rooms.get(randomNumber.nextInt(19) + 2), 100, 1, rl);
+        this.boss = new Monster("BOSS", rooms.get(21), 100, 1, rl);
         Item mItem = itemList.getMonsterheart();
         monster.addItem(mItem);
+        monster2.addItem(mItem);
+        
 
         // player.inventory.addItem(itemList.getKey());
     }
@@ -80,7 +84,7 @@ public class Game {
                 io.put("Sorry mate you are trapped \n");
 
             }
-            
+
             switch (select) {
 
                 case 1:
@@ -109,6 +113,14 @@ public class Game {
                 case 6:
 
                     player.pickupItem();
+                    player.setWornWeapon();
+                    System.out.println("you are useing this weedpon " + player.getWornWeapon().getName());
+                    player.setWornArmour();
+                    player.setMaxHealth();
+                    player.setDamage();
+                    System.out.println("HP: " + player.getHealth()
+                            + "max HP:" + player.getMaxHealth()
+                            + "DMG: " + player.getDamage());
                     break;
                 case 7:
 
@@ -123,13 +135,9 @@ public class Game {
                     }
                     break;
                 case 8:
-                   
-//                    player.chooseWeapon();
-//                    
-//                    Item equippedItem;
-//                    
-//                    
-//                    player.setDamage(equippedItem.getDamage());
+                    player.heal();
+                    System.out.println("You feel revived, and you heal to " + player.getHealth() + "health" );
+                    break;
                 case 9:
 
                     System.exit(0);
@@ -146,39 +154,55 @@ public class Game {
                     break;
             }
 
+            Combat combat = new Combat(player, monster);
+            Combat combat2 = new Combat(player, monster2);
             if (player.getCurrentRoom() == monster.getCurrentRoom()) {
 
-                Combat combat = new Combat(player, monster);
                 combat.fight();
                 if (player.getName().equals(combat.getWinner())) {
                     for (int i = 0; i < monster.getInventorySize(); i++) {
                         Item item = monster.inventory.inventory.get(i);
                         player.currentRoom.getroomInventory().addItem(item);
                         System.out.println(player.getHealth());
-                    }
-//                    monster.setCurrentRoom(rooms.get(randomNumber.nextInt(19) + 2));
-//                    monster.setHealth(100);
-//                    io.put("The monster drops some items as it disappears in a smoky cloud!\n"
-//                            + " you have a feeling this isn't the last time you'll encounter him!\n");
-////                    io.put(player.currentRoom.getroomInventory().printInventory());
-
-                }
-                if (monster.getName().equals(combat.getWinner())) {
-
-                    Souts.youDiedMSG();
-                    System.out.println("do you want to play again? y/n");
-                    replay = sc.next();
-
-                    if ("y".equals(replay)) {
-                        clearGame();
-                        play();
-                    } else if ("n".equals(replay)) {
-                        System.out.println("Game Over!");
-                        System.exit(0);
+                        monster.setCurrentRoom(rooms.get(randomNumber.nextInt(19)));
                     }
                 }
             }
-            if (player.getCurrentRoom() == rooms.get(21)) {
+            if (player.getCurrentRoom() == monster2.getCurrentRoom()) {
+
+                combat2.fight();
+                if (player.getName().equals(combat2.getWinner())) {
+                    for (int i = 0; i < monster2.getInventorySize(); i++) {
+                        Item item = monster2.inventory.inventory.get(i);
+                        player.currentRoom.getroomInventory().addItem(item);
+                        System.out.println(player.getHealth());
+                        monster2.setCurrentRoom(rooms.get(randomNumber.nextInt(19)));
+                    }
+
+                }
+            }
+            if (monster.getName().equals(combat.getWinner())
+                    || monster2.getName().equals(combat2.getWinner())) {
+
+                Souts.youDiedMSG();
+                System.out.println("do you want to play again? y/n");
+                replay = sc.next();
+
+                if ("y".equals(replay)) {
+                    clearGame();
+                    play();
+                } else if ("n".equals(replay)) {
+                    System.out.println("Game Over!");
+                    System.exit(0);
+                }
+            }
+        }
+        if (player.getCurrentRoom() == rooms.get(21)) {
+            Combat bCombat = new Combat(player, monster);
+            boss.description();
+            bCombat.fight();
+
+            if (player.getName().equals(bCombat.getWinner())) {
                 HighScore hs = new HighScore();
                 Score score = new Score(player.getName(), player.getScore());
                 List<Score> scores = hScores.getHighScore();
@@ -195,9 +219,22 @@ public class Game {
                     System.out.println("Game Over!");
                     System.exit(0);
                 }
-
+            } else {
+                Souts.youDiedMSG();
             }
+            System.out.println("do you want to play again? y/n");
+            replay = sc.next();
+
+            if ("y".equals(replay)) {
+                clearGame();
+                play();
+            } else if ("n".equals(replay)) {
+                System.out.println("Game Over!");
+                System.exit(0);
+            }
+
         }
+
     }
 
     /**

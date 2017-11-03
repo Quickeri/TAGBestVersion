@@ -1,5 +1,7 @@
 package Game.RoomsAndChests;
 
+import Game.HighScore;
+
 public class Souts {
 
     public Souts() {
@@ -22,6 +24,8 @@ public class Souts {
                 + "   __/ |                                                            \n"
                 + "  |___/                                                   \n");
 
+        
+    
     }
 
     public static void youDiedMSG() {

@@ -1,6 +1,7 @@
 package Game;
 
 import Game.Items.Armour;
+import Game.Items.Healing;
 import Game.Items.Item;
 import Game.Items.ItemList;
 import Game.Items.Weapon;
@@ -16,7 +17,9 @@ public class Player extends Character {
     PlayerHistory playerHistory;
     private Weapon wornWeapon = null;
     private Armour wornArmour = null;
+
     private int baseDamage = 7;
+    private int baseHealth = 100;
     // private Chestlist chestlist = new Chestlist();
 
     /**
@@ -25,17 +28,17 @@ public class Player extends Character {
      * @param name
      * @param currentRoom
      * @param playerHP
-     * @param maxPlayerHP
+     * @param maxHealth
      * @param playerHistory
      * @param damage
      */
-    public Player(String name, Room currentRoom, int playerHP, int maxPlayerHP, PlayerHistory playerHistory, int damage) {
+    public Player(String name, Room currentRoom, int playerHP, int maxHealth, PlayerHistory playerHistory, int damage) {
         this.name = name;
         this.currentRoom = currentRoom;
         this.health = playerHP;
-        this.maxHealth = maxPlayerHP;
+        this.maxHealth = maxHealth;
         this.playerHistory = playerHistory;
-        this.damage = damage; 
+        this.damage = damage;
     }
 
     public Inventory getinventory() {
@@ -64,11 +67,17 @@ public class Player extends Character {
         this.health = health;
     }
 
-    public void setMaxHealth(int maxHealth) {
-        if(wornArmour == null){
-            this.maxHealth = maxHealth;
-        }else{
-            this.maxHealth = maxHealth + wornArmour.getItemArmour();
+    public void setMaxHealth() {
+        if (wornArmour == null) {
+            maxHealth = 100;
+        } else {
+
+            maxHealth = baseHealth + wornArmour.getItemArmour();
+            health = health + wornArmour.getItemArmour();
+//            if(health >= maxHealth + wornArmour.getItemArmour()){
+//                health = maxHealth;
+//                    
+//                }
         }
     }
 
@@ -106,6 +115,7 @@ public class Player extends Character {
         String fName = new String(arr);
         this.name = fName;
     }
+
     /**
      * Method for getting human players current room.
      *
@@ -115,6 +125,7 @@ public class Player extends Character {
     public Room getCurrentRoom() {
         return currentRoom;
     }
+
     /**
      * Method for getting human players name.
      *
@@ -129,18 +140,45 @@ public class Player extends Character {
         return wornWeapon;
     }
 
-    public void setWornWeapon(Weapon wornWeapon) {
-        this.wornWeapon = wornWeapon;
+    public void setWornWeapon() {
+
+        for (int i = 0; i < inventory.inventory.size(); i++) {
+            ArrayList<Weapon> weapons = new ArrayList<>();
+
+            if (inventory.inventory.get(i) instanceof Weapon) {
+                weapons.add((Weapon) inventory.inventory.get(i));
+
+            }
+            weapons.sort((a, b) -> Integer.compare(b.getDamage(), a.getDamage()));
+
+            if (weapons.size() > 0) {
+
+                wornWeapon = weapons.get(0);
+            }
+
+        }
     }
 
     public Armour getWornArmour() {
         return wornArmour;
     }
 
-    public void setWornArmour(Armour wornArmour) {
-        this.wornArmour = wornArmour;
+    public void setWornArmour() {
+
+        for (int i = 0; i < inventory.inventory.size(); i++) {
+            ArrayList<Armour> armour = new ArrayList<>();
+            if (inventory.inventory.get(i) instanceof Armour) {
+                armour.add((Armour) inventory.inventory.get(i));
+
+            }
+            armour.sort((a, b) -> Integer.compare(b.getItemArmour(), a.getItemArmour()));
+            if (armour.size() > 0) {
+
+                wornArmour = armour.get(0);
+            }
+        }
     }
-    
+
     public void printPlayerHistory() {
         if (playerHistory.visitedRooms.isEmpty()) {
             playerHistory.addToVisitedRooms(currentRoom);
@@ -153,6 +191,7 @@ public class Player extends Character {
             System.out.println(currentRoom.getDescription());
         } else {
             currentRoom = currentRoom.getNorth();
+            currentRoom.setHashMonster(false);
             System.out.println("you go north \n " + currentRoom.getDescription());
             playerHistory.addToVisitedRooms(currentRoom);
             System.out.println("-----------------------------");
@@ -167,6 +206,7 @@ public class Player extends Character {
             System.out.println(currentRoom.getDescription());
         } else {
             currentRoom = currentRoom.getSouth();
+            currentRoom.setHashMonster(false);
             System.out.println("You go south \n" + currentRoom.getDescription());
             System.out.println("-----------------------------");
             System.out.println("player is in" + currentRoom.getRoomName());
@@ -180,6 +220,7 @@ public class Player extends Character {
             System.out.println(currentRoom.getDescription());
         } else {
             currentRoom = currentRoom.getEast();
+            currentRoom.setHashMonster(false);
             System.out.println("You go east \n" + currentRoom.getDescription());
             System.out.println("-----------------------------");
             System.out.println("player is in" + currentRoom.getRoomName());
@@ -193,6 +234,7 @@ public class Player extends Character {
             System.out.println(currentRoom.getDescription());
         } else {
             currentRoom = currentRoom.getWest();
+            currentRoom.setHashMonster(false);
             System.out.println("You go west \n" + currentRoom.getDescription());
             System.out.println("-----------------------------");
             System.out.println("player is in" + currentRoom.getRoomName());
@@ -216,23 +258,22 @@ public class Player extends Character {
         }
         roomInv.clear();
     }
+
     @Override
     public void setDamage() {
-        if(wornWeapon == null){
-            this.damage = baseDamage;
-        }else{
-            this.damage = baseDamage + wornWeapon.getDamage();
-        }
-    }
-    
-    public int getDamage() {
-        if(wornWeapon == null){
-            return baseDamage;
-        }else{
-            return baseDamage + wornWeapon.getDamage();
+        if (wornWeapon == null) {
+            damage = baseDamage;
+
+        } else {
+            damage = baseDamage + wornWeapon.getDamage();
         }
     }
 
+    //baseDamage + wornWeapon.getDamage();
+    public int getDamage() {
+        return damage;
+
+    }
 
 //    void chooseWeapon() {
 //        ArrayList<Item> weapons = new ArrayList<>();
@@ -244,8 +285,25 @@ public class Player extends Character {
 //        
 //        switch(select)
 //    }
+    void heal() {
+        boolean yes = false;
+        for (int i = 0; i < inventory.inventory.size(); i++) {
+            if (inventory.inventory.get(i) instanceof Healing) {
+                yes = true;
 
-   
+            }
+            if (yes == true) {
+                health += 20;
 
-    
+            }
+            if (health > maxHealth) {
+
+                health = maxHealth;
+
+            }
+            
+        }
+
+    }
+
 }

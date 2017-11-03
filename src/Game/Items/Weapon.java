@@ -9,17 +9,10 @@ public class Weapon extends EquipableItem{
 
     public Weapon(String name, String description,int damage, int itemPoints, boolean equipable) {
         super(name, description, itemPoints, equipable);
+        this.damage = damage;
     }   
 
     public int getDamage() {
         return damage;
     }
-
-    
-
-    @Override
-    public String getName() {
-        return name;
-    }
-    
 }

@@ -130,4 +130,9 @@ public class Monster extends Character {
     public void setDamage() {
         damage = 10;
     }
+
+    void description() {
+
+        System.out.println("THE IS EN MOTHERTRUCKING BOSS");
+    }
 }

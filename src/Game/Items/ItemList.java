@@ -17,9 +17,11 @@ public class ItemList {
     private final Item chainmail = new Armour("Chainmail", "Very good for medigation, but bad for mobility", 12, 90, true);
     private final Item plateArmour = new Armour("Plate armour", "The best armour for medigation, with bad mobility", 24, 120, true);
 
-//creates general items - name, description, points(for the endgame score, Equipable)
-    private final Item healingPotion = new GeneralItems("Healing Potion", "Heals 30HP", 0, 30, true);
-    private final Item greaterHealingPotion = new GeneralItems("Greater Healing Potion", "Heals 60HP", 0, 60, true);
+//creates Healing items - name, description, points(for the endgame score), healing
+    private final Item healingPotion = new Healing("Healing Potion", "Heals 30HP", 0, 30);
+    private final Item greaterHealingPotion = new Healing("Greater Healing Potion", "Heals 60HP", 0, 60);
+    
+ //creates general items - name, description, points(for the endgame score, Equipable)   
     private final Item key = new GeneralItems("Key", "The secret key", 10, 0, true);
     private final Item coins = new GeneralItems("Coins", "Ohhh Shiny!", 1, 0, false);
     private final Item blank = new GeneralItems("", "", 0, 0, false);
