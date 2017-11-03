@@ -1,6 +1,9 @@
 package Game;
 
+import Game.Items.Armour;
 import Game.Items.Item;
+import Game.Items.ItemList;
+import Game.Items.Weapon;
 import Game.RoomsAndChests.Room;
 import java.util.ArrayList;
 import textio.SysTextIO;
@@ -11,6 +14,9 @@ public class Player extends Character {
     private TextIO io = new TextIO(new SysTextIO());
     private int maxHealth = 100;
     PlayerHistory playerHistory;
+    private Weapon wornWeapon = null;
+    private Armour wornArmour = null;
+    private int baseDamage = 7;
     // private Chestlist chestlist = new Chestlist();
 
     /**
@@ -29,7 +35,7 @@ public class Player extends Character {
         this.health = playerHP;
         this.maxHealth = maxPlayerHP;
         this.playerHistory = playerHistory;
-        this.damage = damage;
+        this.damage = damage; 
     }
 
     public Inventory getinventory() {
@@ -56,6 +62,14 @@ public class Player extends Character {
      */
     public void setHealth(int health) {
         this.health = health;
+    }
+
+    public void setMaxHealth(int maxHealth) {
+        if(wornArmour == null){
+            this.maxHealth = maxHealth;
+        }else{
+            this.maxHealth = maxHealth + wornArmour.getItemArmour();
+        }
     }
 
     /**
@@ -110,6 +124,23 @@ public class Player extends Character {
     public String getName() {
         return name;
     }
+
+    public Weapon getWornWeapon() {
+        return wornWeapon;
+    }
+
+    public void setWornWeapon(Weapon wornWeapon) {
+        this.wornWeapon = wornWeapon;
+    }
+
+    public Armour getWornArmour() {
+        return wornArmour;
+    }
+
+    public void setWornArmour(Armour wornArmour) {
+        this.wornArmour = wornArmour;
+    }
+    
     public void printPlayerHistory() {
         if (playerHistory.visitedRooms.isEmpty()) {
             playerHistory.addToVisitedRooms(currentRoom);
@@ -185,11 +216,23 @@ public class Player extends Character {
         }
         roomInv.clear();
     }
-
     @Override
-    public void setDamage(int d) {
-        damage = d;
+    public void setDamage() {
+        if(wornWeapon == null){
+            this.damage = baseDamage;
+        }else{
+            this.damage = baseDamage + wornWeapon.getDamage();
+        }
     }
+    
+    public int getDamage() {
+        if(wornWeapon == null){
+            return baseDamage;
+        }else{
+            return baseDamage + wornWeapon.getDamage();
+        }
+    }
+
 
 //    void chooseWeapon() {
 //        ArrayList<Item> weapons = new ArrayList<>();
@@ -201,4 +244,8 @@ public class Player extends Character {
 //        
 //        switch(select)
 //    }
+
+   
+
+    
 }

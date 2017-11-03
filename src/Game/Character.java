@@ -10,8 +10,6 @@ public abstract class Character {
     int health;
     int damage;
     Item currentItem;
-
-    
     Room currentRoom;
     
     Inventory inventory = new Inventory();
@@ -54,7 +52,7 @@ public abstract class Character {
     public abstract String getName();
     public abstract Room getCurrentRoom();
     public abstract void setCurrentRoom(Room currentRoom);
-    public abstract void setDamage(int d);
+    public abstract void setDamage();
 
     @Override
     public String toString() {

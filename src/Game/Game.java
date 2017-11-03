@@ -40,7 +40,7 @@ public class Game {
         this.rooms = rl.createRooms();
         this.ph = new PlayerHistory(player);
 
-        this.player = new Player("name", rooms.get(0), 100, 100, ph, 20);
+        this.player = new Player("name", rooms.get(0), 100, 100, ph, 7);
         this.monster = new Monster("Boo", rooms.get(randomNumber.nextInt(19) + 2), 100, 10, rl);
         this.monster2 = new Monster("Jim", rooms.get(randomNumber.nextInt(19) + 2), 100, 10, rl);
         Item mItem = itemList.getMonsterheart();
@@ -52,9 +52,8 @@ public class Game {
     /**
      * The play method plays the rounds and checks for win and lose condition.
      *
-     * @throws java.io.IOException
      */
-    public void play() throws IOException {
+    public void play() {
         String replay;
         System.out.println("------------------------- \n Welcome to our TAG v1.0 \n-------------------------");
         System.out.println("input your name for this run:");

@@ -15,7 +15,11 @@ public class Weapon extends EquipableItem{
         return damage;
     }
 
-   
-     
+    
+
+    @Override
+    public String getName() {
+        return name;
+    }
     
 }

@@ -15,7 +15,7 @@ import java.util.List;
 
 public class HighScore {
 
-    public List<Score> getHighScore() throws IOException {
+    public List<Score> getHighScore() {
         BufferedReader inputStream = null;
         List<Score> highScore = new ArrayList<>();
         System.out.println();
@@ -41,12 +41,10 @@ public class HighScore {
              
             }
 
-        } catch (IOException e) {
+        } catch (IOException | IllegalStateException e) {
             e.printStackTrace();
-        } finally {
-            inputStream.close();
-        }
-
+            System.out.println("HighScore file is corrupt");
+        } 
         return highScore;
     }
 //setHighScore(this.player.getName() + " " + player.getInventory)

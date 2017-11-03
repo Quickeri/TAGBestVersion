@@ -126,12 +126,8 @@ public class Monster extends Character {
         return inventory.inventory.size();
     }
 
+    @Override
     public void setDamage() {
         damage = 10;
-    }
-
-    @Override
-    public void setDamage(int d) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

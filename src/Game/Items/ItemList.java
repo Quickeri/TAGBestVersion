@@ -2,7 +2,7 @@ package Game.Items;
 
 
 public class ItemList {
-
+//creates weapons - name, description, points(for the endgame score), damage and equipable
     private final Item woodKnife = new Weapon("Wood knife", "Made of wood and why would you use this?", 2, 43, true);
     private final Item cookingKnife = new Weapon("Cooking knife", "Made for chopping salad", 3, 3, true);
     private final Item smallBastardSword = new Weapon("Small Bastard sword", "A small but easy to handle sword", 6, 6, true);
@@ -34,6 +34,7 @@ public class ItemList {
             
         return key;
     }
+    
     public Item getMonsterheart() {
         return monsterheart;
     }

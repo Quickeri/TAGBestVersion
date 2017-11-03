@@ -4,3 +4,4 @@ Bob,69
 bob,43
 line,43
 far,0
+bobby,0
