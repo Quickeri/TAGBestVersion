@@ -16,33 +16,15 @@ public abstract class Character {
     
     Inventory inventory = new Inventory();
 
-//    public void combat(int select) {
-//        switch (select) {
-//            case 1:
-//               monster.health = monster.health - player.damage;
-//              
-//                    break;
-//                }
-//            case 2:
-//                run
-//                break 
-//                        defult
-//        
-//    
-//
-//    
-//                                    
-//    }
-//    }
-    
-    
+/**
+ * move method for our characters (monster and player)
+ * can move the characters in all 4 directions (by setting currentRoom to the room in the appropiate direction of currentRoom)
+ */
     public void move(int select) {
 
         switch (select) {
             case 1:
                 if (currentRoom.getNorth() == null) {
-
-                    // System.out.println("sourth is null");
                 } else {
                     currentRoom = currentRoom.getNorth();
                 }
@@ -70,9 +52,7 @@ public abstract class Character {
     }
 
     public abstract String getName();
-
     public abstract Room getCurrentRoom();
-
     public abstract void setCurrentRoom(Room currentRoom);
     public abstract void setDamage(int d);
 

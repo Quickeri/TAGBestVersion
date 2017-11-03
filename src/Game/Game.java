@@ -82,7 +82,6 @@ public class Game {
 
             }
             
-            
             switch (select) {
 
                 case 1:
@@ -125,19 +124,19 @@ public class Game {
                     }
                     break;
                 case 8:
+                   
 //                    player.chooseWeapon();
 //                    
 //                    Item equippedItem;
 //                    
 //                    
 //                    player.setDamage(equippedItem.getDamage());
-//                case 9:
+                case 9:
 
                     System.exit(0);
                     break;
 
                 default:
-
                     System.out.println(
                             "Help I'm retarded!\n"
                             + player.playerHistory + "\n"
@@ -203,7 +202,7 @@ public class Game {
     }
 
     /**
-     * The claergame method clears the game data, so the game can start fresh
+     * The cleargame method clears the game data, so the game can start fresh
      * when the player chooses to play again.
      */
     private void clearGame() {

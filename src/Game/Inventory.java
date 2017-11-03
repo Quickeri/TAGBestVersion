@@ -6,21 +6,16 @@ import java.util.ArrayList;
 public class Inventory {
     
     ArrayList<Item> inventory = new ArrayList<>();
-
     
-       public Inventory(){
-
+    public Inventory(){
+        
     }
     public void setInventory(ArrayList<Item> inventory) {
         this.inventory = inventory;
     }
-
     public ArrayList<Item> getInventory() {
         return inventory;
     }
-    
-  
-          
     
     public void addItem(Item item){
         inventory.add(item);     
@@ -28,15 +23,15 @@ public class Inventory {
     public void removeItem(Item item){
         inventory.remove(item);
     }
-    
+    /**
+     * adds the players items to a value item by item and 
+     * returns the entire inventory as a string
+     */
     public String printInventory(){
         String ress = "";
               for (int i = 0; i < inventory.size(); i++) {
-                  
             ress += inventory.get(i).getName() + "\n";
-            
         }
-  
         return ress;
     }
     

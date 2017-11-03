@@ -50,17 +50,13 @@ public class Monster extends Character {
                 if (currentRoom.getNorth() != null && !currentRoom.getNorth().hashMonster()) {
                     currentRoom.getNorth().setHashMonster(true);
                     break;
-
                 }
-
             }
             if (select == 2) {
                 if (currentRoom.getSouth() != null && !currentRoom.getSouth().hashMonster()) {
                     currentRoom.getSouth().setHashMonster(true);
                     break;
-
                 }
-
             }
             if (select == 3) {
                 if (currentRoom.getEast() != null && !currentRoom.getEast().hashMonster()) {
@@ -71,16 +67,12 @@ public class Monster extends Character {
             if (select == 4) {
                 if (currentRoom.getWest() != null && !currentRoom.getWest().hashMonster()) {
                     currentRoom.getWest().setHashMonster(true);
-
                     break;
-
                 }
-                
             }
         }
         if (count < 100) {
             currentRoom.setHashMonster(false);
-
             super.move(select);
         }
         System.out.println(
@@ -89,26 +81,20 @@ public class Monster extends Character {
                 "Monster is in" + currentRoom.getRoomName());
         System.out.println(
                 "-----------------------------");
-
     }
-    
 
     public void setHealth(int health) {
         this.health = health;
     }
-
     public void setInventory(Item item) {
         inventory.addItem(item);
     }
-
     public Inventory getInventory() {
-
         return inventory;
     }
 
     /**
      * Method for getting the monsters name.
-     *
      * @return
      */
     @Override
@@ -138,17 +124,14 @@ public class Monster extends Character {
 
     int getInventorySize() {
         return inventory.inventory.size();
-
     }
 
     public void setDamage() {
         damage = 10;
-
     }
 
     @Override
     public void setDamage(int d) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
 }

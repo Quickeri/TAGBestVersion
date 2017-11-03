@@ -9,9 +9,7 @@ import textio.TextIO;
 public class Player extends Character {
 
     private TextIO io = new TextIO(new SysTextIO());
-
     private int maxHealth = 100;
-
     PlayerHistory playerHistory;
     // private Chestlist chestlist = new Chestlist();
 
@@ -32,7 +30,6 @@ public class Player extends Character {
         this.maxHealth = maxPlayerHP;
         this.playerHistory = playerHistory;
         this.damage = damage;
-
     }
 
     public Inventory getinventory() {
@@ -86,20 +83,15 @@ public class Player extends Character {
      * @param name
      */
     public void setName(String name) {
-        
         char arr[] = name.toCharArray();
         for (int i = 0; i < arr.length; i++) {
-
             if (arr[i] == ',') {
                 arr[i] = '.';
             }
         }
         String fName = new String(arr);
-    
-           this.name = fName;
-
+        this.name = fName;
     }
-
     /**
      * Method for getting human players current room.
      *
@@ -109,7 +101,6 @@ public class Player extends Character {
     public Room getCurrentRoom() {
         return currentRoom;
     }
-
     /**
      * Method for getting human players name.
      *
@@ -119,11 +110,9 @@ public class Player extends Character {
     public String getName() {
         return name;
     }
-
     public void printPlayerHistory() {
         if (playerHistory.visitedRooms.isEmpty()) {
             playerHistory.addToVisitedRooms(currentRoom);
-
         }
     }
 
@@ -132,7 +121,6 @@ public class Player extends Character {
             System.out.println("---------------------\n You cannot go there!\n-----------------------");
             System.out.println(currentRoom.getDescription());
         } else {
-
             currentRoom = currentRoom.getNorth();
             System.out.println("you go north \n " + currentRoom.getDescription());
             playerHistory.addToVisitedRooms(currentRoom);
@@ -140,7 +128,6 @@ public class Player extends Character {
             System.out.println("player is in" + currentRoom.getRoomName());
             System.out.println("-----------------------------");
         }
-
     }
 
     public void moveSouth() {
@@ -148,14 +135,12 @@ public class Player extends Character {
             System.out.println("---------------------\n You cannot go there!\n-----------------------");
             System.out.println(currentRoom.getDescription());
         } else {
-
             currentRoom = currentRoom.getSouth();
             System.out.println("You go south \n" + currentRoom.getDescription());
             System.out.println("-----------------------------");
             System.out.println("player is in" + currentRoom.getRoomName());
             System.out.println("-----------------------------");
         }
-
     }
 
     public void moveEast() {
@@ -163,14 +148,12 @@ public class Player extends Character {
             System.out.println("---------------------\n You cannot go there!\n-----------------------");
             System.out.println(currentRoom.getDescription());
         } else {
-
             currentRoom = currentRoom.getEast();
             System.out.println("You go east \n" + currentRoom.getDescription());
             System.out.println("-----------------------------");
             System.out.println("player is in" + currentRoom.getRoomName());
             System.out.println("-----------------------------");
         }
-
     }
 
     public void moveWest() {
@@ -184,7 +167,6 @@ public class Player extends Character {
             System.out.println("player is in" + currentRoom.getRoomName());
             System.out.println("-----------------------------");
         }
-
     }
 
     public int getScore() {
@@ -193,25 +175,20 @@ public class Player extends Character {
             score += item.getItemPoints();
         }
         return score;
-
     }
 
     public void pickupItem() {
         ArrayList<Item> roomInv = currentRoom.getroomInventory().getInventory();
         for (int i = 0; i < roomInv.size(); i++) {
-
             inventory.addItem(roomInv.get(i));
             io.put(roomInv.get(i) + "\n");
         }
         roomInv.clear();
-
     }
 
     @Override
     public void setDamage(int d) {
-
         damage = d;
-
     }
 
 //    void chooseWeapon() {

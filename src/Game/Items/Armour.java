@@ -8,5 +8,4 @@ public class Armour extends EquipableItem{
     public Armour(String name, String description, int itemPoints, int itemArmour, boolean equipable) {
         super(name, description, itemPoints, equipable);
     }      
-    
 }

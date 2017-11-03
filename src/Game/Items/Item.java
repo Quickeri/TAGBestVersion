@@ -6,13 +6,11 @@ public abstract class Item {
 
     private String name, description;
     private int itemPoints;
-    
 
     public Item(String name, String description, int itemPoints) {
         this.name = name;
         this.itemPoints = itemPoints;
         this.description = description;
-  
     }
 
     public String getDescription() {
@@ -31,8 +29,6 @@ public abstract class Item {
         this.itemPoints = itemPoints;
     }
 
-    
-
     public String getName() {
         return name;
     }
@@ -43,13 +39,11 @@ public abstract class Item {
     public String toString() {
         return   "get item up = " + name ;
     }
-
     @Override
     public int hashCode() {
         int hash = 7;
         return hash;
     }
-
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -73,6 +67,4 @@ public abstract class Item {
         }
         return true;
     }
-    
-    
 }
