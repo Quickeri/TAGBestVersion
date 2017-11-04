@@ -6,7 +6,7 @@ import Game.RoomsAndChests.RoomList;
 
 public class Monster extends Character {
 
-    private String name;
+  
     private final RoomList rl;
 
     /**
@@ -75,12 +75,7 @@ public class Monster extends Character {
             currentRoom.setHashMonster(false);
             super.move(select);
         }
-        System.out.println(
-                "-----------------------------");
-        System.out.println(
-                "Monster is in" + currentRoom.getRoomName());
-        System.out.println(
-                "-----------------------------");
+       
     }
 
     public void setHealth(int health) {
@@ -133,6 +128,6 @@ public class Monster extends Character {
 
     void description() {
 
-        System.out.println("THE IS EN MOTHERTRUCKING BOSS");
+        System.out.println("Infront of you is the last boss it is your 7. grade teacher. you are fucked");
     }
 }

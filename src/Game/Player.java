@@ -74,10 +74,7 @@ public class Player extends Character {
 
             maxHealth = baseHealth + wornArmour.getItemArmour();
             health = health + wornArmour.getItemArmour();
-//            if(health >= maxHealth + wornArmour.getItemArmour()){
-//                health = maxHealth;
-//                    
-//                }
+            io.put("your Health is " + health + "/" + maxHealth);
         }
     }
 
@@ -154,6 +151,8 @@ public class Player extends Character {
             if (weapons.size() > 0) {
 
                 wornWeapon = weapons.get(0);
+                System.out.println("You equep " + getWornWeapon().getName());
+
             }
 
         }
@@ -175,6 +174,8 @@ public class Player extends Character {
             if (armour.size() > 0) {
 
                 wornArmour = armour.get(0);
+                System.out.println("you take on " + getWornArmour().getName());
+
             }
         }
     }
@@ -266,6 +267,7 @@ public class Player extends Character {
 
         } else {
             damage = baseDamage + wornWeapon.getDamage();
+            io.put("Your new weapon gives you " + wornWeapon + " attack damage.");
         }
     }
 
@@ -294,16 +296,19 @@ public class Player extends Character {
             }
             if (yes == true) {
                 health += 20;
+                inventory.inventory.remove(i);
+                i = inventory.inventory.size() + 1;
+                if (health > maxHealth) {
+
+                    health = maxHealth;
+
+                }
+                System.out.println("You feel revived, and you heal to "
+                        + getHealth() + "/" + getMaxHealth());
 
             }
-            if (health > maxHealth) {
 
-                health = maxHealth;
-
-            }
-            
         }
 
     }
-
 }

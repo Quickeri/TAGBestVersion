@@ -16,7 +16,7 @@ import textio.TextIO;
 
 public class Game {
 
-    private final List l = Arrays.asList(new String[]{"Help", "North", "South", "East", "West", "Route", "Pickup", "Showitem", "Heal", "Quit"});
+    private final List l = Arrays.asList(new String[]{"Help", "Go North", "Go South", "Go East", "Go West", "See Route", "Pickup Items", "Show inventory", "Heal", "Quit"});
     private final Scanner sc = new Scanner(System.in);
     private final TextIO io = new TextIO(new SysTextIO());
     private Player player;
@@ -45,12 +45,9 @@ public class Game {
         this.monster = new Monster("Boo", rooms.get(randomNumber.nextInt(19) + 2), 100, 1, rl);
         this.monster2 = new Monster("Jim", rooms.get(randomNumber.nextInt(19) + 2), 100, 1, rl);
         this.boss = new Monster("BOSS", rooms.get(21), 100, 1, rl);
-        Item mItem = itemList.getMonsterheart();
-        monster.addItem(mItem);
-        monster2.addItem(mItem);
-        
 
-        // player.inventory.addItem(itemList.getKey());
+        monster.addItem(itemList.getMonsterheart());
+        monster2.addItem(itemList.getMonsterheart());
     }
 
     /**
@@ -59,13 +56,11 @@ public class Game {
      */
     public void play() {
         String replay;
-        System.out.println("------------------------- \n Welcome to our TAG v1.0 \n-------------------------");
+        System.out.println("------------------------- \n Welcome to the dungoen of team 5\n-------------------------");
         System.out.println("input your name for this run:");
         player.setName(sc.nextLine());
         System.out.println("your name is: " + player.getName());
         System.out.println("and now the game begins!");
-        System.out.println("If you need a \"hand \" while playing - just ask for help!\n ");
-        System.out.println("You are in room " + player.currentRoom.getRoomName());
         System.out.println(player.currentRoom.getDescription());
 
         while (gameRunning && player.getCurrentRoom() != rooms.get(21)) {
@@ -73,15 +68,15 @@ public class Game {
             if (player.playerHistory.visitedRooms.isEmpty()) {
                 player.playerHistory.addToVisitedRooms(player.currentRoom);
             }
-
+            io.put("In this room you find:");
             io.put(player.currentRoom.getroomInventory().printInventory());
 
-            int select = io.select("which way do you wanna go?", l, "");
+            int select = io.select("What do you wonna do", l, "");
 
             if (player.currentRoom.getRoomName().equals("Secret room")
                     && -1 == player.inventory.inventory.indexOf(itemList.getKey())) {
                 select = 2;
-                io.put("Sorry mate you are trapped \n");
+//                io.put("Sorry mate you are trapped \n");
 
             }
 
@@ -114,30 +109,26 @@ public class Game {
 
                     player.pickupItem();
                     player.setWornWeapon();
-                    System.out.println("you are useing this weedpon " + player.getWornWeapon().getName());
                     player.setWornArmour();
                     player.setMaxHealth();
                     player.setDamage();
-                    System.out.println("HP: " + player.getHealth()
-                            + "max HP:" + player.getMaxHealth()
-                            + "DMG: " + player.getDamage());
                     break;
                 case 7:
 
                     io.put(player.inventory.printInventory());
                     if (player.getHealth() <= 50) {
 
-                        System.out.println("You have: " + player.getHealth()
-                                + " Hitpoints!\n"
-                                + "Maybe you should heal up!");
+                        System.out.println("Your health is "
+                                + player.getHealth() + "/" + player.getMaxHealth()
+                                + "Maybe you should heal!");
                     } else {
-                        System.out.println("You have: " + player.getHealth() + " Hitpoints!");
+                        System.out.println("Your health is "
+                                + player.getHealth() + "/" + player.getMaxHealth());
                     }
                     break;
                 case 8:
                     player.heal();
-                    System.out.println("You feel revived, and you heal to " + player.getHealth() + "health" );
-                    break;
+                     break;
                 case 9:
 
                     System.exit(0);
