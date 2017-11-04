@@ -5,7 +5,7 @@ import Game.Items.Healing;
 import Game.Items.Item;
 import Game.Items.ItemList;
 import Game.Items.Weapon;
-import Game.RoomsAndChests.Room;
+import Game.RoomsAndsouts.Room;
 import java.util.ArrayList;
 import textio.SysTextIO;
 import textio.TextIO;

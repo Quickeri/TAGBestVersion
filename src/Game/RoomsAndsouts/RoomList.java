@@ -1,4 +1,4 @@
-package Game.RoomsAndChests;
+package Game.RoomsAndsouts;
 
 import Game.Items.ItemList;
 import java.util.ArrayList;
@@ -128,7 +128,7 @@ public class RoomList {
                 + "To the north, you head upwards to the top of the tower.\n"
                 + "To the south, you leave the tower."));              //Room number 20
         
-        rooms.add(new Room("Masters workshop","You have entered the Masters workshop!"));    //Room number 21 - Last Room - winnerchest
+        rooms.add(new Room("Masters workshop","You have entered the Masters workshop!"));    //Room number 21 
         
         
         rooms.add(new Room("Secret room", "you have entered a secret room there are a sword in the room nothing else"));

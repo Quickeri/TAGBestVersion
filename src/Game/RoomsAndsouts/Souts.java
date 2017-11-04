@@ -1,4 +1,4 @@
-package Game.RoomsAndChests;
+package Game.RoomsAndsouts;
 
 import Game.HighScore;
 

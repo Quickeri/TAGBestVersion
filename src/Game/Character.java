@@ -1,7 +1,7 @@
 package Game;
 
 import Game.Items.Item;
-import Game.RoomsAndChests.Room;
+import Game.RoomsAndsouts.Room;
 
 
 public abstract class Character {

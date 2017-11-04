@@ -1,6 +1,6 @@
 package Game;
 
-import Game.RoomsAndChests.Room;
+import Game.RoomsAndsouts.Room;
 import java.util.ArrayList;
 
 public class PlayerHistory {

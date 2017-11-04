@@ -1,8 +1,8 @@
 package Game;
 
 import Game.Items.Item;
-import Game.RoomsAndChests.Room;
-import Game.RoomsAndChests.RoomList;
+import Game.RoomsAndsouts.Room;
+import Game.RoomsAndsouts.RoomList;
 
 public class Monster extends Character {
 
