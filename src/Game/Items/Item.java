@@ -7,6 +7,13 @@ public abstract class Item {
     private String name, description;
     private int itemPoints;
 
+    /**
+     * Constructor for the superclass Item
+     *
+     * @param name
+     * @param description
+     * @param itemPoints - for endgame highscore
+     */
     public Item(String name, String description, int itemPoints) {
         this.name = name;
         this.itemPoints = itemPoints;
@@ -32,18 +39,22 @@ public abstract class Item {
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
+
     @Override
     public String toString() {
-        return   "get item up = " + name ;
+        return "get item up = " + name;
     }
+
     @Override
     public int hashCode() {
         int hash = 7;
         return hash;
     }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
