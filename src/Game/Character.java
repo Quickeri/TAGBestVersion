@@ -3,6 +3,7 @@ package Game;
 import Game.Items.Item;
 import Game.RoomsAndsouts.Room;
 
+
 public abstract class Character {
 
     String name;
@@ -10,16 +11,14 @@ public abstract class Character {
     int damage;
     Item currentItem;
     Room currentRoom;
-
+    
     Inventory inventory = new Inventory();
 
-    /**
-     * move method for our characters (monster and player) can move the
-     * characters in all 4 directions (by setting currentRoom to the room in the
-     * appropiate direction of currentRoom)
-     *
+/**
+ * move method for our characters (monster and player)
+ * can move the characters in all 4 directions (by setting currentRoom to the room in the appropiate direction of currentRoom)
      * @param select
-     */
+ */
     public void move(int select) {
 
         switch (select) {
@@ -52,11 +51,8 @@ public abstract class Character {
     }
 
     public abstract String getName();
-
     public abstract Room getCurrentRoom();
-
     public abstract void setCurrentRoom(Room currentRoom);
-
     public abstract void setDamage();
 
     @Override
