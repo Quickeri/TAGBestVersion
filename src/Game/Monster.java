@@ -128,6 +128,9 @@ public class Monster extends Character {
 
     void description() {
 
-        System.out.println("Infront of you is the last boss it is your 7. grade teacher. you are fucked");
+        System.out.println("Infront of you is the might King Kongor. dispite you entering his workshop he doesn't notice you\n" 
+                + "He is in the middle of picking his nose and as he pulls a might booger\n" 
+                + "out of his nose and eats it, you can't help but say \"EW!\".\n" 
+                + "oh no! He has noticed you and is angry that you are criticising his boogerpicking and now he is VERY angry!");
     }
 }

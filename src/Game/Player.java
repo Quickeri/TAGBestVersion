@@ -151,7 +151,7 @@ public class Player extends Character {
             if (weapons.size() > 0) {
 
                 wornWeapon = weapons.get(0);
-                System.out.println("You equep " + getWornWeapon().getName());
+                System.out.println("You equip " + getWornWeapon().getName());
 
             }
 
@@ -174,7 +174,7 @@ public class Player extends Character {
             if (armour.size() > 0) {
 
                 wornArmour = armour.get(0);
-                System.out.println("you take on " + getWornArmour().getName());
+                System.out.println("you equip " + getWornArmour().getName());
 
             }
         }
