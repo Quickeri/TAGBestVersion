@@ -17,6 +17,7 @@ public abstract class Character {
 /**
  * move method for our characters (monster and player)
  * can move the characters in all 4 directions (by setting currentRoom to the room in the appropiate direction of currentRoom)
+     * @param select
  */
     public void move(int select) {
 

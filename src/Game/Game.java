@@ -41,9 +41,9 @@ public class Game {
         this.ph = new PlayerHistory(player);
 
         this.player = new Player("name", rooms.get(0), 100, 100, ph, 7);
-        this.monster = new Monster("The Boogerman", rooms.get(randomNumber.nextInt(19) + 2), 100, 3, rl);
-        this.monster2 = new Monster("Salty Jimmy", rooms.get(randomNumber.nextInt(19) + 2), 100, 3, rl);
-        this.boss = new Monster("BOSS", rooms.get(21), 100, 10, rl);
+        this.monster = new Monster("The Boogerman", rooms.get(randomNumber.nextInt(19) + 2), 100, 9, rl);
+        this.monster2 = new Monster("Salty Jimmy", rooms.get(randomNumber.nextInt(19) + 2), 100, 9, rl);
+        this.boss = new Monster("BOSS", rooms.get(21), 150, 12, rl);
 
         monster.addItem(itemList.getMonsterheart());
         monster2.addItem(itemList.getMonsterheart());
