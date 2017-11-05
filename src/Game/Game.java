@@ -75,7 +75,7 @@ public class Game {
 
             if (player.currentRoom.getRoomName().equals("Secret room")
                     && -1 == player.inventory.inventory.indexOf(itemList.getKey())) {
-                select = 2;
+                select = 0;
             }
 
             switch (select) {
