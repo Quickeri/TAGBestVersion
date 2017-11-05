@@ -1,8 +1,8 @@
 package Game.Items;
 
-
 public class ItemList {
 //creates weapons - name, description, points(for the endgame score), damage and equipable
+
     private final Item woodKnife = new Weapon("Wood knife", "Made of wood and why would you use this?", 2, 43, true);
     private final Item cookingKnife = new Weapon("Cooking knife", "Made for chopping salad", 3, 3, true);
     private final Item smallBastardSword = new Weapon("Small Bastard sword", "A small but easy to handle sword", 6, 6, true);
@@ -20,27 +20,23 @@ public class ItemList {
 //creates Healing items - name, description, points(for the endgame score), healing
     private final Item healingPotion = new Healing("Healing Potion", "Heals 30HP", 0, 30);
     private final Item greaterHealingPotion = new Healing("Greater Healing Potion", "Heals 60HP", 0, 60);
-    
- //creates general items - name, description, points(for the endgame score, Equipable)   
+
+    //creates general items - name, description, points(for the endgame score, Equipable)   
     private final Item key = new GeneralItems("Key", "The secret key", 10, 0, true);
     private final Item coins = new GeneralItems("Coins", "Ohhh Shiny!", 1, 0, false);
     private final Item blank = new GeneralItems("", "", 0, 0, false);
 
-
-    
 // creates general Item for monster.
-    public final Item monsterheart = new GeneralItems("Monsterheart","Still pulsating heart", 10000, 0 , false);
+    public final Item monsterheart = new GeneralItems("Monsterheart", "Still pulsating heart", 10000, 0, false);
 
-    
-        public Item getKey() {
-            
+    public Item getKey() {
         return key;
     }
-    
+
     public Item getMonsterheart() {
         return monsterheart;
     }
-    
+
     public Item getWoodKnife() {
         return woodKnife;
     }
