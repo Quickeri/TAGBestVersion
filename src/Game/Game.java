@@ -50,7 +50,8 @@ public class Game {
     }
 
     /**
-     * The play is the method plays the runs the game and checks for win and lose condition.
+     * The play is the method plays the runs the game and checks for win and
+     * lose condition.
      *
      */
     public void play() {
@@ -67,15 +68,27 @@ public class Game {
             if (player.playerHistory.visitedRooms.isEmpty()) {
                 player.playerHistory.addToVisitedRooms(player.currentRoom);
             }
-          
-            
+
             io.put(player.currentRoom.getroomInventory().printInventory());
 
             int select = io.select("What do you want to do?", l, "");
 
+            //if you go to room 15 and get the key then you can get out.
             if (player.currentRoom.getRoomName().equals("Secret room")
                     && -1 == player.inventory.inventory.indexOf(itemList.getKey())) {
                 select = 0;
+                io.put("You are locked in and you dont have the key.");
+                io.put("You die of starvation and loneliness");
+                System.out.println("Do you want to play again? y/n");
+                replay = sc.next();
+                if ("y".equals(replay)) {
+                    clearGame();
+                    play();
+                } else if ("n".equals(replay)) {
+                    System.out.println("Game Over!");
+                    System.exit(0);
+                }
+
             }
 
             switch (select) {
