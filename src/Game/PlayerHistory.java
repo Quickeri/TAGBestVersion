@@ -11,9 +11,11 @@ public class PlayerHistory {
     public PlayerHistory(Player player) {
         this.player = player;
     }
+
     public void addToVisitedRooms(Room currentRoom) {
         visitedRooms.add(currentRoom.getRoomName());
     }
+
     @Override
     public String toString() {
         return "You have been in these rooms:" + visitedRooms + ".";

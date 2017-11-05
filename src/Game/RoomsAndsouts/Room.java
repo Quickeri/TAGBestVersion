@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Room {
+
     private Inventory roomInventory = new Inventory();
     private Souts souts = new Souts();
     private String description, roomName;
@@ -21,7 +22,6 @@ public class Room {
     public void setHashMonster(boolean hashMonster) {
         this.hashMonster = hashMonster;
     }
-    
 
     /**
      * Constructs room with name and description.
@@ -37,13 +37,11 @@ public class Room {
     public Inventory getroomInventory() {
         return roomInventory;
     }
-   
 
     public void setroomInventory(Inventory RoomInventory) {
         this.roomInventory = RoomInventory;
     }
-    
-    
+
     /**
      * this method is used to connect current room with the room north of it.
      *
@@ -134,7 +132,6 @@ public class Room {
         return east;
     }
 
-
     public String getDescription() {
         return description;
     }
@@ -147,5 +144,4 @@ public class Room {
         No_operation, Win, Lost, Draw, item
     }
 
-    
 }

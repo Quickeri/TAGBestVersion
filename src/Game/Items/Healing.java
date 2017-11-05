@@ -19,7 +19,8 @@ public class Healing extends Item {
     }
 
     /**
-     *Method for "using" healing items
+     * Method for "using" healing items
+     *
      * @return
      */
     public int getHeal() {

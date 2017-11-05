@@ -1,6 +1,7 @@
 package Game;
 
 public class Score {
+
     private String name;
     private int score;
 
@@ -8,15 +9,17 @@ public class Score {
         this.name = name;
         this.score = score;
     }
-    
+
     public String getName() {
         return name;
     }
+
     public int getScore() {
         return score;
     }
+
     @Override
-    public String toString(){
+    public String toString() {
         return String.format("%s,%d", name, score);
     }
 }

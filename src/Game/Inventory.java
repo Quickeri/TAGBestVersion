@@ -46,6 +46,7 @@ public class Inventory {
         for (int i = 0; i < inventory.size(); i++) {
             ress += inventory.get(i).getName() + "\n";
         }
+        System.out.println("In this room you find:\n");
         return ress;
     }
 

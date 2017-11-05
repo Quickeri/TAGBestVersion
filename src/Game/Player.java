@@ -41,34 +41,12 @@ public class Player extends Character {
     }
 
     /**
-     * Returns inventory.
-     *
-     * @return *
-     */
-    public Inventory getinventory() {
-        return inventory;
-    }
-
-    public void setinventory(Inventory PlayerInventory) {
-        this.inventory = PlayerInventory;
-    }
-
-    /**
      * Method for getting human players health points.
      *
      * @return
      */
     public int getHealth() {
         return health;
-    }
-
-    /**
-     * Method for setting human players health points.
-     *
-     * @param health
-     */
-    public void setHealth(int health) {
-        this.health = health;
     }
 
     /**
@@ -320,11 +298,6 @@ public class Player extends Character {
             damage = baseDamage + wornWeapon.getDamage();
             io.put("Your new weapon gives you " + wornWeapon + " attack damage.");
         }
-    }
-
-    public int getDamage() {
-        return damage;
-
     }
 
     /**

@@ -77,52 +77,16 @@ public class Monster extends Character {
 
     }
 
-    /*
-        Sets monster health.
-     */
-    public void setHealth(int health) {
-        this.health = health;
-    }
-
-    /*
-    Sets monsters inventory.
-     */
-    public void setInventory(Item item) {
-        inventory.addItem(item);
-    }
-
-    /*
-    returns monsters inventory
-     */
-    public Inventory getInventory() {
-        return inventory;
-    }
-
-    /**
-     * Method for getting the monsters name.
-     *
-     * @return
-     */
     @Override
     public String getName() {
         return name;
     }
 
-    /**
-     * Method for getting the monsters current room.
-     *
-     * @return
-     */
     @Override
     public Room getCurrentRoom() {
         return currentRoom;
     }
 
-    /**
-     * Method for setting the monsters current room
-     *
-     * @param currentRoom
-     */
     @Override
     public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
@@ -134,7 +98,7 @@ public class Monster extends Character {
 
     @Override
     public void setDamage() {
-        damage = 10;
+        damage = 6;
     }
 
     void description() {

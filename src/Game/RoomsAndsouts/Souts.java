@@ -1,9 +1,8 @@
 package Game.RoomsAndsouts;
 
-import Game.HighScore;
 /**
  * Souts Contains long messages that would mess up the code
- * 
+ *
  */
 public class Souts {
 
@@ -27,8 +26,6 @@ public class Souts {
                 + "   __/ |                                                            \n"
                 + "  |___/                                                   \n");
 
-        
-    
     }
 
     public static void youDiedMSG() {
