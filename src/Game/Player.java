@@ -50,7 +50,7 @@ public class Player extends Character {
     }
 
     /**
-     * Method for getting hunman players health points.
+     * Method for getting human players health points.
      *
      * @return
      */

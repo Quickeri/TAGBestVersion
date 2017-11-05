@@ -16,6 +16,6 @@ public class PlayerHistory {
     }
     @Override
     public String toString() {
-        return "PlayerHistory{" + "visitedRooms=" + visitedRooms + '}';
+        return "You have been in these rooms:" + visitedRooms + ".";
     }
 }
