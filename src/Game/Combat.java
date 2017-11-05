@@ -5,6 +5,9 @@ public class Combat {
     private final Character c1;
     private final Character c2;
 
+    /*
+    * Constucts the characters that well do combat.
+     */
     public Combat(Character c1, Character c2) {
         this.c1 = c1;
         this.c2 = c2;
@@ -31,6 +34,8 @@ public class Combat {
     /**
      * getWinner returns the winner of the fight (as a string) by checking the
      * health of the characters
+     *
+     * @return winner if ther is one.
      */
     public String getWinner() {
         if (c2.health > 0 && c1.health <= 0) {

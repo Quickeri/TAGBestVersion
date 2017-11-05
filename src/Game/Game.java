@@ -50,7 +50,7 @@ public class Game {
     }
 
     /**
-     * The play method plays the rounds and checks for win and lose condition.
+     * The play is the method plays the runs the game and checks for win and lose condition.
      *
      */
     public void play() {

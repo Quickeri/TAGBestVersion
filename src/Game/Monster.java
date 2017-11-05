@@ -6,7 +6,6 @@ import Game.RoomsAndsouts.RoomList;
 
 public class Monster extends Character {
 
-  
     private final RoomList rl;
 
     /**
@@ -27,18 +26,18 @@ public class Monster extends Character {
 
     }
 
+    /*
+    Adds item to rooms inventory.
+     */
     public void addItem(Item item) {
         inventory.addItem(item);
     }
 
     /**
-     * Monsters move method.
-     *
-     * The monster moves 1 of 4 ways north south east and west. If the monter
-     * selects a way were there isnt a door it stays in this current room.
+     * Makes the monster choose what way to go in the dungoen.
      *
      */
-        public void move() {
+    public void move() {
         int select = 0;
         int count = 0;
         while (count < 100) {
@@ -75,21 +74,33 @@ public class Monster extends Character {
             currentRoom.setHashMonster(false);
             super.move(select);
         }
-       
+
     }
 
+    /*
+        Sets monster health.
+     */
     public void setHealth(int health) {
         this.health = health;
     }
+
+    /*
+    Sets monsters inventory.
+     */
     public void setInventory(Item item) {
         inventory.addItem(item);
     }
+
+    /*
+    returns monsters inventory
+     */
     public Inventory getInventory() {
         return inventory;
     }
 
     /**
      * Method for getting the monsters name.
+     *
      * @return
      */
     @Override
@@ -128,9 +139,9 @@ public class Monster extends Character {
 
     void description() {
 
-        System.out.println("Infront of you is the might King Kongor. dispite you entering his workshop he doesn't notice you\n" 
-                + "He is in the middle of picking his nose and as he pulls a might booger\n" 
-                + "out of his nose and eats it, you can't help but say \"EW!\".\n" 
+        System.out.println("Infront of you is the might King Kongor. dispite you entering his workshop he doesn't notice you\n"
+                + "He is in the middle of picking his nose and as he pulls a might booger\n"
+                + "out of his nose and eats it, you can't help but say \"EW!\".\n"
                 + "oh no! He has noticed you and is angry that you are criticising his boogerpicking and now he is VERY angry!");
     }
 }

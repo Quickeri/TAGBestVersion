@@ -15,6 +15,7 @@ public class Score {
     public int getScore() {
         return score;
     }
+    @Override
     public String toString(){
         return String.format("%s,%d", name, score);
     }

@@ -15,6 +15,9 @@ import java.util.List;
 
 public class HighScore {
 
+    /*
+    * This reads the HighScore.txt file and makes a list of the scores.
+     */
     public List<Score> getHighScore() {
         BufferedReader inputStream;
         List<Score> highScore = new ArrayList<>();
@@ -47,8 +50,10 @@ public class HighScore {
         }
         return highScore;
     }
-//setHighScore(this.player.getName() + " " + player.getInventory)
 
+    /*
+    * adds the current players name and score and adds it to the HighScore.txt file.
+     */
     public void setHighScore(List<Score> scores) {
 
         scores.sort((a, b) -> Integer.compare(b.getScore(), a.getScore()));
@@ -72,23 +77,5 @@ public class HighScore {
 
     }
 
-    /*
-    public void addHighscore(String score)
-    {
-        try { 
-            ArrayList<String> scores = getHighScore();
-            setHighScore(score, getHighScore() );
-        } catch (IOException ex) {
-            Logger.getLogger(HighScore.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }
-     */
-//    public static void main(String[] args) throws IOException {
-//        HighScore hs = new HighScore();
-//        hs.addHighscore("Bob 69");
-//        System.out.println( hs.getHighScore());
-//               
-//       
-//    }
+    
 }

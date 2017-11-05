@@ -3,7 +3,6 @@ package Game;
 import Game.Items.Armour;
 import Game.Items.Healing;
 import Game.Items.Item;
-import Game.Items.ItemList;
 import Game.Items.Weapon;
 import Game.RoomsAndsouts.Room;
 import java.util.ArrayList;
@@ -12,7 +11,7 @@ import textio.TextIO;
 
 public class Player extends Character {
 
-    private TextIO io = new TextIO(new SysTextIO());
+    private final TextIO io = new TextIO(new SysTextIO());
     private int maxHealth = 100;
     PlayerHistory playerHistory;
     private Weapon wornWeapon = null;
@@ -41,6 +40,11 @@ public class Player extends Character {
         this.damage = damage;
     }
 
+    /**
+     * Returns inventory.
+     *
+     * @return *
+     */
     public Inventory getinventory() {
         return inventory;
     }
@@ -67,6 +71,9 @@ public class Player extends Character {
         this.health = health;
     }
 
+    /**
+     * Sets players max health
+     */
     public void setMaxHealth() {
         if (wornArmour == null) {
             maxHealth = 100;
@@ -133,10 +140,20 @@ public class Player extends Character {
         return name;
     }
 
+    /**
+     * Return wornWeapon.
+     *
+     * @return
+     */
     public Weapon getWornWeapon() {
         return wornWeapon;
     }
 
+    /**
+     *
+     * Sets wornWornWeaon if there is a weapon in players inventory Takes the
+     * best weapon from inventory and uses that.
+     */
     public void setWornWeapon() {
 
         for (int i = 0; i < inventory.inventory.size(); i++) {
@@ -158,10 +175,18 @@ public class Player extends Character {
         }
     }
 
+    /**
+     * Returns wornArmour.
+     *
+     * @return
+     */
     public Armour getWornArmour() {
         return wornArmour;
     }
 
+    /**
+     * Sets wornArmpour to the armour with the best armour rating.
+     */
     public void setWornArmour() {
 
         for (int i = 0; i < inventory.inventory.size(); i++) {
@@ -180,12 +205,18 @@ public class Player extends Character {
         }
     }
 
+    /**
+     * Prints the room list over the rooms player has been in.
+     */
     public void printPlayerHistory() {
         if (playerHistory.visitedRooms.isEmpty()) {
             playerHistory.addToVisitedRooms(currentRoom);
         }
     }
 
+    /**
+     * Makes the player move north if possible.
+     */
     public void moveNorth() {
         if (currentRoom.getNorth() == null) {
             System.out.println("---------------------\n You cannot go there!\n-----------------------");
@@ -201,6 +232,9 @@ public class Player extends Character {
         }
     }
 
+    /**
+     * Makes the player move south if possible.
+     */
     public void moveSouth() {
         if (currentRoom.getSouth() == null) {
             System.out.println("---------------------\n You cannot go there!\n-----------------------");
@@ -215,6 +249,9 @@ public class Player extends Character {
         }
     }
 
+    /**
+     * Makes the player move north if possible.
+     */
     public void moveEast() {
         if (currentRoom.getEast() == null) {
             System.out.println("---------------------\n You cannot go there!\n-----------------------");
@@ -229,6 +266,9 @@ public class Player extends Character {
         }
     }
 
+    /**
+     * Makes the player move north if possible.
+     */
     public void moveWest() {
         if (currentRoom.getWest() == null) {
             System.out.println("---------------------\n You cannot go there!\n-----------------------");
@@ -243,6 +283,11 @@ public class Player extends Character {
         }
     }
 
+    /**
+     * used to calculate score based on items in players inventory.
+     *
+     * @return
+     */
     public int getScore() {
         int score = 0;
         for (Item item : inventory.getItems()) {
@@ -251,6 +296,9 @@ public class Player extends Character {
         return score;
     }
 
+    /**
+     * Picks up items from the players current room.
+     */
     public void pickupItem() {
         ArrayList<Item> roomInv = currentRoom.getroomInventory().getInventory();
         for (int i = 0; i < roomInv.size(); i++) {
@@ -260,6 +308,9 @@ public class Player extends Character {
         roomInv.clear();
     }
 
+    /**
+     * Sets damage based on the weapon equipt.
+     */
     @Override
     public void setDamage() {
         if (wornWeapon == null) {
@@ -271,22 +322,14 @@ public class Player extends Character {
         }
     }
 
-    //baseDamage + wornWeapon.getDamage();
     public int getDamage() {
         return damage;
 
     }
 
-//    void chooseWeapon() {
-//        ArrayList<Item> weapons = new ArrayList<>();
-//        for (Item inventory1 : inventory.inventory) {
-//            weapons += 
-//        }
-//        
-//        select = io.select("Weapon do you want to use" )
-//        
-//        switch(select)
-//    }
+    /**
+     * heals if the player has lost health and has a healing item.
+     */
     void heal() {
         boolean yes = false;
         for (int i = 0; i < inventory.inventory.size(); i++) {
